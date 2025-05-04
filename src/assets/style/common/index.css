@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* font defination */
+@font-face {
+  font-family: "Almarai";
+  src: url("../../../assets/font/Almarai-Bold.ttf") format("truetype"),
+    url("../../../assets/font/Almarai-ExtraBold.ttf") format("truetype"),
+    url("../../../assets/font/Almarai-Light.ttf") format("truetype"),
+    url("../../../assets/font/Almarai-Regular.ttf") format("truetype");
+}
+
+@theme inline {
+  --color-main-color: #2a4d69;
+  --color-white-color: #f5f5f5;
+  --color-second-white-color: #d9d9d9;
+  --color-hover-color: #00acc1;
+  --color-not-color: #ff9800;
+  --color-accept-color: #4caf50;
+  --color-error-color: #e40000;
+  --color-placeholder-color: #a4a4a4;
+
+  --size-factor: 1;
+  --text-size-8: calc(0.5rem * var(--size-factor));
+  --text-size-9: calc(0.563rem * var(--size-factor));
+  --text-size-10: calc(0.625rem * var(--size-factor));
+  --text-size-12: calc(0.75rem * var(--size-factor));
+  --text-size-13: calc(0.813rem * var(--size-factor));
+  --text-size-14: calc(0.875rem * var(--size-factor));
+  --text-size-15: calc(0.938rem * var(--size-factor));
+  --text-size-16: calc(1rem * var(--size-factor));
+  --text-size-17: calc(1.063 * var(--size-factor));
+  --text-size-18: calc(1.125rem * var(--size-factor));
+  --text-size-20: calc(1.25rem * var(--size-factor));
+  --text-size-22: calc(1.375rem * var(--size-factor));
+  --text-size-24: calc(1.5rem * var(--size-factor));
+  --text-size-28: calc(1.75rem * var(--size-factor));
+  --text-size-30: calc(1.875rem * var(--size-factor));
+  --text-size-44: calc(2.75rem * var(--size-factor));
+  --text-size-60: calc(3.75rem * var(--size-factor));
+  --text-size-144: calc(9rem * var(--size-factor));
+
+  --shadow-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.15);
+  --shadow-drop-shadow: 0 0.25rem 0.625rem rgba(20, 20, 20, 0.18);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "Almarai", sans-serif !important;
+  height: 100svh;
+  width: 100vw;
+  padding: 0;
+}
