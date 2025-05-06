@@ -1,12 +1,10 @@
-import { createBrowserRouter } from "react-router";
-import DashboardLayout from "./components/dashboard/DashboardLayout";
-import LoginLogic from "./views/common/LoginLogic";
+import { createBrowserRouter } from "react-router-dom";
+import DashboardLayout from "./components/dashboard/layout/DashboardLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LoginLogic />,
-    // element: <DashboardLayout />,
+    element: <DashboardLayout />,
     children: [],
   },
 ]);

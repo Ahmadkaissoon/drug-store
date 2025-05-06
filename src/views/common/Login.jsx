@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import LOGIN_SCHEMA from "../../data/common/loginSchema/LoginSchema";
+import LOGIN_SCHEMA from "../../data/dashboard/loginSchema/LoginSchema";
 import drugStoreImg from "../../assets/common/images/drugStoreImg.jpg";
 import drugs from "../../assets/common/images/drugs.png";
 import Button from "../../components/common/Button";
@@ -31,7 +31,7 @@ const Login = () => {
         <div className="flex flex-col justify-center py-40  max-w-[450px] w-full gap-8">
           {/* login form header */}
           <div className="h-full w-full flex flex-col justify-center ">
-            <h3 className="text-size-28 text-white-color font-extrabold">
+            <h3 className="text-size-28 text-white-color text-center font-extrabold">
               أهلا وسهلا في DRUG SOTRE{" "}
             </h3>
             <div className="text-size-16 text-white-color my-6">
