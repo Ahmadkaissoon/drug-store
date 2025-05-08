@@ -77,7 +77,7 @@ const Button = ({
       : styleType == "form"
       ? `${bgColors[color]} border ${borderColors[color]} ${textColors[color]} p-4 rounded-full ${width} ${textSize} font-normal text-white-color shadow-shadow hover:bg-transparent duration-300`
       : styleType == "table"
-      ? `${bgColors[color]} ${borderColors[color]} ${textColors[color]} px-4 py-2 rounded-md ${width} text-size-16 font-normal text-white-color`
+      ? `${bgColors[color]} border ${borderColors[color]} ${textColors[color]} px-4 py-2 rounded-md ${width} text-size-16 font-normal text-white-color hover:bg-transparent duration-300`
       : styleType == "reg"
       ? `${bgColors[color]} border ${borderColors[color]} ${textColors[color]} p-2.5 text-size-16 rounded-full ${width} text-size16 font-semibold text-white-color shadow-shadow hover:bg-transparent duration-300`
       : ""

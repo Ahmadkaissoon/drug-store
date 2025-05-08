@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import LOGIN_SCHEMA from "../../data/dashboard/loginSchema/LoginSchema";
 import drugStoreImg from "../../assets/common/images/drugStoreImg.jpg";
 import drugs from "../../assets/common/images/drugs.png";
-import Button from "../../components/common/Button";
+import Button from "@/components/common/Button";
 
 const Login = () => {
   const schema = z.object(LOGIN_SCHEMA);
@@ -23,13 +23,9 @@ const Login = () => {
   };
 
   return (
-    // login page with horizontal flex layout
     <div dir="rtl" className="w-full h-full flex overflow-hidden">
-      {/* form seciton container */}
       <div className="h-full lg:w-[45%] md:w-[50%]  w-full bg-main-color flex justify-center items-center !p-4">
-        {/* form seciton with vertical flex layout */}
         <div className="flex flex-col justify-center py-40  max-w-[450px] w-full gap-8">
-          {/* login form header */}
           <div className="h-full w-full flex flex-col justify-center ">
             <h3 className="text-size-28 text-white-color text-center font-extrabold">
               أهلا وسهلا في DRUG SOTRE{" "}
@@ -39,7 +35,6 @@ const Login = () => {
             </div>
           </div>
           <form onSubmit={console.log("success")} id="login-form">
-            {/* form inputs section */}
             <div className="flex flex-col gap-10 mb-6">
               <div className="flex flex-col gap-6 w-full">
                 <label
@@ -78,7 +73,6 @@ const Login = () => {
             </div>
           </form>
           <div className="flex justify-center items-center ">
-            {/* disable submit button during call login api */}
             <Button
               title={"تسجيل دخول"}
               styleType="form"
@@ -87,10 +81,8 @@ const Login = () => {
               id={"login-form"}
             />
           </div>
-          {/* form buttons section */}
         </div>
       </div>
-      {/* login page left section with only a login image */}
       <div className="h-full lg:w-[55%] md:w-[50%] w-0 bg-main-color flex justify-center items-center ">
         <div className="h-[100svh] lg:w-[55vw] md:w-[50vw] w-0">
           <img
@@ -100,7 +92,6 @@ const Login = () => {
           />
         </div>
         <div className="bg-black/75 absolute h-[100svh] lg:w-[55vw] md:w-[50vw] w-0"></div>
-        {/* Main Image in Absolute Position */}
         <div className="absolute m-auto z-[100] lg:w-[300px] lg:h-[300px] md:w-[200px] md:h-[200px] overflow-hidden rounded-2xl shadow-shadow">
           <img
             src={drugStoreImg}
