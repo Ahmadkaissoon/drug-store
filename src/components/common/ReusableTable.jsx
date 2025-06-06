@@ -19,16 +19,13 @@ const ReusableTable = ({
   secondaryColor = "#00acc1",
   textColor = "#f5f5f5",
   dir = "rtl",
-  actionsHeader = "العمليات",
+  showRowNumbers = true,
 }) => {
-  // State for sorting
   const [sortColumn, setSortColumn] = useState(null);
   const [sortDirection, setSortDirection] = useState(null);
 
-  // Handle sort click
   const handleSort = (columnId) => {
     if (sortColumn === columnId) {
-      // Cycle through: asc -> desc -> null
       if (sortDirection === "asc") {
         setSortDirection("desc");
       } else if (sortDirection === "desc") {
@@ -43,19 +40,18 @@ const ReusableTable = ({
     }
   };
 
-  // Sort data
   const sortedData = [...data].sort((a, b) => {
     if (!sortColumn || !sortDirection) return 0;
+
+    if (sortColumn === "rowNumber") return 0;
 
     const column = columns.find((col) => col.id === sortColumn);
     if (!column) return 0;
 
-    // Use custom sort function if provided
     if (column.sortFn) {
       return column.sortFn(a, b, sortDirection);
     }
 
-    // Default sort logic
     if (!column.value) return 0;
 
     const aValue = a[column.value];
@@ -63,14 +59,12 @@ const ReusableTable = ({
 
     if (aValue === bValue) return 0;
 
-    // Handle different data types
     if (typeof aValue === "string" && typeof bValue === "string") {
       return sortDirection === "asc"
         ? aValue.localeCompare(bValue)
         : bValue.localeCompare(aValue);
     }
 
-    // For numbers and other comparable types
     return sortDirection === "asc"
       ? aValue > bValue
         ? 1
@@ -80,7 +74,6 @@ const ReusableTable = ({
       : -1;
   });
 
-  // Render sort icon
   const renderSortIcon = (columnId) => {
     if (sortColumn !== columnId) {
       return <ArrowUpDown className="mr-2 h-4 w-4" />;
@@ -100,6 +93,16 @@ const ReusableTable = ({
           style={{ backgroundColor: primaryColor, color: textColor }}
         >
           <TableRow>
+            {/* Row number column header */}
+            {showRowNumbers && (
+              <TableHead
+                className="font-bold h-[64px] pr-4 text-xl"
+                style={{ color: textColor }}
+              >
+                <div className="flex items-center justify-center">#</div>
+              </TableHead>
+            )}
+
             {columns.map((column) => (
               <TableHead
                 key={column.id}
@@ -127,7 +130,7 @@ const ReusableTable = ({
                 className="text-center font-bold text-xl"
                 style={{ color: textColor }}
               >
-                {actionsHeader}
+                العمليات
               </TableHead>
             )}
           </TableRow>
@@ -144,8 +147,15 @@ const ReusableTable = ({
                   : primaryColor,
                 color: textColor,
               }}
-              className="hover:brightness-90  transition-all cursor-pointer"
+              className="hover:brightness-90 transition-all cursor-pointer"
             >
+              {/* Row number cell */}
+              {showRowNumbers && (
+                <TableCell className="text-lg" style={{ color: textColor }}>
+                  {index + 1}
+                </TableCell>
+              )}
+
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
@@ -160,7 +170,7 @@ const ReusableTable = ({
                 </TableCell>
               ))}
               {actions && actions.length > 0 && (
-                <TableCell className="text-center ">
+                <TableCell className="text-center">
                   <div className="flex justify-center gap-2">
                     {actions.map((action, actionIndex) => (
                       <Button

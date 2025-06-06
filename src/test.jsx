@@ -2,7 +2,7 @@ import { useState } from "react";
 import DynamicForm from "./components/common/DynamicForm";
 import { z } from "zod";
 
-export default function Home() {
+export default function Test() {
   const [formData, setFormData] = useState(null);
   const [loading, setLoading] = useState(false);
 

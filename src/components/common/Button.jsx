@@ -25,8 +25,8 @@ const Button = ({
   linkState,
   Icon,
   title,
-  styleType = "form",
-  color = "accept_color",
+  styleType = "table",
+  color = "main_color",
   width = "w-max",
   onClickFun,
   isSubmit,
@@ -79,7 +79,7 @@ const Button = ({
       : styleType == "table"
       ? `${bgColors[color]} border ${borderColors[color]} ${textColors[color]} px-4 py-2 rounded-md ${width} text-size-16 font-normal text-white-color hover:bg-transparent duration-300`
       : styleType == "reg"
-      ? `${bgColors[color]} border ${borderColors[color]} ${textColors[color]} p-2.5 text-size-16 rounded-full ${width} text-size16 font-semibold text-white-color shadow-shadow hover:bg-transparent duration-300`
+      ? `${bgColors[color]} w-full flex flex-nowrap items-center justify-center gap-2 border ${borderColors[color]} ${textColors[color]} p-2.5 text-size-16  rounded-full ${width} font-semibold text-white-color shadow-shadow hover:bg-transparent duration-300`
       : ""
   } ${
     disabled
