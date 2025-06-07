@@ -6,8 +6,8 @@ import Test from "./test";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Test />,
-    // element: <DashboardLayout />,
+    //element: <Test />,
+    element: <DashboardLayout />,
     // element: <Login />,
     children: [],
   },
