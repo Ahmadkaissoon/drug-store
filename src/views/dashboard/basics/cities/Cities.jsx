@@ -11,6 +11,13 @@ import AddCities from "../../../../components/dashboard/views/basics/cities/AddC
 
 const Cities = () => {
   const [openAddCity, setOpenAddCity] = useState(false);
+  const [openEditCity, setOpenEditCity] = useState(false);
+  const [edit, setEdit] = useState("");
+
+  const handleSelectedRow = (row) => {
+    setEdit(row);
+    setOpenEditCity(true);
+  };
 
   //  data
   const users = [{ name: "حمص" }];
@@ -27,7 +34,7 @@ const Cities = () => {
   const actions = [
     {
       title: "تعديل",
-      onClickFun: (row) => console.log("Edit:", row),
+      onClickFun: handleSelectedRow,
       color: "accept_color",
     },
     {
@@ -42,6 +49,11 @@ const Cities = () => {
         setIsModalOpen={setOpenAddCity}
         isModalOpen={openAddCity}
         component={<AddCities />}
+      />
+      <PopupContainer
+        setIsModalOpen={setOpenEditCity}
+        isModalOpen={openEditCity}
+        component={<AddCities data={edit} />}
       />
       <Filter title={"بحث"} innerComponent={<CitiesFilter />} />
       <ButtonsContainer>

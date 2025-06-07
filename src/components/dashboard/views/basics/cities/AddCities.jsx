@@ -1,7 +1,7 @@
 import DynamicForm from "../../../../common/DynamicForm";
 import { z } from "zod";
 
-const AddCities = () => {
+const AddCities = ({ data }) => {
   const citiesSchema = z.object({
     name: z.string(),
   });
@@ -31,7 +31,7 @@ const AddCities = () => {
       <DynamicForm
         fields={formFields}
         buttons={formButtons}
-        defaultValues={defaultValues}
+        defaultValues={data ? data : defaultValues}
         schema={citiesSchema}
         className="bg-white p-6 rounded-lg shadow-md"
       />
