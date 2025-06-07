@@ -39,7 +39,7 @@ const SideBarTab = ({
               }
         }
       >
-        <div className={`relative w-full flex gap-6 items-end justify-end `}>
+        <div className={`relative w-full flex gap-6 items-end justify-end  `}>
           {tab.subTabs ? (
             <motion.div
               initial={{ rotate: 0 }}
@@ -49,7 +49,7 @@ const SideBarTab = ({
               <FaAngleLeft className="text-size-30 mr-auto" />
             </motion.div>
           ) : null}
-          <div className="flex items-center justify-center gap-6">
+          <div className="flex items-center justify-center gap-6 ">
             <div className=" w-full text-size-24">{tab.show_name}</div>
             <span className="text-size-24">{tab.icon}</span>
           </div>
@@ -69,7 +69,7 @@ const SideBarTab = ({
             animate={{ height: "max-content" }}
             exit={{ height: 0 }}
             className={
-              "flex flex-col gap-1 py-2 px-4 bg-hover-color bg-opacity-[0.01] w-[max-content] min-w-full mx-[2px] "
+              "flex flex-col gap-1 py-2 px-4  bg-opacity-[0.01] w-[max-content] min-w-full mx-[2px] "
             }
           >
             {tab.subTabs.map((subTab, index) => {

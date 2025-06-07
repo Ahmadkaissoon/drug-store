@@ -33,7 +33,7 @@ const Sidebar = () => {
           />
         </div>
       </div>
-      <div className="h-full w-full pt-4 px-6 pb-8 flex flex-col items-start justify-start gap-8">
+      <div className="h-full w-full pt-4 px-6 pb-8 flex flex-col items-start justify-start gap-8 ">
         {TABS?.map((tab, index) => {
           return (
             <SideBarTab

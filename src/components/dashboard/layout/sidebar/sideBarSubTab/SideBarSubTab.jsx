@@ -25,9 +25,9 @@ const SideBarSubTab = ({
           isCurrentTab
             ? "text-white-color bg-hover-color"
             : "text-white-color text-opacity-70 hover:bg-hover-color hover:text-opacity-50"
-        } cursor-pointer transition-all flex items-center gap-3 p-2 text-size-14 relative`}
+        } cursor-pointer transition-all flex items-center gap-3 p-2 text-size-24 relative rounded-lg  `}
       >
-        <div className="relative flex gap-3 items-center w-full">
+        <div className="relative flex gap-3 items-center w-full justify-end">
           <div className=" w-[max-content]">{subTab.show_name}</div>
         </div>
       </li>

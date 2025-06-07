@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-//reusable form
+
 const ReusableForm = ({
   fields,
   buttons,
@@ -13,7 +13,6 @@ const ReusableForm = ({
   className = "",
   formClassName = "",
   dir = "ltr",
-  title,
   description,
   loading: formLoading = false,
 }) => {
@@ -136,7 +135,7 @@ const ReusableForm = ({
       placeholder,
       required,
       options,
-      className = "",
+      className = "bg-white-color text-size-16 text-[#A4A4A4]",
       disabled,
       hidden,
     } = field;
@@ -150,8 +149,8 @@ const ReusableForm = ({
       fieldError ? "border-red-500" : "border-gray-300"
     } focus:outline-none focus:ring-2 focus:ring-blue-500 ${className}`;
 
-    const labelClasses = `block text-sm font-medium ${
-      fieldError ? "text-red-500" : "text-gray-700"
+    const labelClasses = `block text-size-24  ${
+      fieldError ? "text-red-500" : "text-[#F5F5F5]"
     } mb-1`;
 
     const renderInput = () => {
@@ -271,7 +270,7 @@ const ReusableForm = ({
 
   const renderButtons = () => {
     return (
-      <div className="flex flex-wrap gap-2 mt-6">
+      <div className="flex flex-wrap gap-2 mt-6 ">
         {buttons.map((button, index) => {
           const {
             label,
@@ -286,11 +285,11 @@ const ReusableForm = ({
           const isLoading = loading || buttonLoading;
           const isDisabled = disabled || isLoading;
 
-          const buttonClasses = `px-4 py-2 rounded-md font-medium cursor-pointer ${
+          const buttonClasses = `px-4 py-2 rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 ${
             type === "submit"
-              ? "bg-accept-color text-white hover:bg-transparent hover:text-accept-color duration-200 border border-solid border-accept-color "
+              ? "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500"
               : type === "reset"
-              ? "bg-error-color text-white hover:bg-transparent hover:text-error-color duration-200 border border-solid border-error-color  "
+              ? "bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-500"
               : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-blue-500"
           } ${isDisabled ? "opacity-50 cursor-not-allowed" : ""} ${className}`;
 
@@ -337,9 +336,6 @@ const ReusableForm = ({
 
   return (
     <div className={`w-full ${className}`} dir={dir}>
-      {title && <h2 className="text-xl font-bold mb-2">{title}</h2>}
-      {description && <p className="text-gray-600 mb-4">{description}</p>}
-
       {error && (
         <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
           {error}

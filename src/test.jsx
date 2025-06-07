@@ -142,7 +142,7 @@ export default function Test() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4 md:p-24">
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 md:p-24 ">
       <DynamicForm
         fields={formFields}
         buttons={formButtons}
@@ -152,7 +152,7 @@ export default function Test() {
         title="User Registration"
         description="Please fill out the form below to create your account."
         loading={loading}
-        className="bg-white p-6 rounded-lg shadow-md"
+        className="bg-white p-6 rounded-lg "
       />
 
       {formData && (

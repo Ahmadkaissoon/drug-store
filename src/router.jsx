@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "./components/dashboard/layout/DashboardLayout";
 import Login from "./views/common/Login";
 import PageLoader from "./components/common/pageLoader/PageLoader";
-
+import Test from "./test";
 const HomeLogic = lazy(() =>
   import("./views/dashboard/home/HomeLogic").catch(() =>
     window.location.reload()
@@ -34,7 +34,7 @@ const RepresentativeLogic = lazy(() =>
 const router = createBrowserRouter([
   {
     path: "/",
-    // element: <Test />,
+     //element: <Test />,
     element: <DashboardLayout />,
     // element: <Login />,
     children: [
