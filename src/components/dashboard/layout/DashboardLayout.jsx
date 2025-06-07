@@ -8,11 +8,13 @@ const DashboardLayout = () => {
     <div className="flex flex-col h-screen bg-white-color">
       <Header />
 
-      <div className="max-w-max flex flex-1 overflow-hidden pt-16">
+      <div className="flex flex-1 pt-16 overflow-hidden">
         <Sidebar />
-        <Page>
-          <Outlet />
-        </Page>
+        <div className="flex-1 pr-[316px] h-full overflow-hidden">
+          <Page>
+            <Outlet />
+          </Page>
+        </div>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+// ReusableTable.jsx
 import { useState } from "react";
 import {
   Table,
@@ -76,56 +77,51 @@ const ReusableTable = ({
 
   const renderSortIcon = (columnId) => {
     if (sortColumn !== columnId) {
-      return <ArrowUpDown className="mr-2 h-4 w-4" />;
+      return <ArrowUpDown className="inline-block h-4 w-4" />;
     }
-
     return sortDirection === "asc" ? (
-      <ArrowUp className="mr-2 h-4 w-4" />
+      <ArrowUp className="inline-block h-4 w-4" />
     ) : (
-      <ArrowDown className="mr-2 h-4 w-4" />
+      <ArrowDown className="inline-block h-4 w-4" />
     );
   };
 
   return (
-    <div className="w-full overflow-hidden rounded-lg border border-gray-200 shadow-md">
-      <Table dir={dir}>
+    <div className="w-full overflow-x-auto rounded-lg border border-gray-200 shadow-md">
+      <Table dir={dir} className="min-w-full text-center">
         <TableHeader
           style={{ backgroundColor: primaryColor, color: textColor }}
         >
           <TableRow>
-            {/* Row number column header */}
             {showRowNumbers && (
               <TableHead
-                className="font-bold h-[64px] pr-4 text-xl"
+                className="font-bold h-[64px] text-xl text-center"
                 style={{ color: textColor }}
               >
-                <div className="flex items-center justify-center">#</div>
+                #
               </TableHead>
             )}
-
             {columns.map((column) => (
               <TableHead
                 key={column.id}
-                className={`font-bold h-[64px] pr-4 text-xl ${
+                className={`font-bold h-[64px] text-xl text-center ${
                   column.className || ""
                 }`}
                 style={{ color: textColor }}
               >
-                <div className="flex items-center justify-center">
-                  {column.header}
-                  {column.sortable && (
-                    <button
-                      onClick={() => handleSort(column.id)}
-                      className="mr-1 cursor-pointer focus:outline-none"
-                      aria-label={`Sort by ${column.header}`}
-                    >
-                      {renderSortIcon(column.id)}
-                    </button>
-                  )}
-                </div>
+                {column.header}
+                {column.sortable && (
+                  <button
+                    onClick={() => handleSort(column.id)}
+                    className="ml-2 align-middle"
+                    aria-label={`Sort by ${column.header}`}
+                  >
+                    {renderSortIcon(column.id)}
+                  </button>
+                )}
               </TableHead>
             ))}
-            {actions && actions.length > 0 && (
+            {actions?.length > 0 && (
               <TableHead
                 className="text-center font-bold text-xl"
                 style={{ color: textColor }}
@@ -135,6 +131,7 @@ const ReusableTable = ({
             )}
           </TableRow>
         </TableHeader>
+
         <TableBody>
           {sortedData.map((row, index) => (
             <TableRow
@@ -149,9 +146,11 @@ const ReusableTable = ({
               }}
               className="hover:brightness-90 transition-all cursor-pointer"
             >
-              {/* Row number cell */}
               {showRowNumbers && (
-                <TableCell className="text-lg" style={{ color: textColor }}>
+                <TableCell
+                  className="text-lg text-center"
+                  style={{ color: textColor }}
+                >
                   {index + 1}
                 </TableCell>
               )}
@@ -159,7 +158,7 @@ const ReusableTable = ({
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
-                  className={`text-lg ${column.className || ""}`}
+                  className={`text-lg text-center ${column.className || ""}`}
                   style={{ color: textColor }}
                 >
                   {column.cell
@@ -169,7 +168,7 @@ const ReusableTable = ({
                     : null}
                 </TableCell>
               ))}
-              {actions && actions.length > 0 && (
+              {actions?.length > 0 && (
                 <TableCell className="text-center">
                   <div className="flex justify-center gap-2">
                     {actions.map((action, actionIndex) => (
