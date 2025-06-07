@@ -28,7 +28,7 @@ function Filter({
   }, [filter]);
 
   return (
-    <div className=" xl:col-span-3 col-span-5 bg-main-color relative shadow-shadow mb-4 ">
+    <div className=" xl:col-span-3 col-span-5 bg-main-color relative shadow-shadow mb-4 rounded-full">
       <div
         className={` flex  justify-between border-b border-solid cursor-pointer px-5 py-3  ${
           isOpened
@@ -38,12 +38,6 @@ function Filter({
         onClick={() => setIsOpened(!isOpened)}
       >
         <h4 className="text-size-20 leading-[1.2] font-[600] text-white-color  flex justify-between items-center w-full">
-          <div className="flex gap-2">
-            {title}
-            {isDirty ? (
-              <div className="w-[6px] h-[6px] rounded-full bg-accept-color"></div>
-            ) : null}
-          </div>
           <motion.div
             initial={{ rotate: 0 }}
             animate={isOpened ? { rotate: "180deg" } : { rotate: 0 }}
@@ -52,6 +46,12 @@ function Filter({
           >
             <MdOutlineKeyboardArrowDown className="text-white-color cursor-pointer text-size-30" />
           </motion.div>
+          <div className="flex gap-2">
+            {title}
+            {isDirty ? (
+              <div className="w-[6px] h-[6px] rounded-full bg-accept-color"></div>
+            ) : null}
+          </div>
         </h4>
       </div>
 
