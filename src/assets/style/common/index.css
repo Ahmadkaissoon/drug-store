@@ -174,3 +174,40 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.animate-loader-circle {
+  animation: loader-circle 3s ease-in-out infinite;
+  -webkit-animation: loader-circle 3s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes loader-circle {
+  0% {
+    stroke-dasharray: 0 126.4;
+    transform: rotate(0deg);
+  }
+
+  50% {
+    stroke-dasharray: 86.4 126.4;
+    transform: rotate(360deg);
+  }
+
+  100% {
+    stroke-dasharray: 0 126.4;
+    transform: rotate(720deg);
+  }
+}
+
+.min-w-0 {
+  min-width: 0;
+}
+
+.scroll-bar {
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #f1f1f1;
+}
+
+.scroll-bar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}

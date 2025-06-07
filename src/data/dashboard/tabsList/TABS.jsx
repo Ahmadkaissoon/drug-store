@@ -24,7 +24,7 @@ const TABS = [
         show_name: "المعامل",
       },
       {
-        name: "pharmasies",
+        name: "pharmacies",
         show_name: "الصيدليات",
       },
     ],

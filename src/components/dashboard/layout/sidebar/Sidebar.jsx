@@ -23,15 +23,17 @@ const Sidebar = () => {
   }, [pathname]);
 
   return (
-    <div className="fixed  top-0 bottom-0 right-0 p-4 w-[316px] overflow-y-auto text-center bg-main-color">
-      <div className="flex justify-center items-center">
-        <img
-          src={drugStoreImg}
-          alt="drug_Store_img"
-          className="w-[100px] h-[40px]"
-        />
+    <div className="fixed ml-6 top-0 bottom-0 right-0 w-[316px] bg-main-color overflow-y-auto">
+      <div className="p-4 sticky top-0 bg-main-color z-10">
+        <div className="flex justify-center items-center">
+          <img
+            src={drugStoreImg}
+            alt="drug_Store_img"
+            className="w-[100px] h-[40px]"
+          />
+        </div>
       </div>
-      <div className="h-full w-full mt-12 px-6 flex flex-col items-start justify-start gap-8 ">
+      <div className="h-full w-full pt-4 px-6 pb-8 flex flex-col items-start justify-start gap-8">
         {TABS?.map((tab, index) => {
           return (
             <SideBarTab
