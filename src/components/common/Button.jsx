@@ -156,7 +156,9 @@ const Button = ({
             ? null
             : (e) => {
                 e.preventDefault();
-                onClickFun();
+                if (typeof onClickFun === "function") {
+                  onClickFun(e);
+                }
               }
         }
         className={` absolute top-0 right-0 h-full w-full opacity-0 ${

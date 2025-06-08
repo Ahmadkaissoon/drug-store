@@ -175,7 +175,7 @@ const ReusableTable = ({
                       <Button
                         key={actionIndex}
                         title={action.title}
-                        onClick={() => action.onClickFun(row)}
+                        onClickFun={() => action.onClickFun?.(row)}
                         color={action?.color}
                         styleType="table"
                       />
