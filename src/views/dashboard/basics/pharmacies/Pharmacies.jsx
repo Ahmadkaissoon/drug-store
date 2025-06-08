@@ -1,5 +1,9 @@
-const Pharmacies = () => {
-  return <div>Pharmacies</div>;
-};
+import React from 'react'
 
-export default Pharmacies;
+const Pharmacies = () => {
+  return (
+    <div>Pharmacies</div>
+  )
+}
+
+export default Pharmacies
