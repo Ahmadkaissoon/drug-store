@@ -8,7 +8,7 @@ const Page = ({ children }) => {
           flex-1 
           overflow-y-auto 
           px-4 md:px-8
-          bg-backgroundColor
+          bg-white-color
             min-w-0
         "
     >

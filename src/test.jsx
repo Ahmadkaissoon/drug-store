@@ -152,7 +152,7 @@ export default function Test() {
         title="User Registration"
         description="Please fill out the form below to create your account."
         loading={loading}
-        className="bg-white p-6 rounded-lg "
+        className=" p-6 rounded-lg "
       />
 
       {formData && (

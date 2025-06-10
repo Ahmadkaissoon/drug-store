@@ -4,7 +4,7 @@ const Input = ({ className, type, ...props }) => {
       type={type}
       data-slot="input"
       className={
-        ("flex h-[53px] rounded-lg font-light bg-second-white-color placeholder:text-placeholder-color outline-none text-base",
+        ("flex h-[53px] rounded-lg font-light bg-second-white-color text-main-color placeholder:text-placeholder-color outline-none text-base",
         className)
       }
       {...props}

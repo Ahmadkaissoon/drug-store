@@ -36,7 +36,7 @@ const CitiesFilter = () => {
         buttons={formButtons}
         defaultValues={defaultValues}
         schema={citiesSchema}
-        className="bg-white p-6 rounded-lg shadow-md"
+        className=" p-6 rounded-lg shadow-md"
       />
     </div>
   );

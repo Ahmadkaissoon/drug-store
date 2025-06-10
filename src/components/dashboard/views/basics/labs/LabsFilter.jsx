@@ -36,7 +36,6 @@ const LabsFilter = () => {
         buttons={formButtons}
         defaultValues={defaultValues}
         schema={labsSchema}
-        className="bg-white p-6 rounded-lg shadow-md"
       />
     </div>
   );

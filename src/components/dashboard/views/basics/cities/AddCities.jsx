@@ -33,7 +33,6 @@ const AddCities = ({ data }) => {
         buttons={formButtons}
         defaultValues={data ? data : defaultValues}
         schema={citiesSchema}
-        className="bg-white p-6 rounded-lg shadow-md"
       />
     </div>
   );

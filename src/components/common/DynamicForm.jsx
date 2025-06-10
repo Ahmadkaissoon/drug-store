@@ -1,4 +1,3 @@
-"use client";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,16 +9,15 @@ const ReusableForm = ({
   defaultValues = {},
   onSubmit,
   schema,
-  className = "",
-  formClassName = "",
-  dir = "ltr",
+  className = "bg-transparent",
+  formClassName = "bg-transparent",
+  dir = "rtl",
   description,
   loading: formLoading = false,
 }) => {
   const [loading, setLoading] = useState(formLoading);
   const [error, setError] = useState(null);
 
-  // Generate schema if not provided
   const generateDefaultSchema = () => {
     const schemaObj = {};
 
@@ -135,7 +133,7 @@ const ReusableForm = ({
       placeholder,
       required,
       options,
-      className = "bg-white-color text-size-16 text-[#A4A4A4]",
+      className = "",
       disabled,
       hidden,
     } = field;
@@ -145,12 +143,12 @@ const ReusableForm = ({
     const fieldError = errors[name];
     const errorMessage = fieldError?.message;
 
-    const baseInputClasses = `w-full px-3 py-2 border rounded-md ${
-      fieldError ? "border-red-500" : "border-gray-300"
-    } focus:outline-none focus:ring-2 focus:ring-blue-500 ${className}`;
+    const baseInputClasses = `w-full px-3 py-2 border rounded-md placeholder:text-size-14 ${
+      fieldError ? "border-red-500" : null
+    } focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white-color text-main-color ${className}`;
 
-    const labelClasses = `block text-size-24  ${
-      fieldError ? "text-red-500" : "text-[#F5F5F5]"
+    const labelClasses = `block text-size-16 ${
+      fieldError ? "text-error-color" : "text-white-color"
     } mb-1`;
 
     const renderInput = () => {
@@ -166,7 +164,7 @@ const ReusableForm = ({
               type={type}
               id={name}
               placeholder={placeholder}
-              className={baseInputClasses}
+              className={`${baseInputClasses}`}
               disabled={disabled || loading}
             />
           );
@@ -187,14 +185,17 @@ const ReusableForm = ({
             <select
               {...register(name)}
               id={name}
-              className={baseInputClasses}
+              className={`${baseInputClasses}`}
               disabled={disabled || loading}
             >
-              <option value="">{placeholder || "Select an option"}</option>
+              <option value="" className="text-gray-400">
+                {placeholder || "Select an option"}
+              </option>
               {options?.map((option) => (
                 <option
                   key={option.value.toString()}
                   value={option.value.toString()}
+                  className="text-main-color"
                 >
                   {option.label}
                 </option>
@@ -212,10 +213,7 @@ const ReusableForm = ({
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                 disabled={disabled || loading}
               />
-              <label
-                htmlFor={name}
-                className="ml-2 block text-sm text-gray-700"
-              >
+              <label htmlFor={name} className="ml-2 block text-sm">
                 {label}
               </label>
             </div>
@@ -239,7 +237,7 @@ const ReusableForm = ({
                   />
                   <label
                     htmlFor={`${name}-${option.value}`}
-                    className="ml-2 block text-sm text-gray-700"
+                    className="ml-2 block text-sm"
                   >
                     {option.label}
                   </label>
@@ -270,7 +268,7 @@ const ReusableForm = ({
 
   const renderButtons = () => {
     return (
-      <div className="flex flex-wrap gap-2 mt-6 ">
+      <div className="flex flex-wrap gap-2 mt-6 col-span-2">
         {buttons.map((button, index) => {
           const {
             label,
@@ -285,12 +283,12 @@ const ReusableForm = ({
           const isLoading = loading || buttonLoading;
           const isDisabled = disabled || isLoading;
 
-          const buttonClasses = `px-4 py-2 rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+          const buttonClasses = `px-4 py-2 rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer ${
             type === "submit"
-              ? "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500"
+              ? "bg-accept-color text-white hover:bg-transparent hover:text-accept-color border border-1 border-accept-color"
               : type === "reset"
-              ? "bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-500"
-              : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-blue-500"
+              ? "bg-error-color text-white hover:bg-transparent hover:text-error-color border border-1 border-error-color"
+              : "bg-main-color border border-1 border-main-color text-white hover:bg-transparent hover:text-main-color focus:ring-blue-500"
           } ${isDisabled ? "opacity-50 cursor-not-allowed" : ""} ${className}`;
 
           return (
@@ -342,9 +340,12 @@ const ReusableForm = ({
         </div>
       )}
 
-      <form onSubmit={handleSubmit(handleFormSubmit)} className={formClassName}>
+      <form
+        onSubmit={handleSubmit(handleFormSubmit)}
+        className={`${formClassName} grid grid-cols-1 md:grid-cols-2 gap-4`}
+      >
         {fields.map(renderField)}
-        {renderButtons()}
+        {buttons && renderButtons()}
       </form>
     </div>
   );

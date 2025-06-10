@@ -3,13 +3,12 @@ import Filter from "../../../../components/common/filter/Filter";
 import ReusableTable from "../../../../components/common/ReusableTable";
 import LabsFilter from "../../../../components/dashboard/views/basics/labs/LabsFilter";
 import AddLabs from "../../../../components/dashboard/views/basics/labs/AddLabs";
-import { FaUserTie } from "react-icons/fa6";
 import Button from "../../../../components/common/Button";
 import ButtonsContainer from "../../../../components/common/floatBtn/ButtonsContainer";
 import { PopupContainer } from "../../../../components/common/popupContainer/PopUpContainer";
 import { LuMapPinPlusInside } from "react-icons/lu";
 const Labs = () => {
- const [openAddLabs, setOpenAddLabs] = useState(false);
+  const [openAddLabs, setOpenAddLabs] = useState(false);
   const [openEditLabs, setOpenEditLabs] = useState(false);
   const [edit, setEdit] = useState("");
 
