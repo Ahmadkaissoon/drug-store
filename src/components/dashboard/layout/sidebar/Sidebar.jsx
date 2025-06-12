@@ -21,7 +21,7 @@ const Sidebar = () => {
       });
     }
   }, [pathname]);
-
+  console.log(pathname);
   return (
     <div className="fixed ml-6 top-0 bottom-0 right-0 w-[316px] bg-main-color overflow-y-auto">
       <div className="p-4 sticky top-0 bg-main-color z-10">

@@ -12,12 +12,13 @@ const SideBarTab = ({
   pathname,
   state,
 }) => {
+  console.log(currentTab);
   const [openSubTabs, setOpenSubTabs] = useState(isCurrentTab && !!tab.subTabs);
   return (
     <li
       className={` block shrink-0  ${
-        isCurrentTab
-          ? "text-white-color"
+        isCurrentTab && !tab.subTabs
+          ? "text-white-color bg-hover-color"
           : openSubTabs
           ? "text-white-color  text-opacity-50 "
           : "text-white-color text-opacity-70 hover:bg-hover-color"

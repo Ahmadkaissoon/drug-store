@@ -48,7 +48,7 @@ const AddPharmacies = ({ data }) => {
       <DynamicForm
         fields={formFields}
         buttons={formButtons}
-        defaultValues={PHARMACIES_SCHEMA_INITIAL}
+        defaultValues={data ? data : PHARMACIES_SCHEMA_INITIAL}
         schema={PHARMACIES_SCHEMA}
       />
     </div>
