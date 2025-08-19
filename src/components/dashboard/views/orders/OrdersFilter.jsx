@@ -1,0 +1,54 @@
+import DynamicForm from "../../../../components/common/DynamicForm";
+import ORDER_FILTER_SCHEMA, { ORDER_FILTER_SCHEMA_INITIAL } from "../../../../data/dashboard/orders/OrderFilterSchema";
+
+const OrdersFilter = () => {
+  const formFields = [
+    {
+      name: "name",
+      label: "اسم الصيدلية :",
+      type: "text",
+      placeholder: "أدخل اسم الصيدلية ",
+    },
+    {
+      name: "lab_name",
+      label: "اسم المعمل :",
+      type: "text",
+      placeholder: "أدخل اسم المعمل",
+    },
+    {
+      name: "code",
+      label: "كود الدواء :",
+      type: "text",
+      placeholder: "أدخل رمز الدواء",
+    },
+    {
+      name: "date",
+      label: "تاريخ الطلب: ",
+      type: "date",
+      placeholder: "أدخل تاريخ الطلب:",
+    },
+  ];
+
+  const formButtons = [
+    {
+      label: "بحث",
+      type: "submit",
+    },
+    {
+      label: "إعادة تعيين",
+      type: "reset",
+    },
+  ];
+  return (
+    <div className="w-full flex items-center justify-center">
+      <DynamicForm
+        fields={formFields}
+        buttons={formButtons}
+        defaultValues={ORDER_FILTER_SCHEMA_INITIAL}
+        schema={ORDER_FILTER_SCHEMA}
+      />
+    </div>
+  );
+}
+ 
+export default OrdersFilter;
