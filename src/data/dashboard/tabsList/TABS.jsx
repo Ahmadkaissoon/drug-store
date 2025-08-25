@@ -27,38 +27,57 @@ const TABS = [
         name: "pharmacies",
         show_name: "الصيدليات",
       },
+      {
+        name: "users",
+        show_name: "المستخدمين",
+      },
     ],
   },
   {
     name: "products",
-    show_name: "الأدوية",
+    show_name: "المواد",
     icon: <AiOutlineProduct />,
+    subTabs: [
+      {
+        name: "medicines",
+        show_name: "الأدوية",
+      },
+    ],
   },
+  
   {
     name: "orders",
     show_name: "الطلبيات",
     icon: <MdOutlineAddShoppingCart />,
   },
   {
-    name: "orders",
+    name: "reports",
     show_name: "تقارير",
     icon: <TbReportAnalytics />,
     subTabs: [
       {
         name: "total-import-report",
-        show_name: "تقرير الأكثر استيراد",
+        show_name: "تقرير الأكثر استيراد -",
       },
       {
         name: "most-request-report",
-        show_name: "تقرير الأكثر طلب",
+        show_name: "تقرير الأكثر طلب -",
       },
       {
         name: "total-sales-report",
-        show_name: "تقرير مبيعات",
+        show_name: "تقرير مبيعات -",
       },
       {
-        name: "representative-report",
-        show_name: "تقرير رصيد المندوب",
+        name: "expired-medicines",
+        show_name: "أدوية شارفت على الإنتهاء -",
+      },
+      {
+        name: "almost-gone-medicines",
+        show_name: "أدوية شارفت على النفاد -",
+      },
+      {
+        name: "delegates",
+        show_name: "المندوبين -",
       },
     ],
   },

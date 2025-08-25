@@ -1,15 +1,6 @@
 // ReusableTable.jsx
 import { useState } from "react";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "../../components/ui/table";
-import { ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react";
-import Button from "./Button";
+// ... other imports
 
 const ReusableTable = ({
   data,
@@ -21,9 +12,15 @@ const ReusableTable = ({
   textColor = "#f5f5f5",
   dir = "rtl",
   showRowNumbers = true,
+  isLoading = false, // Add loading prop
 }) => {
   const [sortColumn, setSortColumn] = useState(null);
   const [sortDirection, setSortDirection] = useState(null);
+
+  // Safe data handling
+  const safeData = Array.isArray(data) ? data : [];
+  const safeColumns = Array.isArray(columns) ? columns : [];
+  const safeActions = Array.isArray(actions) ? actions : [];
 
   const handleSort = (columnId) => {
     if (sortColumn === columnId) {
@@ -41,12 +38,11 @@ const ReusableTable = ({
     }
   };
 
-  const sortedData = [...data].sort((a, b) => {
+  const sortedData = [...safeData].sort((a, b) => {
     if (!sortColumn || !sortDirection) return 0;
-
     if (sortColumn === "rowNumber") return 0;
 
-    const column = columns.find((col) => col.id === sortColumn);
+    const column = safeColumns.find((col) => col.id === sortColumn);
     if (!column) return 0;
 
     if (column.sortFn) {
@@ -86,6 +82,24 @@ const ReusableTable = ({
     );
   };
 
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="w-full p-8 text-center text-gray-500">
+        <div>Loading data...</div>
+      </div>
+    );
+  }
+
+  // Empty state
+  if (safeData.length === 0) {
+    return (
+      <div className="w-full p-8 text-center text-gray-500">
+        <div>No data available</div>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full overflow-x-auto rounded-lg border border-gray-200 shadow-md">
       <Table dir={dir} className="min-w-full text-center">
@@ -101,7 +115,7 @@ const ReusableTable = ({
                 #
               </TableHead>
             )}
-            {columns.map((column) => (
+            {safeColumns.map((column) => (
               <TableHead
                 key={column.id}
                 className={`font-bold h-[64px] text-xl text-center ${
@@ -121,7 +135,7 @@ const ReusableTable = ({
                 )}
               </TableHead>
             ))}
-            {actions?.length > 0 && (
+            {safeActions.length > 0 && (
               <TableHead
                 className="text-center font-bold text-xl"
                 style={{ color: textColor }}
@@ -155,7 +169,7 @@ const ReusableTable = ({
                 </TableCell>
               )}
 
-              {columns.map((column) => (
+              {safeColumns.map((column) => (
                 <TableCell
                   key={column.id}
                   className={`text-lg text-center ${column.className || ""}`}
@@ -168,10 +182,10 @@ const ReusableTable = ({
                     : null}
                 </TableCell>
               ))}
-              {actions?.length > 0 && (
+              {safeActions.length > 0 && (
                 <TableCell className="text-center">
                   <div className="flex justify-center gap-2">
-                    {actions.map((action, actionIndex) => (
+                    {safeActions.map((action, actionIndex) => (
                       <Button
                         key={actionIndex}
                         title={action.title}

@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import LOGIN_SCHEMA from "../../data/dashboard/loginSchema/LoginSchema";
-import drugStoreImg from "../../assets/common/images/drugStoreImg.jpg";
-import drugs from "../../assets/common/images/drugs.png";
+import LOGIN_SCHEMA from "../../../data/dashboard/loginSchema/LoginSchema";
+import drugStoreImg from "../../../assets/common/images/drugStoreImg.jpg";
+import drugs from "../../../assets/common/images/drugs.png";
 import Button from "@/components/common/Button";
 
 const Login = () => {
@@ -35,7 +35,7 @@ const Login = () => {
             </div>
           </div>
           <form onSubmit={console.log("success")} id="login-form">
-            <div className="flex flex-col gap-10 mb-6">
+            <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-6 w-full">
                 <label
                   htmlFor="email"
@@ -72,6 +72,14 @@ const Login = () => {
               </div>
             </div>
           </form>
+          <div className="flex justify-center items-center">
+            <span className="text-white-color text-base">
+               ليس لديك حساب؟ {" "}
+              <a href="/register" className="text-accept_color underline hover:text-accept_color/80 transition">
+                إنشاء حساب
+              </a>
+            </span>
+          </div>
           <div className="flex justify-center items-center ">
             <Button
               title={"تسجيل دخول"}

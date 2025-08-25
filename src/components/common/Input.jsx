@@ -3,10 +3,9 @@ const Input = ({ className, type, ...props }) => {
     <input
       type={type}
       data-slot="input"
-      className={
-        ("flex h-[53px] rounded-lg font-light bg-second-white-color text-main-color placeholder:text-placeholder-color outline-none text-base",
-        className)
-      }
+      className={`flex h-[53px] rounded-lg font-light bg-second-white-color text-main-color placeholder:text-placeholder-color outline-none text-base ${
+        className || ""
+      }`}
       {...props}
     />
   );

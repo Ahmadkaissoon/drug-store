@@ -8,9 +8,9 @@ const DashboardLayout = () => {
     <div className="flex flex-col h-screen bg-white-color">
       <Header />
 
-      <div className="flex flex-1 pt-16 overflow-hidden">
+      <div className="flex flex-1 pt-16 overflow-x-hidden">
         <Sidebar />
-        <div className="flex-1 pr-[316px] h-full overflow-hidden">
+        <div className="flex-1 pr-[316px] h-full">
           <Page>
             <Outlet />
           </Page>

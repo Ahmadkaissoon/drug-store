@@ -7,50 +7,50 @@ function Filter({
   innerComponent,
   isAbsolute,
   keepValues = true,
-  filter,
+  filter = {}, // Default empty object
 }) {
   const [isOpened, setIsOpened] = useState(false);
   const [isDirty, setIsDirty] = useState(false);
 
-  async function checkIsDirty(filter) {
-    let isDirtyResult = false;
-    await Promise.all(
-      Object.keys(filter).map((itemKey) => {
-        if (filter[itemKey] !== "" && filter[itemKey] !== null) {
-          isDirtyResult = true;
-        }
-      })
-    );
-    setIsDirty(isDirtyResult);
-  }
   useEffect(() => {
-    checkIsDirty(filter);
+    // Check if filter is valid object
+    if (!filter || typeof filter !== "object" || Array.isArray(filter)) {
+      setIsDirty(false);
+      return;
+    }
+
+    // Check if any filter value is not empty
+    const hasDirtyValues = Object.values(filter).some(
+      (value) => value !== undefined && value !== null && value !== ""
+    );
+
+    setIsDirty(hasDirtyValues);
   }, [filter]);
 
   return (
-    <div className=" xl:col-span-3 col-span-5 bg-main-color relative shadow-shadow mb-4 rounded-full">
+    <div className="xl:col-span-3 col-span-5 bg-main-color relative shadow-shadow mb-4 rounded-full">
       <div
-        className={` flex  justify-between border-b border-solid cursor-pointer px-5 py-3  ${
+        className={`flex justify-between border-b border-solid cursor-pointer px-5 py-3 ${
           isOpened
-            ? " rounded-t-lg border-main-color"
-            : " rounded-lg border-transparent"
-        } bg-main-color `}
+            ? "rounded-t-lg border-main-color"
+            : "rounded-lg border-transparent"
+        } bg-main-color`}
         onClick={() => setIsOpened(!isOpened)}
       >
-        <h4 className="text-size-20 leading-[1.2] font-[600] text-white-color  flex justify-between items-center w-full">
+        <h4 className="text-size-20 leading-[1.2] font-[600] text-white-color flex justify-between items-center w-full">
           <motion.div
             initial={{ rotate: 0 }}
             animate={isOpened ? { rotate: "180deg" } : { rotate: 0 }}
             transition={{ duration: 0.3 }}
-            className="flex justify-center items-center "
+            className="flex justify-center items-center"
           >
             <MdOutlineKeyboardArrowDown className="text-white-color cursor-pointer text-size-30" />
           </motion.div>
           <div className="flex gap-2">
             {title}
-            {isDirty ? (
+            {isDirty && (
               <div className="w-[6px] h-[6px] rounded-full bg-accept-color"></div>
-            ) : null}
+            )}
           </div>
         </h4>
       </div>

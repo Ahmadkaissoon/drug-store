@@ -9,7 +9,8 @@ import { PopupContainer } from "../../../../components/common/popupContainer/Pop
 import { LuMapPinPlusInside } from "react-icons/lu";
 import AddCities from "../../../../components/dashboard/views/basics/cities/AddCities";
 
-const Cities = () => {
+const Cities = ({ data }) => {
+  // console.log(data);
   const [openAddCity, setOpenAddCity] = useState(false);
   const [openEditCity, setOpenEditCity] = useState(false);
   const [edit, setEdit] = useState("");
@@ -18,9 +19,6 @@ const Cities = () => {
     setEdit(row);
     setOpenEditCity(true);
   };
-
-  //  data
-  const users = [{ name: "حمص" }];
 
   const columns = [
     {
@@ -67,7 +65,7 @@ const Cities = () => {
         />
       </ButtonsContainer>
       <ReusableTable
-        data={users}
+        data={data || []}
         columns={columns}
         actions={actions}
         dir="rtl"

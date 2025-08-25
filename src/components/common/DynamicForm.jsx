@@ -7,7 +7,7 @@ const ReusableForm = ({
   fields,
   buttons,
   defaultValues = {},
-  onSubmit,
+  onSubmit = async () => {},
   schema,
   className = "bg-transparent",
   formClassName = "bg-transparent",

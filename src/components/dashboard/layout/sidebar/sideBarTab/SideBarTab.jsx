@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaAngleLeft } from "react-icons/fa6";
 import SideBarSubTab from "../sideBarSubTab/SideBarSubTab";
+import { div } from "framer-motion/client";
 
 const SideBarTab = ({
   tab,
@@ -12,7 +13,6 @@ const SideBarTab = ({
   pathname,
   state,
 }) => {
-  console.log(currentTab);
   const [openSubTabs, setOpenSubTabs] = useState(isCurrentTab && !!tab.subTabs);
   return (
     <li
@@ -40,26 +40,28 @@ const SideBarTab = ({
               }
         }
       >
-        <div className={`relative w-full flex gap-6 items-end justify-end  `}>
-          {tab.subTabs ? (
-            <motion.div
-              initial={{ rotate: 0 }}
-              animate={{ rotate: openSubTabs ? 90 : 0 }}
-              className=""
-            >
-              <FaAngleLeft className="text-size-30 mr-auto" />
-            </motion.div>
-          ) : null}
-          <div className="flex items-center justify-center gap-6 ">
-            <div className=" w-full text-size-24">{tab.show_name}</div>
-            <span className="text-size-24">{tab.icon}</span>
-          </div>
+        <div className={` flex gap-6 items-end justify-end  `}>
+          <div className="flex items-center ">
+            {tab.subTabs ? (
+              <motion.div
+                initial={{ rotate: 0 }}
+                animate={{ rotate: openSubTabs ? 90 : 0 }}
+                className="flex "
+              >
+                <FaAngleLeft className="text-size-30 mr-auto" />
+              </motion.div>
+            ) : null}
+            <div className="flex items-center justify-center gap-6 ">
+              <div className=" w-full text-size-24">{tab.show_name}</div>
+              <span className="text-size-24">{tab.icon}</span>
+            </div>
 
-          <div
-            id={`close-subtabs-of-${tab.name}`}
-            onClick={() => setOpenSubTabs(!openSubTabs && tab.subTabs)}
-            className="absolute w-full h-full top-0 right-0"
-          ></div>
+            <div
+              id={`close-subtabs-of-${tab.name}`}
+              onClick={() => setOpenSubTabs(!openSubTabs && tab.subTabs)}
+              className="absolute w-full h-full top-0 right-0"
+            ></div>
+          </div>
         </div>
       </Link>
 
