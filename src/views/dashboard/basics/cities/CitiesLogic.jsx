@@ -6,7 +6,7 @@ const CitiesLogic = () => {
   return (
     <Cities
       data={citiesQuery.data}
-      fetchCitiiesFilter={fetchCitiiesFilter}
+      fetchCitiesFilter={fetchCitiiesFilter}
       filter={filter}
     />
   );

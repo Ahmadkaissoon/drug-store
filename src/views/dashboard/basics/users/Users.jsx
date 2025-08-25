@@ -7,7 +7,14 @@ import ButtonsContainer from "../../../../components/common/floatBtn/ButtonsCont
 import Button from "../../../../components/common/Button";
 import { FaUserPlus } from "react-icons/fa6";
 import AddUser from "../../../../components/dashboard/views/basics/users/AddUser";
-const Users = () => {
+const Users = ({
+  fetchUsersFilter,
+  filter,
+  data,
+  setCurrentUserId,
+  getOneUserQuery,
+  currentUserId,
+}) => {
   const [openAddUser, setOpenAddUser] = useState(false);
   const [openEditUser, setOpenEditUser] = useState(false);
   const [edit, setEdit] = useState("");
@@ -66,7 +73,12 @@ const Users = () => {
         isModalOpen={openEditUser}
         component={<AddUser data={edit} />}
       />
-      <Filter title={"بحث"} innerComponent={<UsersFilter />} />
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <UsersFilter filter={filter} fetchUsersFilter={fetchUsersFilter} />
+        }
+      />
       <ButtonsContainer>
         <Button
           title={"إدخال مستخدم جديد"}

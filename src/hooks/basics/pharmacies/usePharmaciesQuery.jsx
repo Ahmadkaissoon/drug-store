@@ -45,6 +45,7 @@ const usePharmaciesQuery = () => {
     pharmaciesQuery,
     filter,
     fetchPharmaciesFilter: debouncedFetch,
+    currentPharmacyId,
     setCurrentPharmacyId,
     getOnePharmacyQuery,
   };

@@ -2,7 +2,11 @@ import Filter from "../../../../components/common/filter/Filter";
 import ReusableTable from "../../../../components/common/ReusableTable";
 import ExpiredMedicinesFilter from "../../../../components/dashboard/views/reports/expiredMedicines/ExpiredMedicinesFilter";
 
-const ExpiredMedicines = () => {
+const ExpiredMedicines = ({
+  expiredMedicinesQuery,
+  fetchExpiredMedicinesFilter,
+  filter,
+}) => {
   const data = [
     {
       date: "2/25/5858",
@@ -29,7 +33,15 @@ const ExpiredMedicines = () => {
 
   return (
     <div className="w-full overflow-x-auto shadow rounded-lg">
-      <Filter title={"بحث"} innerComponent={<ExpiredMedicinesFilter />} />
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <ExpiredMedicinesFilter
+            filter={filter}
+            fetchExpiredMedicinesFilter={fetchExpiredMedicinesFilter}
+          />
+        }
+      />
       <ReusableTable
         data={data}
         columns={columns}

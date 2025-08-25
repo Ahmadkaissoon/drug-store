@@ -1,6 +1,8 @@
-import MOST_REQUEST_FILTER_SCHEMA, { MOST_REQUEST_FILTER_SCHEMA_INITIAL } from "../../../../../data/dashboard/reports/MostRequestSchema";
+import MOST_REQUEST_FILTER_SCHEMA, {
+  MOST_REQUEST_FILTER_SCHEMA_INITIAL,
+} from "../../../../../data/dashboard/reports/MostRequestSchema";
 import DynamicForm from "../../../../common/DynamicForm";
-const MostRequestFilter = () => {
+const MostRequestFilter = ({ fetchMostRequestFilter, filter }) => {
   const formFields = [
     {
       name: "name",
@@ -33,9 +35,12 @@ const MostRequestFilter = () => {
         buttons={formButtons}
         defaultValues={MOST_REQUEST_FILTER_SCHEMA_INITIAL}
         schema={MOST_REQUEST_FILTER_SCHEMA}
+        onSubmit={(onsubmit) => {
+          fetchMostRequestFilter(onsubmit);
+        }}
       />
     </div>
   );
-}
- 
+};
+
 export default MostRequestFilter;

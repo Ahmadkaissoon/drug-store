@@ -1,6 +1,6 @@
 import DynamicForm from "../../../../common/DynamicForm";
 import { z } from "zod";
-const LabsFilter = () => {
+const LabsFilter = ({ filter, fetchLabsFilter }) => {
   const labsSchema = z.object({
     name: z.string(),
   });
@@ -36,6 +36,9 @@ const LabsFilter = () => {
         buttons={formButtons}
         defaultValues={defaultValues}
         schema={labsSchema}
+        onSubmit={(onSubmit) => {
+          fetchLabsFilter(onSubmit);
+        }}
       />
     </div>
   );

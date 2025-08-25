@@ -3,7 +3,7 @@ import PRODUCTS_FILTER_SCHEMA, {
   PRODUCTS_FILTER_SCHEMA_INITIAL,
 } from "../../../../data/dashboard/products/ProductsFilterSchema";
 
-const ProductsFilter = () => {
+const ProductsFilter = ({ filter, fetchMedicinesFilter }) => {
   const formFields = [
     {
       name: "name",
@@ -42,6 +42,9 @@ const ProductsFilter = () => {
         buttons={formButtons}
         defaultValues={PRODUCTS_FILTER_SCHEMA_INITIAL}
         schema={PRODUCTS_FILTER_SCHEMA}
+        onSubmit={(onSubmit) => {
+          fetchMedicinesFilter(onSubmit);
+        }}
       />
     </div>
   );

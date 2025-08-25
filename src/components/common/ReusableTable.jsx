@@ -1,6 +1,15 @@
 // ReusableTable.jsx
 import { useState } from "react";
-// ... other imports
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/components/ui/table";
+import Button from "./Button";
+import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 
 const ReusableTable = ({
   data,

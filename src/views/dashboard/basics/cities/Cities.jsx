@@ -9,7 +9,7 @@ import { PopupContainer } from "../../../../components/common/popupContainer/Pop
 import { LuMapPinPlusInside } from "react-icons/lu";
 import AddCities from "../../../../components/dashboard/views/basics/cities/AddCities";
 
-const Cities = ({ data }) => {
+const Cities = ({ data, filter, fetchCitiesFilter }) => {
   // console.log(data);
   const [openAddCity, setOpenAddCity] = useState(false);
   const [openEditCity, setOpenEditCity] = useState(false);
@@ -53,7 +53,12 @@ const Cities = ({ data }) => {
         isModalOpen={openEditCity}
         component={<AddCities data={edit} />}
       />
-      <Filter title={"بحث"} innerComponent={<CitiesFilter />} />
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <CitiesFilter filter={filter} fetchCitiesFilter={fetchCitiesFilter} />
+        }
+      />
       <ButtonsContainer>
         <Button
           title={"إدخال مدينة"}

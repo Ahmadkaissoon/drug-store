@@ -45,6 +45,7 @@ const useUsersQuery = () => {
     usersQuery,
     filter,
     fetchUsersFilter: debouncedFetch,
+    currentUserId,
     setCurrentUserId,
     getOneUserQuery,
   };

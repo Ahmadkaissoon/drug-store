@@ -1,7 +1,9 @@
 import DynamicForm from "../../../../components/common/DynamicForm";
-import ORDER_FILTER_SCHEMA, { ORDER_FILTER_SCHEMA_INITIAL } from "../../../../data/dashboard/orders/OrderFilterSchema";
+import ORDER_FILTER_SCHEMA, {
+  ORDER_FILTER_SCHEMA_INITIAL,
+} from "../../../../data/dashboard/orders/OrderFilterSchema";
 
-const OrdersFilter = () => {
+const OrdersFilter = ({ filter, fetchOrderFilter }) => {
   const formFields = [
     {
       name: "name",
@@ -46,9 +48,12 @@ const OrdersFilter = () => {
         buttons={formButtons}
         defaultValues={ORDER_FILTER_SCHEMA_INITIAL}
         schema={ORDER_FILTER_SCHEMA}
+        onSubmit={(onSubmit) => {
+          fetchOrderFilter(onSubmit);
+        }}
       />
     </div>
   );
-}
- 
+};
+
 export default OrdersFilter;

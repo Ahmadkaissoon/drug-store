@@ -10,7 +10,14 @@ import AddProducts from "../../../../components/dashboard/views/products/AddProd
 import ProductsFilter from "../../../../components/dashboard/views/products/ProductsFilter";
 import ProductsDetails from "../../../../components/dashboard/views/products/ProductsDetails";
 
-const Medicines = () => {
+const Medicines = ({
+  data,
+  filter,
+  fetchMedicinesFilter,
+  setCurrentMedicinesId,
+  currentMedicinesId,
+  getOnePharmacyQuery,
+}) => {
   const [openAddProduct, setOpenAddProduct] = useState(false);
   const [openEditProduct, setOptenEditProduct] = useState(false);
   const [openDetailsProduct, setOpenDetailsProduct] = useState(false);
@@ -100,7 +107,15 @@ const Medicines = () => {
         isModalOpen={openDetailsProduct}
         component={<ProductsDetails data={edit} />}
       />
-      <Filter title={"بحث"} innerComponent={<ProductsFilter />} />
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <ProductsFilter
+            filter={filter}
+            fetchMedicinesFilter={fetchMedicinesFilter}
+          />
+        }
+      />
       <ButtonsContainer>
         <Button
           title={"رفع ملف إكسل"}

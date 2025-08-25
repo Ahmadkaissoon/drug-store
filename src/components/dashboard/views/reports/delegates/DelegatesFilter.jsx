@@ -1,6 +1,8 @@
-import DELEGATES_FILTER_SCHEMA, { DELEGATES_FILTER_SCHEMA_INITIAL } from "../../../../../data/dashboard/reports/DelegatesSchema";
+import DELEGATES_FILTER_SCHEMA, {
+  DELEGATES_FILTER_SCHEMA_INITIAL,
+} from "../../../../../data/dashboard/reports/DelegatesSchema";
 import DynamicForm from "../../../../common/DynamicForm";
-const DelegateFilter = () => {
+const DelegateFilter = ({ fetchDelegatesFilter, filter }) => {
   const formFields = [
     {
       name: "delegate_name",
@@ -8,7 +10,6 @@ const DelegateFilter = () => {
       type: "text",
       placeholder: "أدخل اسم المندوب",
     },
-
   ];
 
   const formButtons = [
@@ -28,9 +29,12 @@ const DelegateFilter = () => {
         buttons={formButtons}
         defaultValues={DELEGATES_FILTER_SCHEMA_INITIAL}
         schema={DELEGATES_FILTER_SCHEMA}
+        onSubmit={(onsubmit) => {
+          fetchDelegatesFilter(onsubmit);
+        }}
       />
     </div>
   );
-}
- 
+};
+
 export default DelegateFilter;

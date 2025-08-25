@@ -2,26 +2,23 @@ import Filter from "../../../../components/common/filter/Filter";
 import ReusableTable from "../../../../components/common/ReusableTable";
 import MostRequestFilter from "../../../../components/dashboard/views/reports/mostRequest/MostRequestFilter";
 
-const MostRequest = () => {
-
-
+const MostRequest = ({ fetchMostRequestFilter, data, filter }) => {
   const data = [
     {
       name: "sda",
-      quantity:"4"
+      quantity: "4",
     },
     {
       name: "sda",
-      quantity:"4"
+      quantity: "4",
     },
     {
       name: "sda",
-      quantity:"4"
+      quantity: "4",
     },
   ];
 
   const columns = [
-
     {
       id: "name",
       header: "اسم الدواء",
@@ -34,12 +31,17 @@ const MostRequest = () => {
     },
   ];
 
-  
-
   return (
     <div className="w-full overflow-x-auto shadow rounded-lg">
-
-      <Filter title={"بحث"} innerComponent={<MostRequestFilter />} />
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <MostRequestFilter
+            fetchMostRequestFilter={fetchMostRequestFilter}
+            filter={filter}
+          />
+        }
+      />
       <ReusableTable
         data={data}
         columns={columns}
@@ -48,6 +50,6 @@ const MostRequest = () => {
       />
     </div>
   );
-}
- 
+};
+
 export default MostRequest;

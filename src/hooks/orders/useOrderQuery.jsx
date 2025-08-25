@@ -46,6 +46,7 @@ function useOrderQuery() {
     filter,
     fetchOrderFilter: debouncedFetch,
     setCurrentOrderId,
+    currentOrderId,
     getOneOrderQuery,
   };
 }

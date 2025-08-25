@@ -45,6 +45,7 @@ const useMedicinesQuery = () => {
     filter,
     fetchMedicinesFilter: debouncedFetch,
     setCurrentMedicinesId,
+    currentMedicinesId,
     getOnePharmacyQuery,
   };
 };

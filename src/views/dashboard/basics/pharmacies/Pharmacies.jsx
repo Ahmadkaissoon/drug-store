@@ -8,7 +8,14 @@ import { MdOutlineLocalPharmacy } from "react-icons/md";
 import AddPharmacies from "../../../../components/dashboard/views/basics/pharmacies/AddPharmacies";
 import PharmaciesFilter from "../../../../components/dashboard/views/basics/pharmacies/PharmaciesFilter";
 
-const Pharmacies = () => {
+const Pharmacies = ({
+  data,
+  filter,
+  fetchPharmaciesFilter,
+  setCurrentPharmacyId,
+  currentPharmacyId,
+  getOnePharmacyQuery,
+}) => {
   const [openAddPharmacies, setOpenAddPharmacies] = useState(false);
   const [openEditPharmacies, setOpenEditPharmacies] = useState(false);
   const [edit, setEdit] = useState("");
@@ -70,7 +77,15 @@ const Pharmacies = () => {
         isModalOpen={openEditPharmacies}
         component={<AddPharmacies data={edit} />}
       />
-      <Filter title={"بحث"} innerComponent={<PharmaciesFilter />} />
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <PharmaciesFilter
+            filter={filter}
+            fetchPharmaciesFilter={fetchPharmaciesFilter}
+          />
+        }
+      />
       <ButtonsContainer>
         <Button
           title={"إدخال صيدلية"}

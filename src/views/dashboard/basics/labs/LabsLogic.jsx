@@ -1,7 +1,11 @@
+import useLabsQuery from "../../../../hooks/basics/labs/useLabsQuery";
 import Labs from "./Labs";
 
 const LabsLogic = () => {
-  return <Labs />;
+  const { labsQuery, filter, fetchLabsFilter } = useLabsQuery();
+  return (
+    <Labs data={labsQuery} filter={filter} fetchLabsFilter={fetchLabsFilter} />
+  );
 };
 
 export default LabsLogic;

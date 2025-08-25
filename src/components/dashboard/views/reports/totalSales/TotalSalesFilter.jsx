@@ -1,6 +1,8 @@
-import TOTAL_SALES_FILTER_SCHEMA, { TOTAL_SALES_FILTER_SCHEMA_INITIAL } from "../../../../../data/dashboard/reports/TotalSalesSchema";
+import TOTAL_SALES_FILTER_SCHEMA, {
+  TOTAL_SALES_FILTER_SCHEMA_INITIAL,
+} from "../../../../../data/dashboard/reports/TotalSalesSchema";
 import DynamicForm from "../../../../common/DynamicForm";
-const TotalSalesFilter = () => {
+const TotalSalesFilter = ({ fetchTotalSalesFilter, filter }) => {
   const formFields = [
     {
       name: "lab_name",
@@ -27,6 +29,9 @@ const TotalSalesFilter = () => {
         buttons={formButtons}
         defaultValues={TOTAL_SALES_FILTER_SCHEMA_INITIAL}
         schema={TOTAL_SALES_FILTER_SCHEMA}
+        onSubmit={(onsubmit) => {
+          fetchTotalSalesFilter(onsubmit);
+        }}
       />
     </div>
   );

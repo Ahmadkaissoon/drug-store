@@ -1,6 +1,8 @@
-import ALMOST_GONE_FILTER_SCHEMA, { ALMOST_GONE_FILTER_SCHEMA_INITIAL } from "../../../../../data/dashboard/reports/AlmostGoneSchema";
+import ALMOST_GONE_FILTER_SCHEMA, {
+  ALMOST_GONE_FILTER_SCHEMA_INITIAL,
+} from "../../../../../data/dashboard/reports/AlmostGoneSchema";
 import DynamicForm from "../../../../common/DynamicForm";
-const AlmostGoneFilter = () => {
+const AlmostGoneFilter = ({ fetchAlmostGoneFilter, filter }) => {
   const formFields = [
     {
       name: "name",
@@ -33,10 +35,12 @@ const AlmostGoneFilter = () => {
         buttons={formButtons}
         defaultValues={ALMOST_GONE_FILTER_SCHEMA_INITIAL}
         schema={ALMOST_GONE_FILTER_SCHEMA}
+        onSubmit={(onsubmit) => {
+          fetchAlmostGoneFilter(onsubmit);
+        }}
       />
     </div>
   );
-}
- 
- 
+};
+
 export default AlmostGoneFilter;

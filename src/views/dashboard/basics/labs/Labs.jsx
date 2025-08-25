@@ -7,7 +7,8 @@ import Button from "../../../../components/common/Button";
 import ButtonsContainer from "../../../../components/common/floatBtn/ButtonsContainer";
 import { PopupContainer } from "../../../../components/common/popupContainer/PopUpContainer";
 import { LuMapPinPlusInside } from "react-icons/lu";
-const Labs = () => {
+
+const Labs = ({ data, filter, fetchLabsFilter }) => {
   const [openAddLabs, setOpenAddLabs] = useState(false);
   const [openEditLabs, setOpenEditLabs] = useState(false);
   const [edit, setEdit] = useState("");
@@ -53,7 +54,12 @@ const Labs = () => {
         isModalOpen={openEditLabs}
         component={<AddLabs data={edit} />}
       />
-      <Filter title={"بحث"} innerComponent={<LabsFilter />} />
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <LabsFilter filter={filter} fetchLabsFilter={fetchLabsFilter} />
+        }
+      />
       <ButtonsContainer>
         <Button
           title={"إدخال معمل"}
