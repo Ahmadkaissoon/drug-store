@@ -12,7 +12,7 @@ const OrdersLogic = () => {
   } = useOrderQuery();
   return (
     <Orders
-      data={orderQuery}
+      data={orderQuery.data}
       filter={filter}
       fetchOrderFilter={fetchOrderFilter}
       setCurrentOrderId={setCurrentOrderId}

@@ -29,6 +29,7 @@ const useLabsQuery = () => {
     prevFilter.current = filter;
   }, [filter]);
 
+  console.log(labsQuery);
   return {
     labsQuery,
     filter,

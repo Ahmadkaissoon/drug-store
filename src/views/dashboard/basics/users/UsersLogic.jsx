@@ -12,7 +12,7 @@ const UsersLogic = () => {
   } = useUsersQuery();
   return (
     <Users
-      data={usersQuery}
+      data={usersQuery.data}
       filter={filter}
       fetchUsersFilter={fetchUsersFilter}
       setCurrentUserId={setCurrentUserId}

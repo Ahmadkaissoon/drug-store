@@ -7,7 +7,7 @@ async function editCities({ cityId, data }) {
       formData.append(key, data[key]);
   });
 
-  const res = await axiosClient.post();
+  const res = await axiosClient.patch(`/cities/${cityId}`, formData);
 
   return res?.data;
 }

@@ -6,7 +6,7 @@ const TotalSalesLogic = () => {
     useTotalSalesQuery();
   return (
     <TotalSales
-      data={totalSalesQuery}
+      data={totalSalesQuery.data}
       filter={filter}
       fetchTotalSalesFilter={fetchTotalSalesFilter}
     />

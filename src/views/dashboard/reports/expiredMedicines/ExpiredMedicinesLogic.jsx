@@ -6,7 +6,7 @@ const ExpiredMedicinesLogic = () => {
     useExpiredMedicinesQuery();
   return (
     <ExpiredMedicines
-      data={expiredMedicinesQuery}
+      data={expiredMedicinesQuery.data}
       fetchExpiredMedicinesFilter={fetchExpiredMedicinesFilter}
       filter={filter}
     />

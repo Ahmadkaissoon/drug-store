@@ -6,7 +6,7 @@ const MostRequestLogic = () => {
     useMostRequestQuery();
   return (
     <MostRequest
-      data={mostRequestQuery}
+      data={mostRequestQuery.data}
       filter={filter}
       fetchMostRequestFilter={fetchMostRequestFilter}
     />

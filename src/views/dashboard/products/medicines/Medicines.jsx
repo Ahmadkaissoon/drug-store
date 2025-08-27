@@ -107,6 +107,12 @@ const Medicines = ({
         isModalOpen={openDetailsProduct}
         component={<ProductsDetails data={edit} />}
       />
+      {/* this popup for import excel sheet of medicines */}
+      {/* <PopupContainer
+        setIsModalOpen={setOpenDetailsProduct}
+        isModalOpen={openDetailsProduct}
+        component={<ProductsDetails data={edit} />}
+      /> */}
       <Filter
         title={"بحث"}
         innerComponent={
@@ -136,7 +142,7 @@ const Medicines = ({
         />
       </ButtonsContainer>
       <ReusableTable
-        data={data}
+        data={damydata}
         columns={columns}
         actions={actions}
         dir="rtl"

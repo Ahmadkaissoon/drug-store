@@ -13,7 +13,7 @@ const PharmaciesLogic = () => {
 
   return (
     <Pharmacies
-      data={pharmaciesQuery}
+      data={pharmaciesQuery.data}
       filter={filter}
       fetchPharmaciesFilter={fetchPharmaciesFilter}
       setCurrentPharmacyId={setCurrentPharmacyId}

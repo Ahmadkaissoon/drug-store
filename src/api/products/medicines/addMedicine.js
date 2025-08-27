@@ -1,6 +1,6 @@
 import axiosClient from "../../../libs/axios/axios-client";
 
-async function addMedicine({ data }) {
+async function addMedicines({ data }) {
   const formData = new FormData();
   Object.keys(data).map((key) => {
     if (data[key] !== undefined && data[key] !== null)
@@ -12,4 +12,4 @@ async function addMedicine({ data }) {
   return res?.data;
 }
 
-export default addMedicine;
+export default addMedicines;

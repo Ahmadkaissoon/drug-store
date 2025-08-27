@@ -6,7 +6,9 @@ async function getLabs({ queryKey }) {
     if (queryKey[1][key] !== null && queryKey[1][key] !== undefined)
       formData.append(key, queryKey[1][key]);
   });
-  const res = await axiosClient.post(``);
+  const res = await axiosClient.get(`/labs`);
+
+  console.log(res);
 
   return res?.data?.data;
 }

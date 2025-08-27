@@ -1,6 +1,6 @@
 import axiosClient from "../../../libs/axios/axios-client";
 
-async function editPharmacy({ pharmacyId, data }) {
+async function editPharmacies({ pharmacyId, data }) {
   const formData = new FormData();
   Object.keys(data).map((key) => {
     if (data[key] !== undefined && data[key] !== null)
@@ -12,4 +12,4 @@ async function editPharmacy({ pharmacyId, data }) {
   return res?.data;
 }
 
-export default editPharmacy;
+export default editPharmacies;

@@ -13,19 +13,25 @@ const Labs = ({ data, filter, fetchLabsFilter }) => {
   const [openEditLabs, setOpenEditLabs] = useState(false);
   const [edit, setEdit] = useState("");
 
+  console.log(data);
   const handleSelectedRow = (row) => {
     setEdit(row);
     setOpenEditLabs(true);
   };
 
   //  data
-  const users = [{ name: "تاميكو" }];
+  // const users = [{ name: "تاميكو" }];
 
   const columns = [
     {
       id: "name",
       header: "اسم المعمل",
       value: "name",
+    },
+    {
+      id: "city",
+      header: "المدينة",
+      value: "city",
     },
   ];
 
@@ -71,7 +77,7 @@ const Labs = ({ data, filter, fetchLabsFilter }) => {
         />
       </ButtonsContainer>
       <ReusableTable
-        data={users}
+        data={data}
         columns={columns}
         actions={actions}
         dir="rtl"

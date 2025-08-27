@@ -1,6 +1,6 @@
 import axiosClient from "../../../libs/axios/axios-client";
 
-async function addPharmacy({ data }) {
+async function addPharmacies({ data }) {
   const formData = new FormData();
 
   Object.keys(data).map((key) => {
@@ -13,4 +13,4 @@ async function addPharmacy({ data }) {
   return res?.data;
 }
 
-export default addPharmacy;
+export default addPharmacies;

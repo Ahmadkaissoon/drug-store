@@ -3,8 +3,13 @@ import Labs from "./Labs";
 
 const LabsLogic = () => {
   const { labsQuery, filter, fetchLabsFilter } = useLabsQuery();
+  console.log(labsQuery);
   return (
-    <Labs data={labsQuery} filter={filter} fetchLabsFilter={fetchLabsFilter} />
+    <Labs
+      data={labsQuery.data}
+      filter={filter}
+      fetchLabsFilter={fetchLabsFilter}
+    />
   );
 };
 

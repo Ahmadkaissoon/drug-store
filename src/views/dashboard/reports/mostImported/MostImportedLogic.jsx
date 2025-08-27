@@ -6,7 +6,7 @@ const MostImportedLogic = () => {
     useMostImportedQuery();
   return (
     <MostImported
-      data={mostImportedQuery}
+      data={mostImportedQuery.data}
       filter={filter}
       fetchMostImportedFilter={fetchMostImportedFilter}
     />

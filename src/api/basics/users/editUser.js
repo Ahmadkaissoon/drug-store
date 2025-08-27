@@ -1,6 +1,6 @@
 import axiosClient from "../../../libs/axios/axios-client";
 
-async function editUser({ userId, data }) {
+async function editUsers({ userId, data }) {
   const formData = new FormData();
   Object.keys(data).map((key) => {
     if (data[key] !== undefined && data[key] !== null)
@@ -12,4 +12,4 @@ async function editUser({ userId, data }) {
   return res?.data;
 }
 
-export default editUser;
+export default editUsers;

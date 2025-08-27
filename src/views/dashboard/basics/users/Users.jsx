@@ -90,7 +90,7 @@ const Users = ({
         />
       </ButtonsContainer>
       <ReusableTable
-        data={data}
+        data={damydata}
         columns={columns}
         actions={actions}
         dir="rtl"

@@ -1,9 +1,9 @@
 import axiosClient from "../../../libs/axios/axios-client";
 
-async function deletePharmacy({ pharmacyId }) {
+async function deletePharmacies({ pharmacyId }) {
   const res = await axiosClient.delete();
 
   return res?.data;
 }
 
-export default deletePharmacy;
+export default deletePharmacies;

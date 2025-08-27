@@ -7,6 +7,7 @@ import { useState } from "react";
 import { MdOutlineLocalPharmacy } from "react-icons/md";
 import AddPharmacies from "../../../../components/dashboard/views/basics/pharmacies/AddPharmacies";
 import PharmaciesFilter from "../../../../components/dashboard/views/basics/pharmacies/PharmaciesFilter";
+import PharmaciesDetails from "../../../../components/dashboard/views/basics/pharmacies/PharmaciesDetails";
 
 const Pharmacies = ({
   data,
@@ -18,11 +19,18 @@ const Pharmacies = ({
 }) => {
   const [openAddPharmacies, setOpenAddPharmacies] = useState(false);
   const [openEditPharmacies, setOpenEditPharmacies] = useState(false);
+  const [openShowPharmacies, setOpenShowPharmacies] = useState(false);
   const [edit, setEdit] = useState("");
 
   const handleSelectedRow = (row) => {
     setEdit(row), setOpenEditPharmacies(true);
   };
+  const handleShowDetails = (row) => {
+    setEdit(row);
+    setOpenShowPharmacies(true);
+  };
+
+  console.log(data);
 
   const damydata = [
     {
@@ -41,13 +49,13 @@ const Pharmacies = ({
 
   const columns = [
     {
-      id: "name",
+      id: "pharmacy_name",
       header: "اسم الصيدلية",
-      value: "name",
+      value: "pharmacy_name",
     },
     {
       id: "city",
-      header: "اسم المدينة",
+      header: "المدينة",
       value: "city",
     },
   ];
@@ -57,6 +65,11 @@ const Pharmacies = ({
       title: "تعديل",
       onClickFun: handleSelectedRow,
       color: "accept_color",
+    },
+    {
+      title: "تفاصيل",
+      onClickFun: handleShowDetails,
+      color: "not_color",
     },
     {
       title: "حذف",
@@ -76,6 +89,11 @@ const Pharmacies = ({
         setIsModalOpen={setOpenEditPharmacies}
         isModalOpen={openEditPharmacies}
         component={<AddPharmacies data={edit} />}
+      />
+      <PopupContainer
+        setIsModalOpen={setOpenShowPharmacies}
+        isModalOpen={openShowPharmacies}
+        component={<PharmaciesDetails data={edit} />}
       />
       <Filter
         title={"بحث"}

@@ -5,7 +5,7 @@ const DelegatesLogic = () => {
   const { delegatesQuery, fetchDelegatesFilter, filter } = useDelegatesQuery();
   return (
     <Delegates
-      data={delegatesQuery}
+      data={delegatesQuery.data}
       fetchDelegatesFilter={fetchDelegatesFilter}
       filter={filter}
     />
