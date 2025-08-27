@@ -24,7 +24,7 @@ const Pharmacies = ({
     setEdit(row), setOpenEditPharmacies(true);
   };
 
-  const data = [
+  const damydata = [
     {
       name: "test1",
       city: "homs",

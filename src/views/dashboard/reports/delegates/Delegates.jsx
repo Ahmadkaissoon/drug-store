@@ -13,7 +13,7 @@ const Delegates = ({ data, fetchDelegatesFilter, filter }) => {
     setEdit(row), setOpenDetails(true);
   };
 
-  const data = [
+  const damydata = [
     {
       date: "5/5/2025",
       delegate_name: "ads",

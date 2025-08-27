@@ -2,12 +2,8 @@ import Filter from "../../../../components/common/filter/Filter";
 import ReusableTable from "../../../../components/common/ReusableTable";
 import ExpiredMedicinesFilter from "../../../../components/dashboard/views/reports/expiredMedicines/ExpiredMedicinesFilter";
 
-const ExpiredMedicines = ({
-  expiredMedicinesQuery,
-  fetchExpiredMedicinesFilter,
-  filter,
-}) => {
-  const data = [
+const ExpiredMedicines = ({ data, fetchExpiredMedicinesFilter, filter }) => {
+  const damydata = [
     {
       date: "2/25/5858",
       name: "ads",

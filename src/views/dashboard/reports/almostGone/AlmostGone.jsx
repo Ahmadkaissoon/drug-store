@@ -3,7 +3,7 @@ import ReusableTable from "../../../../components/common/ReusableTable";
 import AlmostGoneFilter from "../../../../components/dashboard/views/reports/almostGone/AlomostGoneFilter";
 
 const AlmostGone = ({ data, fetchAlmostGoneFilter, filter }) => {
-  const data = [
+  const damydata = [
     {
       quantity: 10,
       name: "ads",

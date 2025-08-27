@@ -27,7 +27,7 @@ const Orders = ({
     setEdit(row), navigate(`details/${row.id}`);
   };
 
-  const data = [
+  const damydata = [
     {
       id: 1,
       name: "test",

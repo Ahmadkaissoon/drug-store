@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-import { useQuery } from "react-query";
 import QUERY_KEYS from "../../../data/dashboard/queryKeys/QueryKeys";
-import { keepPreviousData } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { debounce } from "lodash";
+import getTotalSales from "../../../api/reports/totalSales/getTotalSales";
 
 const useTotalSalesQuery = () => {
   const [filter, setFilter] = useState({});
 
   const totalSalesQuery = useQuery({
     queryKey: [QUERY_KEYS.totalSales.query, filter],
-    queryFn: ({ queryKey }) => getCities({ queryKey }),
+    queryFn: ({ queryKey }) => getTotalSales({ queryKey }),
     placeholderData: keepPreviousData,
     retry: false,
     refetchOnWindowFocus: false,

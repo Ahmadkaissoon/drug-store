@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { useQuery } from "react-query";
 import QUERY_KEYS from "../../../data/dashboard/queryKeys/QueryKeys";
-import { keepPreviousData } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { debounce } from "lodash";
 import getTotalExpiredMedicines from "../../../api/reports/expiredMedicines/getTotalExpiredMedicines";
 

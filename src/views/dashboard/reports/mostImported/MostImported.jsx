@@ -13,7 +13,7 @@ const MostImported = ({ data, filter, fetchMostImportedFilter }) => {
     setEdit(row), setOpenDetails(true);
   };
 
-  const data = [
+  const damydata = [
     {
       date: "2/25/5858",
       lab_name: "test_name",

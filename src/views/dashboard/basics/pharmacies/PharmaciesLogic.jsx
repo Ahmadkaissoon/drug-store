@@ -7,6 +7,7 @@ const PharmaciesLogic = () => {
     filter,
     fetchPharmaciesFilter,
     setCurrentPharmacyId,
+    currentPharmacyId,
     getOnePharmacyQuery,
   } = usePharmaciesQuery();
 

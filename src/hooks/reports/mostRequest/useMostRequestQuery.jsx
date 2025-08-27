@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-import { useQuery } from "react-query";
 import QUERY_KEYS from "../../../data/dashboard/queryKeys/QueryKeys";
-import { keepPreviousData } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { debounce } from "lodash";
+import getTotalMostRequest from "../../../api/reports/mostRequest/getTotalMostRequest";
 
 const useMostRequestQuery = () => {
   const [filter, setFilter] = useState({});
 
   const mostRequestQuery = useQuery({
     queryKey: [QUERY_KEYS.mostRequest.query, filter],
-    queryFn: ({ queryKey }) => getCities({ queryKey }),
+    queryFn: ({ queryKey }) => getTotalMostRequest({ queryKey }),
     placeholderData: keepPreviousData,
     retry: false,
     refetchOnWindowFocus: false,

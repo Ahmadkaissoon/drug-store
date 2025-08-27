@@ -1,6 +1,6 @@
 import axiosClient from "../../../libs/axios/axios-client";
 
-async function getTotalMostRequest() {
+async function getTotalMostRequest({ queryKey }) {
   const formData = new FormData();
   Object.keys(queryKey[1]).map((key) => {
     if (queryKey[1][key] !== null && queryKey[1][key] !== undefined)

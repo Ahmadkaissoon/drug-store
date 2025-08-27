@@ -30,7 +30,7 @@ const Medicines = ({
     setEdit(row), setOpenDetailsProduct(true);
   };
 
-  const data = [
+  const damydata = [
     {
       name: "test",
       lab_name: "test_name",

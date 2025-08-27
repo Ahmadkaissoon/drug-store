@@ -5,7 +5,7 @@ const OrdersLogic = () => {
   const {
     orderQuery,
     filter,
-    fetchOrderFilter: debouncedFetch,
+    fetchOrderFilter,
     setCurrentOrderId,
     currentOrderId,
     getOneOrderQuery,

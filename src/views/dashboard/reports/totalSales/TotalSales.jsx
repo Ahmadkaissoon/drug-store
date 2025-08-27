@@ -3,7 +3,7 @@ import ReusableTable from "../../../../components/common/ReusableTable";
 import TotalSalesFilter from "../../../../components/dashboard/views/reports/totalSales/TotalSalesFilter";
 
 const TotalSales = ({ fetchTotalSalesFilter, filter, data }) => {
-  const data = [
+  const damydata = [
     {
       name: "sda",
       lab_name: "das",
