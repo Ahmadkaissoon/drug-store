@@ -40,7 +40,7 @@ const AlmostGone = ({ data, fetchAlmostGoneFilter, filter }) => {
         }
       />
       <ReusableTable
-        data={data}
+        data={damydata}
         columns={columns}
         dir="rtl"
         actionsHeader="Actions"

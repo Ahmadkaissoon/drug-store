@@ -116,7 +116,7 @@ const MostImported = ({ data, filter, fetchMostImportedFilter }) => {
         }
       />
       <ReusableTable
-        data={data}
+        data={damydata}
         columns={columns}
         actions={actions}
         dir="rtl"

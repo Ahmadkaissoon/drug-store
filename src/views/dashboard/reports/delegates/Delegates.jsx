@@ -71,7 +71,7 @@ const Delegates = ({ data, fetchDelegatesFilter, filter }) => {
         }
       />
       <ReusableTable
-        data={data}
+        data={damydata}
         columns={columns}
         actions={actions}
         dir="rtl"

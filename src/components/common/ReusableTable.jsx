@@ -103,8 +103,10 @@ const ReusableTable = ({
   // Empty state
   if (safeData.length === 0) {
     return (
-      <div className="w-full p-8 text-center text-gray-500">
-        <div>No data available</div>
+      <div className="w-full h-full flex p-8 text-center text-gray-500">
+        <div className="flex w-full h-full justify-center items-center">
+          لا يوجد بيانات للعرض
+        </div>
       </div>
     );
   }

@@ -53,7 +53,7 @@ const TotalSales = ({ fetchTotalSalesFilter, filter, data }) => {
         }
       />
       <ReusableTable
-        data={data}
+        data={damydata}
         columns={columns}
         dir="rtl"
         actionsHeader="Actions"

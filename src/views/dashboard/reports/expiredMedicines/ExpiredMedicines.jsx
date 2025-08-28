@@ -39,7 +39,7 @@ const ExpiredMedicines = ({ data, fetchExpiredMedicinesFilter, filter }) => {
         }
       />
       <ReusableTable
-        data={data}
+        data={damydata}
         columns={columns}
         dir="rtl"
         actionsHeader="Actions"

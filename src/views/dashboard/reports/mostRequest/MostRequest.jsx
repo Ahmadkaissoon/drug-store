@@ -43,7 +43,7 @@ const MostRequest = ({ fetchMostRequestFilter, data, filter }) => {
         }
       />
       <ReusableTable
-        data={data}
+        data={damydata}
         columns={columns}
         dir="rtl"
         actionsHeader="Actions"
