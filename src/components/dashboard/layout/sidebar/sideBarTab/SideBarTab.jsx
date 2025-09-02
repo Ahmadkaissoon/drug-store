@@ -13,7 +13,6 @@ const SideBarTab = ({
   pathname,
   state,
 }) => {
-  console.log(currentTab);
   const [openSubTabs, setOpenSubTabs] = useState(isCurrentTab && !!tab.subTabs);
   return (
     <li

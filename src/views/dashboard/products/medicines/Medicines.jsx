@@ -10,10 +10,22 @@ import AddProducts from "../../../../components/dashboard/views/products/AddProd
 import ProductsFilter from "../../../../components/dashboard/views/products/ProductsFilter";
 import ProductsDetails from "../../../../components/dashboard/views/products/ProductsDetails";
 
-const Medicines = () => {
+const Medicines = ({
+  data,
+  filter,
+  fetchMedicinesFilter,
+  setCurrentMedicinesId,
+  currentMedicinesId,
+  getOnePharmacyQuery,
+  addMedicine,
+  editMedicine,
+  deleteMedicine,
+  importMedicine,
+}) => {
   const [openAddProduct, setOpenAddProduct] = useState(false);
   const [openEditProduct, setOptenEditProduct] = useState(false);
   const [openDetailsProduct, setOpenDetailsProduct] = useState(false);
+  const [openImportProduct, setOpenImportProduct] = useState(false);
   const [edit, setEdit] = useState("");
 
   const handleSelectedRow = (row) => {
@@ -23,7 +35,13 @@ const Medicines = () => {
     setEdit(row), setOpenDetailsProduct(true);
   };
 
-  const data = [
+  const handleDeleteMedicine = (row) => {
+    if (row && row.id) {
+      deleteMedicine(row.id);
+    }
+  };
+
+  const damydata = [
     {
       name: "test",
       lab_name: "test_name",
@@ -78,7 +96,7 @@ const Medicines = () => {
     },
     {
       title: "حذف",
-      onClickFun: (row) => console.log("Delete:", row),
+      onClickFun: handleDeleteMedicine,
       color: "error_color",
     },
   ];
@@ -88,26 +106,51 @@ const Medicines = () => {
       <PopupContainer
         setIsModalOpen={setOpenAddProduct}
         isModalOpen={openAddProduct}
-        component={<AddProducts />}
+        component={
+          <AddProducts
+            addMedicine={(data) => addMedicine(data, setOpenAddProduct)}
+          />
+        }
       />
       <PopupContainer
         setIsModalOpen={setOptenEditProduct}
         isModalOpen={openEditProduct}
-        component={<AddProducts data={edit} />}
+        component={
+          <AddProducts
+            data={edit}
+            editMedicine={(data) =>
+              editMedicine(data, edit.id, setOptenEditProduct)
+            }
+          />
+        }
       />
       <PopupContainer
         setIsModalOpen={setOpenDetailsProduct}
         isModalOpen={openDetailsProduct}
         component={<ProductsDetails data={edit} />}
       />
-      <Filter title={"بحث"} innerComponent={<ProductsFilter />} />
+      {/* this popup for import excel sheet of medicines */}
+      {/* <PopupContainer
+        setIsModalOpen={setOpenDetailsProduct}
+        isModalOpen={openDetailsProduct}
+        component={<ProductsDetails data={edit} />}
+      /> */}
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <ProductsFilter
+            filter={filter}
+            fetchMedicinesFilter={fetchMedicinesFilter}
+          />
+        }
+      />
       <ButtonsContainer>
         <Button
           title={"رفع ملف إكسل"}
           styleType="reg"
           color="accept_color"
           onClickFun={() => {
-            console.log("import_excel");
+            setOpenImportProduct(true);
           }}
           Icon={<PiMicrosoftExcelLogoFill />}
         />
@@ -121,7 +164,7 @@ const Medicines = () => {
         />
       </ButtonsContainer>
       <ReusableTable
-        data={data}
+        data={damydata}
         columns={columns}
         actions={actions}
         dir="rtl"

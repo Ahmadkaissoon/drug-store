@@ -3,7 +3,7 @@ import PRODUCTS_SCHEMA, {
   PRODUCTS_SCHEMA_INITIAL,
 } from "../../../../data/dashboard/products/ProductsSchema";
 
-const AddProducts = ({ data }) => {
+const AddProducts = ({ data , addMedicine , editMedicine }) => {
   console.log(data);
   const formFields = [
     {
@@ -55,6 +55,7 @@ const AddProducts = ({ data }) => {
     <div className="w-full flex items-center justify-center">
       <DynamicForm
         fields={formFields}
+        onSubmit={data ? editMedicine : addMedicine}
         buttons={formButtons}
         defaultValuew={data ? data : PRODUCTS_SCHEMA_INITIAL}
         schema={PRODUCTS_SCHEMA}

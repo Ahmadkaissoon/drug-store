@@ -1,6 +1,6 @@
 import DynamicForm from "../../../../common/DynamicForm";
 import { z } from "zod";
-const CitiesFilter = () => {
+const CitiesFilter = ({ filter, fetchCitiesFilter }) => {
   const citiesSchema = z.object({
     name: z.string(),
   });
@@ -36,7 +36,10 @@ const CitiesFilter = () => {
         buttons={formButtons}
         defaultValues={defaultValues}
         schema={citiesSchema}
-        className=" p-6 rounded-lg shadow-md"
+        onSubmit={(onSubmit) => {
+          fetchCitiesFilter(onSubmit);
+        }}
+        className=" p-6 rounded-lg"
       />
     </div>
   );

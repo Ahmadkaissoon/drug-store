@@ -1,6 +1,8 @@
-import EXPIRED_MEDICINES_FILTER_SCHEMA, { EXPIRED_MEDICINES_FILTER_SCHEMA_INITIAL } from "../../../../../data/dashboard/reports/ExpiredMedicinesSchema";
+import EXPIRED_MEDICINES_FILTER_SCHEMA, {
+  EXPIRED_MEDICINES_FILTER_SCHEMA_INITIAL,
+} from "../../../../../data/dashboard/reports/ExpiredMedicinesSchema";
 import DynamicForm from "../../../../common/DynamicForm";
-const ExpiredMedicinesFilter = () => {
+const ExpiredMedicinesFilter = ({ fetchExpiredMedicinesFilter, filter }) => {
   const formFields = [
     {
       name: "name",
@@ -33,9 +35,12 @@ const ExpiredMedicinesFilter = () => {
         buttons={formButtons}
         defaultValues={EXPIRED_MEDICINES_FILTER_SCHEMA_INITIAL}
         schema={EXPIRED_MEDICINES_FILTER_SCHEMA}
+        onSubmit={(onsubmit) => {
+          fetchExpiredMedicinesFilter(onsubmit);
+        }}
       />
     </div>
   );
-}
- 
+};
+
 export default ExpiredMedicinesFilter;

@@ -2,21 +2,20 @@ import Filter from "../../../../components/common/filter/Filter";
 import ReusableTable from "../../../../components/common/ReusableTable";
 import TotalSalesFilter from "../../../../components/dashboard/views/reports/totalSales/TotalSalesFilter";
 
-const TotalSales = () => {
-  const data = [
+const TotalSales = ({ fetchTotalSalesFilter, filter, data }) => {
+  const damydata = [
     {
       name: "sda",
-      lab_name:"das",
+      lab_name: "das",
       quantity: 4,
-      total_sales:57
+      total_sales: 57,
     },
     {
       name: "sda",
-      lab_name:"das",
+      lab_name: "das",
       quantity: 4,
-      total_sales:57
+      total_sales: 57,
     },
-
   ];
 
   const columns = [
@@ -44,9 +43,17 @@ const TotalSales = () => {
 
   return (
     <div className="w-full overflow-x-auto shadow rounded-lg">
-      <Filter title={"بحث"} innerComponent={<TotalSalesFilter />} />
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <TotalSalesFilter
+            fetchTotalSalesFilter={fetchTotalSalesFilter}
+            filter={filter}
+          />
+        }
+      />
       <ReusableTable
-        data={data}
+        data={damydata}
         columns={columns}
         dir="rtl"
         actionsHeader="Actions"

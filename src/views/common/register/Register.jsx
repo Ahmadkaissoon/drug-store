@@ -1,13 +1,14 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import LOGIN_SCHEMA from "../../../data/dashboard/loginSchema/LoginSchema";
 import drugStoreImg from "../../../assets/common/images/drugStoreImg.jpg";
 import drugs from "../../../assets/common/images/drugs.png";
-import Button from "@/components/common/Button";
-import REGISTER_SCHEMA from "../../../data/dashboard/registerSchema/RegisterSchema";
+import Button from "../../../components/common/Button";
+import { useEffect } from "react";
 
-const Register = () => {
-  const schema = z.object(REGISTER_SCHEMA);
+const Register = ({ submitData, isLogging }) => {
+  const schema = z.object(LOGIN_SCHEMA);
 
   const {
     register,
@@ -17,11 +18,9 @@ const Register = () => {
     resolver: zodResolver(schema),
     mode: "onChange",
   });
-
-  const handleButtonClick = () => {
-    console.log("Button clicked!");
-  };
-
+  useEffect(() => {
+    console.log(errors);
+  }, [errors]);
   return (
     <div dir="rtl" className="w-full h-full flex overflow-hidden">
       <div className="h-full lg:w-[45%] md:w-[50%]  w-full bg-main-color flex justify-center items-center !p-4">
@@ -30,10 +29,12 @@ const Register = () => {
             <h3 className="text-size-28 text-white-color text-center font-extrabold">
               أهلا وسهلا في DRUG SOTRE{" "}
             </h3>
-
+            <div className="text-size-16 text-white-color my-6">
+              يمكنك تسجيل الدخول{" "}
+            </div>
           </div>
-          <form onSubmit={console.log("success")} id="login-form">
-            <div className="flex flex-col gap-10 mb-0">
+          <form onSubmit={handleSubmit(submitData)} id="login-form">
+            <div className="flex flex-col gap-10 mb-6">
               <div className="flex flex-col gap-6 w-full">
                 <label
                   htmlFor="email"
@@ -50,6 +51,9 @@ const Register = () => {
                   label={"Email"}
                   className="flex text-main-color h-[53px] rounded-lg font-light bg-white-color placeholder:text-placeholder-color indent-4 outline-none text-base shadow-shadow"
                 />
+                <span className="text-error-color text-size14">
+                  {errors["email"]?.message}
+                </span>
               </div>
               <div className="flex flex-col gap-6 w-full">
                 <label
@@ -67,43 +71,42 @@ const Register = () => {
                   label={"Password"}
                   className="flex text-main-color h-[53px] rounded-lg font-light bg-white-color  placeholder:text-placeholder-color indent-4 outline-none text-base shadow-shadow"
                 />
+                <span className="text-error-color text-size14">
+                  {errors["password"]?.message}
+                </span>
               </div>
               <div className="flex flex-col gap-6 w-full">
                 <label
-                  htmlFor="password"
+                  htmlFor="password_confirm"
                   className="text-size-24 text-white-color font-normal"
                 >
-                 تأكيد كلمة المرور :
+                  تأكيد كلمة المرور :
                 </label>
                 <input
-                  {...register("confirmPassword")}
+                  {...register("password_confirm")}
                   type={"password"}
-                  placeholder={"Enter your password again"}
-                  name={"confirmPassword"}
-                  id="confirmPassword"
-                  label={"Confirm Password"}
+                  placeholder={"Enter your password"}
+                  name={"password_confirm"}
+                  id="password_confirm"
+                  label={"password_confirm"}
                   className="flex text-main-color h-[53px] rounded-lg font-light bg-white-color  placeholder:text-placeholder-color indent-4 outline-none text-base shadow-shadow"
                 />
+                <span className="text-error-color text-size-14">
+                  {errors["password_confirm"]?.message}
+                </span>
               </div>
             </div>
+            <div className="flex justify-center items-center ">
+              <Button
+                title={"تسجيل دخول"}
+                styleType="form"
+                color="accept_color"
+                isSubmit={true}
+                id={"login-form"}
+                disabled={isLogging}
+              />
+            </div>
           </form>
-          <div className="flex justify-center items-center">
-            <span className="text-white-color text-base">
-              لديك حساب بالفعل ؟{" "}
-              <a href="/login" className="text-accept_color underline hover:text-accept_color/80 transition">
-                تسجيل الدخول
-              </a>
-            </span>
-          </div>
-          <div className="flex justify-center items-center ">
-            <Button
-              title={"تسجيل دخول"}
-              styleType="form"
-              color="accept_color"
-              isSubmit={true}
-              id={"login-form"}
-            />
-          </div>
         </div>
       </div>
       <div className="h-full lg:w-[55%] md:w-[50%] w-0 bg-main-color flex justify-center items-center ">
@@ -125,6 +128,6 @@ const Register = () => {
       </div>
     </div>
   );
-}
- 
+};
+
 export default Register;

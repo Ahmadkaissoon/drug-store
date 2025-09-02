@@ -1,7 +1,16 @@
+import useMostImportedQuery from "../../../../hooks/reports/mostImported/useMostImportedQuery";
 import MostImported from "./MostImported";
 
 const MostImportedLogic = () => {
-  return <MostImported />
-}
- 
+  const { fetchMostImportedFilter, filter, mostImportedQuery } =
+    useMostImportedQuery();
+  return (
+    <MostImported
+      data={mostImportedQuery.data}
+      filter={filter}
+      fetchMostImportedFilter={fetchMostImportedFilter}
+    />
+  );
+};
+
 export default MostImportedLogic;

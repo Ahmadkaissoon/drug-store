@@ -3,7 +3,7 @@ import PHARMACIES_SCHEMA, {
   PHARMACIES_SCHEMA_INITIAL,
 } from "../../../../../data/dashboard/basics/pharmacies/PharmaciesSchema";
 
-const AddPharmacies = ({ data }) => {
+const AddPharmacies = ({ data , addPharmacy , editPharmacy }) => {
   const formFields = [
     {
       name: "name",
@@ -47,6 +47,7 @@ const AddPharmacies = ({ data }) => {
     <div className="w-full flex items-center  justify-center">
       <DynamicForm
         fields={formFields}
+        onSubmit={data ? editPharmacy : addPharmacy}
         buttons={formButtons}
         defaultValues={data ? data : PHARMACIES_SCHEMA_INITIAL}
         schema={PHARMACIES_SCHEMA}

@@ -7,17 +7,41 @@ import { useState } from "react";
 import { MdOutlineLocalPharmacy } from "react-icons/md";
 import AddPharmacies from "../../../../components/dashboard/views/basics/pharmacies/AddPharmacies";
 import PharmaciesFilter from "../../../../components/dashboard/views/basics/pharmacies/PharmaciesFilter";
+import PharmaciesDetails from "../../../../components/dashboard/views/basics/pharmacies/PharmaciesDetails";
 
-const Pharmacies = () => {
+const Pharmacies = ({
+  data,
+  filter,
+  fetchPharmaciesFilter,
+  setCurrentPharmacyId,
+  currentPharmacyId,
+  getOnePharmacyQuery,
+  addPharmacy,
+  editPharmacy,
+  deletePharmacy,
+}) => {
   const [openAddPharmacies, setOpenAddPharmacies] = useState(false);
   const [openEditPharmacies, setOpenEditPharmacies] = useState(false);
+  const [openShowPharmacies, setOpenShowPharmacies] = useState(false);
   const [edit, setEdit] = useState("");
 
   const handleSelectedRow = (row) => {
     setEdit(row), setOpenEditPharmacies(true);
   };
+  const handleShowDetails = (row) => {
+    setEdit(row);
+    setOpenShowPharmacies(true);
+  };
 
-  const data = [
+  const handleDeletePharmacy = (row) => {
+    if (row && row.id) {
+      deletePharmacy(row.id);
+    }
+  };
+
+  console.log(data);
+
+  const damydata = [
     {
       name: "test1",
       city: "homs",
@@ -34,13 +58,13 @@ const Pharmacies = () => {
 
   const columns = [
     {
-      id: "name",
+      id: "pharmacy_name",
       header: "اسم الصيدلية",
-      value: "name",
+      value: "pharmacy_name",
     },
     {
       id: "city",
-      header: "اسم المدينة",
+      header: "المدينة",
       value: "city",
     },
   ];
@@ -52,8 +76,13 @@ const Pharmacies = () => {
       color: "accept_color",
     },
     {
+      title: "تفاصيل",
+      onClickFun: handleShowDetails,
+      color: "not_color",
+    },
+    {
       title: "حذف",
-      onClickFun: (row) => console.log("Delete:", row),
+      onClickFun: handleDeletePharmacy,
       color: "error_color",
     },
   ];
@@ -63,14 +92,38 @@ const Pharmacies = () => {
       <PopupContainer
         setIsModalOpen={setOpenAddPharmacies}
         isModalOpen={openAddPharmacies}
-        component={<AddPharmacies />}
+        component={
+          <AddPharmacies
+            addPharmacy={(data) => addPharmacy(data, setOpenAddPharmacies)}
+          />
+        }
       />
       <PopupContainer
         setIsModalOpen={setOpenEditPharmacies}
         isModalOpen={openEditPharmacies}
-        component={<AddPharmacies data={edit} />}
+        component={
+          <AddPharmacies
+            data={edit}
+            editPharmacy={(data) =>
+              editPharmacy(data, edit.id, setOpenEditPharmacies)
+            }
+          />
+        }
       />
-      <Filter title={"بحث"} innerComponent={<PharmaciesFilter />} />
+      <PopupContainer
+        setIsModalOpen={setOpenShowPharmacies}
+        isModalOpen={openShowPharmacies}
+        component={<PharmaciesDetails data={edit} />}
+      />
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <PharmaciesFilter
+            filter={filter}
+            fetchPharmaciesFilter={fetchPharmaciesFilter}
+          />
+        }
+      />
       <ButtonsContainer>
         <Button
           title={"إدخال صيدلية"}

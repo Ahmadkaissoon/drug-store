@@ -1,7 +1,9 @@
-import MOST_IMPORTED_FILTER_SCHEMA, { MOST_IMPORTED_FILTER_SCHEMA_INITIAL } from "../../../../../data/dashboard/reports/MostImportedSchema";
+import MOST_IMPORTED_FILTER_SCHEMA, {
+  MOST_IMPORTED_FILTER_SCHEMA_INITIAL,
+} from "../../../../../data/dashboard/reports/MostImportedSchema";
 import DynamicForm from "../../../../common/DynamicForm";
 
-const MostImportedFilter = () => {
+const MostImportedFilter = ({ filter, fetchMostImportedFilter }) => {
   const formFields = [
     {
       name: "lab_name",
@@ -28,9 +30,12 @@ const MostImportedFilter = () => {
         buttons={formButtons}
         defaultValues={MOST_IMPORTED_FILTER_SCHEMA_INITIAL}
         schema={MOST_IMPORTED_FILTER_SCHEMA}
+        onSubmit={(onsubmit) => {
+          fetchMostImportedFilter(onsubmit);
+        }}
       />
     </div>
   );
-}
- 
+};
+
 export default MostImportedFilter;

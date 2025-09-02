@@ -1,7 +1,7 @@
 import DynamicForm from "../../../../common/DynamicForm";
 import { z } from "zod";
 
-const AddLabs = () => {
+const AddLabs = ({ data , addLab , editLab }) => {
   const labsSchema = z.object({
     name: z.string(),
   });
@@ -30,8 +30,9 @@ const AddLabs = () => {
     <div className="w-full flex items-center  justify-center">
       <DynamicForm
         fields={formFields}
+        onSubmit={data ? editLab : addLab}
         buttons={formButtons}
-        defaultValues={defaultValues}
+        defaultValues={data ? data : defaultValues}
         schema={labsSchema}
       />
     </div>

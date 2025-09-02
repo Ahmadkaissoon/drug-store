@@ -1,7 +1,15 @@
+import useDelegatesQuery from "../../../../hooks/reports/delegates/useDelegatesQuery";
 import Delegates from "./Delegates";
 
 const DelegatesLogic = () => {
-  return <Delegates />
-}
- 
+  const { delegatesQuery, fetchDelegatesFilter, filter } = useDelegatesQuery();
+  return (
+    <Delegates
+      data={delegatesQuery.data}
+      fetchDelegatesFilter={fetchDelegatesFilter}
+      filter={filter}
+    />
+  );
+};
+
 export default DelegatesLogic;

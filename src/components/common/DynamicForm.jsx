@@ -7,7 +7,7 @@ const ReusableForm = ({
   fields,
   buttons,
   defaultValues = {},
-  onSubmit,
+  onSubmit = async () => {},
   schema,
   className = "bg-transparent",
   formClassName = "bg-transparent",
@@ -283,12 +283,12 @@ const ReusableForm = ({
           const isLoading = loading || buttonLoading;
           const isDisabled = disabled || isLoading;
 
-          const buttonClasses = `px-4 py-2 rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer ${
+          const buttonClasses = `px-4 py-2 rounded-md font-medium focus:outline-none cursor-pointer ${
             type === "submit"
               ? "bg-accept-color text-white hover:bg-transparent hover:text-accept-color border border-1 border-accept-color"
               : type === "reset"
               ? "bg-error-color text-white hover:bg-transparent hover:text-error-color border border-1 border-error-color"
-              : "bg-main-color border border-1 border-main-color text-white hover:bg-transparent hover:text-main-color focus:ring-blue-500"
+              : "bg-main-color border border-1 border-main-color text-white hover:bg-transparent hover:text-main-color "
           } ${isDisabled ? "opacity-50 cursor-not-allowed" : ""} ${className}`;
 
           return (

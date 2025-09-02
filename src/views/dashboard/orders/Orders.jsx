@@ -8,10 +8,20 @@ import ReusableTable from "../../../components/common/ReusableTable";
 import Filter from "../../../components/common/filter/Filter";
 import { useNavigate } from "react-router";
 
-const Orders = () => {
+const Orders = ({
+  data,
+  filter,
+  fetchOrderFilter,
+  setCurrentOrderId,
+  currentOrderId,
+  getOneOrderQuery,
+  addOrder,
+  editOrder,
+  deleteOrder,
+}) => {
   const [edit, setEdit] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSelectedRow = (row) => {
     setEdit(row), navigate(`edit/${row.id}`);
@@ -20,16 +30,22 @@ const Orders = () => {
     setEdit(row), navigate(`details/${row.id}`);
   };
 
-  const data = [
+  const handleDeleteOrder = (row) => {
+    if (row && row.id) {
+      deleteOrder(row.id);
+    }
+  };
+
+  const damydata = [
     {
-      id:1,
+      id: 1,
       name: "test",
       lab_name: "test_name",
       city: "حمص",
       address: "العنوان",
     },
     {
-      id:2,
+      id: 2,
       name: "test",
       lab_name: "test_name",
       city: "حمص",
@@ -58,7 +74,6 @@ const Orders = () => {
       header: "العنوان",
       value: "address",
     },
-  
   ];
 
   const actions = [
@@ -74,22 +89,25 @@ const Orders = () => {
     },
     {
       title: "حذف",
-      onClickFun: (row) => console.log("Delete:", row),
+      onClickFun: handleDeleteOrder,
       color: "error_color",
     },
   ];
 
   return (
     <div className="w-full overflow-x-auto shadow rounded-lg">
-     
-      <Filter title={"بحث"} innerComponent={<OrdersFilter />} />
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <OrdersFilter filter={filter} fetchOrderFilter={fetchOrderFilter} />
+        }
+      />
       <ButtonsContainer>
-
         <Button
           title={"إدخال طلبية جديدة"}
           styleType="reg"
           onClickFun={() => {
-            navigate("/orders/new")
+            navigate("/orders/new");
           }}
           Icon={<AiOutlineAppstoreAdd />}
         />
@@ -103,6 +121,6 @@ const Orders = () => {
       />
     </div>
   );
-}
- 
+};
+
 export default Orders;

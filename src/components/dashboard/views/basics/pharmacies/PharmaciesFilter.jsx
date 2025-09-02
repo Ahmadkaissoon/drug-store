@@ -3,7 +3,7 @@ import PHARMACIES_FILTER_SCHEMA, {
 } from "../../../../../data/dashboard/basics/pharmacies/PharmaciesFilterSchema";
 import DynamicForm from "../../../../common/DynamicForm";
 
-const PharmaciesFilter = () => {
+const PharmaciesFilter = ({ filter, fetchPharmaciesFilter }) => {
   const formFields = [
     {
       name: "name",
@@ -41,6 +41,9 @@ const PharmaciesFilter = () => {
         buttons={formButtons}
         defaultValues={PHARMACIES_FILTER_SCHEMA_INITIAL}
         schema={PHARMACIES_FILTER_SCHEMA}
+        onSubmit={(onSubmit) => {
+          fetchPharmaciesFilter(onSubmit);
+        }}
       />
     </div>
   );

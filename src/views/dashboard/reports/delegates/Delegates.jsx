@@ -5,7 +5,7 @@ import DelegateDetails from "../../../../components/dashboard/views/reports/dele
 import DelegateFilter from "../../../../components/dashboard/views/reports/delegates/DelegatesFilter";
 import { useState } from "react";
 
-const Delegates = () => {
+const Delegates = ({ data, fetchDelegatesFilter, filter }) => {
   const [openDetails, setOpenDetails] = useState(false);
   const [edit, setEdit] = useState("");
 
@@ -13,19 +13,19 @@ const Delegates = () => {
     setEdit(row), setOpenDetails(true);
   };
 
-  const data = [
+  const damydata = [
     {
       date: "5/5/2025",
       delegate_name: "ads",
-      delegate:[
+      delegate: [
         {
-          name:"ad",
-          price:5,
-          quantity:5,
-          discount:1,
-          total:25
+          name: "ad",
+          price: 5,
+          quantity: 5,
+          discount: 1,
+          total: 25,
         },
-      ]
+      ],
     },
 
     {
@@ -61,9 +61,17 @@ const Delegates = () => {
         isModalOpen={openDetails}
         component={<DelegateDetails data={edit} />}
       />
-      <Filter title={"بحث"} innerComponent={<DelegateFilter />} />
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <DelegateFilter
+            filter={filter}
+            fetchDelegatesFilter={fetchDelegatesFilter}
+          />
+        }
+      />
       <ReusableTable
-        data={data}
+        data={damydata}
         columns={columns}
         actions={actions}
         dir="rtl"

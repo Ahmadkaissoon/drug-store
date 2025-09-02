@@ -1,7 +1,7 @@
 import USERS_SCHEMA, { USERS_SCHEMA_INITIAL } from "../../../../../data/dashboard/basics/users/UserSchema";
 import DynamicForm from "../../../../common/DynamicForm";
 
-const AddUser = ({data}) => {
+const AddUser = ({data , addUser , editUser}) => {
   const formFields = [
     {
       name: "email",
@@ -48,6 +48,7 @@ const AddUser = ({data}) => {
     <div className="w-full flex items-center  justify-center">
       <DynamicForm
         fields={formFields}
+        onSubmit={data ? editUser : addUser}
         buttons={formButtons}
         defaultValues={data ? data : USERS_SCHEMA_INITIAL }
         schema={USERS_SCHEMA}

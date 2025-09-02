@@ -23,7 +23,6 @@ const Sidebar = () => {
       });
     }
   }, [pathname]);
-  console.log(pathname);
   // get role from storage (expected values: 'admin' | 'manager' | 'representative')
   const role = jsonParse(secureLocalStorage.getItem("USER_ROLE"))?.data;
 

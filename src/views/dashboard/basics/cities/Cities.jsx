@@ -9,7 +9,15 @@ import { PopupContainer } from "../../../../components/common/popupContainer/Pop
 import { LuMapPinPlusInside } from "react-icons/lu";
 import AddCities from "../../../../components/dashboard/views/basics/cities/AddCities";
 
-const Cities = () => {
+const Cities = ({
+  data,
+  filter,
+  fetchCitiesFilter,
+  addCity,
+  editCity,
+  deleteCity,
+}) => {
+  // console.log(data);
   const [openAddCity, setOpenAddCity] = useState(false);
   const [openEditCity, setOpenEditCity] = useState(false);
   const [edit, setEdit] = useState("");
@@ -19,8 +27,11 @@ const Cities = () => {
     setOpenEditCity(true);
   };
 
-  //  data
-  const users = [{ name: "حمص" }];
+  const handleDeleteCity = (row) => {
+    if (row && row.id) {
+      deleteCity(row.id);
+    }
+  };
 
   const columns = [
     {
@@ -39,7 +50,7 @@ const Cities = () => {
     },
     {
       title: "حذف",
-      onClickFun: (row) => console.log("Delete:", row),
+      onClickFun: handleDeleteCity,
       color: "error_color",
     },
   ];
@@ -48,14 +59,26 @@ const Cities = () => {
       <PopupContainer
         setIsModalOpen={setOpenAddCity}
         isModalOpen={openAddCity}
-        component={<AddCities />}
+        component={
+          <AddCities addCity={(data) => addCity(data, setOpenAddCity)} />
+        }
       />
       <PopupContainer
         setIsModalOpen={setOpenEditCity}
         isModalOpen={openEditCity}
-        component={<AddCities data={edit} />}
+        component={
+          <AddCities
+            data={edit}
+            editCity={(data) => editCity(data, edit.id, setOpenEditCity)}
+          />
+        }
       />
-      <Filter title={"بحث"} innerComponent={<CitiesFilter />} />
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <CitiesFilter filter={filter} fetchCitiesFilter={fetchCitiesFilter} />
+        }
+      />
       <ButtonsContainer>
         <Button
           title={"إدخال مدينة"}
@@ -67,7 +90,7 @@ const Cities = () => {
         />
       </ButtonsContainer>
       <ReusableTable
-        data={users}
+        data={data || []}
         columns={columns}
         actions={actions}
         dir="rtl"

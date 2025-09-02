@@ -2,9 +2,8 @@ import Filter from "../../../../components/common/filter/Filter";
 import ReusableTable from "../../../../components/common/ReusableTable";
 import AlmostGoneFilter from "../../../../components/dashboard/views/reports/almostGone/AlomostGoneFilter";
 
-const AlmostGone = () => {
-  const data = [
-
+const AlmostGone = ({ data, fetchAlmostGoneFilter, filter }) => {
+  const damydata = [
     {
       quantity: 10,
       name: "ads",
@@ -31,9 +30,17 @@ const AlmostGone = () => {
 
   return (
     <div className="w-full overflow-x-auto shadow rounded-lg">
-      <Filter title={"بحث"} innerComponent={<AlmostGoneFilter />} />
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <AlmostGoneFilter
+            filter={filter}
+            fetchAlmostGoneFilter={fetchAlmostGoneFilter}
+          />
+        }
+      />
       <ReusableTable
-        data={data}
+        data={damydata}
         columns={columns}
         dir="rtl"
         actionsHeader="Actions"

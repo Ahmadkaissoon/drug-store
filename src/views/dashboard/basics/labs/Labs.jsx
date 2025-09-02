@@ -7,24 +7,44 @@ import Button from "../../../../components/common/Button";
 import ButtonsContainer from "../../../../components/common/floatBtn/ButtonsContainer";
 import { PopupContainer } from "../../../../components/common/popupContainer/PopUpContainer";
 import { LuMapPinPlusInside } from "react-icons/lu";
-const Labs = () => {
+
+const Labs = ({
+  data,
+  filter,
+  fetchLabsFilter,
+  addLab,
+  editLab,
+  deleteLab,
+}) => {
   const [openAddLabs, setOpenAddLabs] = useState(false);
   const [openEditLabs, setOpenEditLabs] = useState(false);
   const [edit, setEdit] = useState("");
 
+  console.log(data);
   const handleSelectedRow = (row) => {
     setEdit(row);
     setOpenEditLabs(true);
   };
 
+  const handleDeleteLab = (row) => {
+    if (row && row.id) {
+      deleteLab(row.id);
+    }
+  };
+
   //  data
-  const users = [{ name: "تاميكو" }];
+  // const users = [{ name: "تاميكو" }];
 
   const columns = [
     {
       id: "name",
       header: "اسم المعمل",
       value: "name",
+    },
+    {
+      id: "city",
+      header: "المدينة",
+      value: "city",
     },
   ];
 
@@ -37,7 +57,7 @@ const Labs = () => {
     },
     {
       title: "حذف",
-      onClickFun: (row) => console.log("Delete:", row),
+      onClickFun: handleDeleteLab,
       color: "error_color",
     },
   ];
@@ -46,14 +66,24 @@ const Labs = () => {
       <PopupContainer
         setIsModalOpen={setOpenAddLabs}
         isModalOpen={openAddLabs}
-        component={<AddLabs />}
+        component={<AddLabs addLab={(data) => addLab(data, setOpenAddLabs)} />}
       />
       <PopupContainer
         setIsModalOpen={setOpenEditLabs}
         isModalOpen={openEditLabs}
-        component={<AddLabs data={edit} />}
+        component={
+          <AddLabs
+            data={edit}
+            editLab={(data) => editLab(data, edit.id, setOpenEditLabs)}
+          />
+        }
       />
-      <Filter title={"بحث"} innerComponent={<LabsFilter />} />
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <LabsFilter filter={filter} fetchLabsFilter={fetchLabsFilter} />
+        }
+      />
       <ButtonsContainer>
         <Button
           title={"إدخال معمل"}
@@ -65,7 +95,7 @@ const Labs = () => {
         />
       </ButtonsContainer>
       <ReusableTable
-        data={users}
+        data={data}
         columns={columns}
         actions={actions}
         dir="rtl"

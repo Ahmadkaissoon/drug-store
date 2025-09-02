@@ -1,8 +1,9 @@
-import USERS_FILTER_SCHEMA, { USERS_FILTER_SCHEMA_INITIAL } from "../../../../../data/dashboard/basics/users/UsersFilterSchema";
+import USERS_FILTER_SCHEMA, {
+  USERS_FILTER_SCHEMA_INITIAL,
+} from "../../../../../data/dashboard/basics/users/UsersFilterSchema";
 import DynamicForm from "../../../../common/DynamicForm";
 
-
-const UsersFilter = () => {
+const UsersFilter = ({ filter, fetchUsersFilter }) => {
   const formFields = [
     {
       name: "name",
@@ -29,9 +30,12 @@ const UsersFilter = () => {
         buttons={formButtons}
         defaultValues={USERS_FILTER_SCHEMA_INITIAL}
         schema={USERS_FILTER_SCHEMA}
+        onSubmit={(onSubmit) => {
+          fetchUsersFilter(onSubmit);
+        }}
       />
     </div>
   );
-}
- 
+};
+
 export default UsersFilter;

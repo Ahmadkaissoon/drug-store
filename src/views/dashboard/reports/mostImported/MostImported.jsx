@@ -5,7 +5,7 @@ import ReusableTable from "../../../../components/common/ReusableTable";
 import { PopupContainer } from "../../../../components/common/popupContainer/PopUpContainer";
 import MostImportedDetails from "../../../../components/dashboard/views/reports/mostImported/MostImportedDetails";
 
-const MostImported = () => {
+const MostImported = ({ data, filter, fetchMostImportedFilter }) => {
   const [openDetails, setOpenDetails] = useState(false);
   const [edit, setEdit] = useState("");
 
@@ -13,7 +13,7 @@ const MostImported = () => {
     setEdit(row), setOpenDetails(true);
   };
 
-  const data = [
+  const damydata = [
     {
       date: "2/25/5858",
       lab_name: "test_name",
@@ -106,9 +106,17 @@ const MostImported = () => {
         isModalOpen={openDetails}
         component={<MostImportedDetails data={edit} />}
       />
-      <Filter title={"بحث"} innerComponent={<MostImportedFilter />} />
+      <Filter
+        title={"بحث"}
+        innerComponent={
+          <MostImportedFilter
+            filter={filter}
+            fetchMostImportedFilter={fetchMostImportedFilter}
+          />
+        }
+      />
       <ReusableTable
-        data={data}
+        data={damydata}
         columns={columns}
         actions={actions}
         dir="rtl"

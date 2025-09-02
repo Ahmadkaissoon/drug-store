@@ -17,7 +17,7 @@ import TotalSalesLogic from "./views/dashboard/reports/totalSales/TotalSalesLogi
 import ExpiredMedicinesLogic from "./views/dashboard/reports/expiredMedicines/ExpiredMedicinesLogic";
 import AlmostGoneLogic from "./views/dashboard/reports/almostGone/AlmostGoneLogic";
 import DelegatesLogic from "./views/dashboard/reports/delegates/DelegatesLogic";
-import UsersLogic from "./views/dashboard/basics/representative/UsersLogic";
+import UsersLogic from "./views/dashboard/basics/users/UsersLogic";
 import RegisterLogic from "./views/common/register/RegisterLogic";
 // import OrderDetails from "./views/dashboard/orders/orderDetails/OrderDetails";
 import OrderDetailsLogic from "./views/dashboard/orders/orderDetails/OrderDetailsLogic";
@@ -53,22 +53,23 @@ const router = createBrowserRouter([
     element: (
       // <PrivateRoute>
       // </PrivateRoute>
-        <DashboardLayout />
+      <DashboardLayout />
     ),
     children: [
       {
         index: true,
-        element:
-        //<RoleLandingRedirect />,
-        <HomeLogic />,
+        element: (
+          //<RoleLandingRedirect />,
+          <HomeLogic />
+        ),
       },
       {
         path: "home",
         element: (
           // <RequireRole allow={["admin", "manager"]}>
-            <Suspense fallback={<PageLoader />}>
-              <HomeLogic />
-            </Suspense>
+          <Suspense fallback={<PageLoader />}>
+            <HomeLogic />
+          </Suspense>
           // </RequireRole>
         ),
       },
@@ -79,9 +80,9 @@ const router = createBrowserRouter([
             path: "cities",
             element: (
               // <RequireRole allow={["admin", "manager"]}>
-                <Suspense fallback={<PageLoader />}>
-                  <CitiesLogic />
-                </Suspense>
+              <Suspense fallback={<PageLoader />}>
+                <CitiesLogic />
+              </Suspense>
               // </RequireRole>
             ),
           },
@@ -89,9 +90,9 @@ const router = createBrowserRouter([
             path: "labs",
             element: (
               // <RequireRole allow={["admin", "manager"]}>
-                <Suspense fallback={<PageLoader />}>
-                  <LabsLogic />
-                </Suspense>
+              <Suspense fallback={<PageLoader />}>
+                <LabsLogic />
+              </Suspense>
               // </RequireRole>
             ),
           },
@@ -99,9 +100,9 @@ const router = createBrowserRouter([
             path: "pharmacies",
             element: (
               // <RequireRole allow={["admin", "manager"]}>
-                <Suspense fallback={<PageLoader />}>
-                  <PharmaciesLogic />
-                </Suspense>
+              <Suspense fallback={<PageLoader />}>
+                <PharmaciesLogic />
+              </Suspense>
               // </RequireRole>
             ),
           },
@@ -109,9 +110,9 @@ const router = createBrowserRouter([
             path: "users",
             element: (
               // <RequireRole allow={["admin"]}>
-                <Suspense fallback={<PageLoader />}>
-                  <UsersLogic />
-                </Suspense>
+              <Suspense fallback={<PageLoader />}>
+                <UsersLogic />
+              </Suspense>
               // </RequireRole>
             ),
           },
@@ -124,9 +125,9 @@ const router = createBrowserRouter([
             path: "medicines",
             element: (
               // <RequireRole allow={["admin", "manager"]}>
-                <Suspense fallback={<PageLoader />}>
-                  <MedicinesLogic />
-                </Suspense>
+              <Suspense fallback={<PageLoader />}>
+                <MedicinesLogic />
+              </Suspense>
               // </RequireRole>
             ),
           },
@@ -139,9 +140,9 @@ const router = createBrowserRouter([
             index: true,
             element: (
               // <RequireRole allow={["manager", "representative" , "accountant"]}>
-                <Suspense fallback={<PageLoader />}>
-                  <OrdersLogic />
-                </Suspense>
+              <Suspense fallback={<PageLoader />}>
+                <OrdersLogic />
+              </Suspense>
               // </RequireRole>
             ),
           },
@@ -149,9 +150,9 @@ const router = createBrowserRouter([
             path: "new",
             element: (
               // <RequireRole allow={["manager", "representative" , "accountant"]}>
-                <Suspense fallback={<PageLoader />}>
-                  <AddOrderLogic />
-                </Suspense>
+              <Suspense fallback={<PageLoader />}>
+                <AddOrderLogic />
+              </Suspense>
               // </RequireRole>
             ),
           },
@@ -159,9 +160,9 @@ const router = createBrowserRouter([
             path: "edit/:id",
             element: (
               // <RequireRole allow={["manager", "representative" , "accountant"]}>
-                <Suspense fallback={<PageLoader />}> 
-                  <EditOrderLogic />
-                </Suspense>
+              <Suspense fallback={<PageLoader />}>
+                <EditOrderLogic />
+              </Suspense>
               // </RequireRole>
             ),
           },
@@ -169,9 +170,9 @@ const router = createBrowserRouter([
             path: "details/:id",
             element: (
               // <RequireRole allow={["manager", "representative" , "accountant"]}>
-                <Suspense fallback={<PageLoader />}>
-                  <OrderDetailsLogic />
-                </Suspense>
+              <Suspense fallback={<PageLoader />}>
+                <OrderDetailsLogic />
+              </Suspense>
               // </RequireRole>
             ),
           },
@@ -184,9 +185,9 @@ const router = createBrowserRouter([
             path: "total-import-report",
             element: (
               // <RequireRole allow={["admin", "manager" , "accountant"]}>
-                <Suspense fallback={<PageLoader />}>
-                  <MostImportedLogic />
-                </Suspense>
+              <Suspense fallback={<PageLoader />}>
+                <MostImportedLogic />
+              </Suspense>
               // </RequireRole>
             ),
           },
@@ -194,9 +195,9 @@ const router = createBrowserRouter([
             path: "most-request-report",
             element: (
               // <RequireRole allow={["admin", "manager" ,"accountant"]}>
-                <Suspense fallback={<PageLoader />}>
-                  <MostRequestLogic />
-                </Suspense>
+              <Suspense fallback={<PageLoader />}>
+                <MostRequestLogic />
+              </Suspense>
               // </RequireRole>
             ),
           },
@@ -204,9 +205,9 @@ const router = createBrowserRouter([
             path: "total-sales-report",
             element: (
               // <RequireRole allow={["admin", "manager" ,"accountant"]}>
-                <Suspense fallback={<PageLoader />}>
-                  <TotalSalesLogic />
-                </Suspense>
+              <Suspense fallback={<PageLoader />}>
+                <TotalSalesLogic />
+              </Suspense>
               // </RequireRole>
             ),
           },
@@ -214,9 +215,9 @@ const router = createBrowserRouter([
             path: "expired-medicines",
             element: (
               // <RequireRole allow={["admin", "manager" , "accountant"]}>
-                <Suspense fallback={<PageLoader />}>
-                  <ExpiredMedicinesLogic />
-                </Suspense>
+              <Suspense fallback={<PageLoader />}>
+                <ExpiredMedicinesLogic />
+              </Suspense>
               // </RequireRole>
             ),
           },
@@ -224,9 +225,9 @@ const router = createBrowserRouter([
             path: "almost-gone-medicines",
             element: (
               // <RequireRole allow={["admin", "manager" , "accountant"]}>
-                <Suspense fallback={<PageLoader />}>
-                  <AlmostGoneLogic />
-                </Suspense>
+              <Suspense fallback={<PageLoader />}>
+                <AlmostGoneLogic />
+              </Suspense>
               // </RequireRole>
             ),
           },
@@ -234,9 +235,9 @@ const router = createBrowserRouter([
             path: "delegates",
             element: (
               // <RequireRole allow={["admin", "manager" ,"accountant"]}>
-                <Suspense fallback={<PageLoader />}>
-                  <DelegatesLogic />
-                </Suspense>
+              <Suspense fallback={<PageLoader />}>
+                <DelegatesLogic />
+              </Suspense>
               // </RequireRole>
             ),
           },

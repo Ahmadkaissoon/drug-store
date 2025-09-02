@@ -1,6 +1,7 @@
 import Button from "../../../common/Button";
 import { HiOutlineBellAlert } from "react-icons/hi2";
 import { IoIosLogOut } from "react-icons/io";
+import HeaderNotification from "./HeaderNotification";
 const Header = () => {
   return (
     <div className="w-full h-[60px] flex items-center justify-start shadow  bg-second-white-color top-0 py-2.5 px-6">
@@ -15,7 +16,7 @@ const Header = () => {
           />
         </div>
         <div className="w-full flex justify-center items-center ">
-          <HiOutlineBellAlert className="text-size-24 cursor-pointer" />
+          <HeaderNotification />
         </div>
       </div>
     </div>
