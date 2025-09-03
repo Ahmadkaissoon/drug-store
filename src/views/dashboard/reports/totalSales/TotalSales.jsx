@@ -2,7 +2,14 @@ import Filter from "../../../../components/common/filter/Filter";
 import ReusableTable from "../../../../components/common/ReusableTable";
 import TotalSalesFilter from "../../../../components/dashboard/views/reports/totalSales/TotalSalesFilter";
 
-const TotalSales = ({ fetchTotalSalesFilter, filter, data }) => {
+const TotalSales = ({
+  fetchTotalSalesFilter,
+  filter,
+  data,
+  resourceData,
+  isLoadingResource,
+  isResourceError,
+}) => {
   const damydata = [
     {
       name: "sda",

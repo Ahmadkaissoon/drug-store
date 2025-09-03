@@ -21,6 +21,9 @@ const Medicines = ({
   editMedicine,
   deleteMedicine,
   importMedicine,
+  resourceData,
+  isLoadingResource,
+  isResourceError,
 }) => {
   const [openAddProduct, setOpenAddProduct] = useState(false);
   const [openEditProduct, setOptenEditProduct] = useState(false);

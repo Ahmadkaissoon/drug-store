@@ -4,6 +4,7 @@ import QUERY_KEYS from "../../../data/dashboard/queryKeys/QueryKeys";
 import { debounce } from "lodash";
 import getPharmacy from "../../../api/basics/pharmacies/getPharmacies";
 import getOnePharmacy from "../../../api/basics/pharmacies/getOnePharmacies";
+import getPharmaciesResources from "../../../api/basics/pharmacies/getPharmaciesResources";
 
 const usePharmaciesQuery = () => {
   const [filter, setFilter] = useState({});
@@ -41,6 +42,13 @@ const usePharmaciesQuery = () => {
     refetchOnWindowFocus: false,
   });
 
+  const pharmaciesResources = useQuery({
+    queryKey: [QUERY_KEYS.pharmacies.resources],
+    queryFn: () => getPharmaciesResources(),
+    retry: false,
+    refetchOnWindowFocus: false,
+  });
+
   return {
     pharmaciesQuery,
     filter,
@@ -48,6 +56,7 @@ const usePharmaciesQuery = () => {
     currentPharmacyId,
     setCurrentPharmacyId,
     getOnePharmacyQuery,
+    pharmaciesResources,
   };
 };
 

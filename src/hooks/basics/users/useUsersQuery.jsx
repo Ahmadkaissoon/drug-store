@@ -4,6 +4,7 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { debounce } from "lodash";
 import getUsers from "../../../api/basics/users/getUsers";
 import getOneUser from "../../../api/basics/users/getOneUser";
+import getUsersResources from "../../../api/basics/users/getUsersResources";
 
 const useUsersQuery = () => {
   const [filter, setFilter] = useState({});
@@ -41,6 +42,13 @@ const useUsersQuery = () => {
     refetchOnWindowFocus: false,
   });
 
+  const usersResources = useQuery({
+    queryKey: [QUERY_KEYS.users.resources],
+    queryFn: () => getUsersResources(),
+    retry: false,
+    refetchOnWindowFocus: false,
+  });
+
   return {
     usersQuery,
     filter,
@@ -48,6 +56,7 @@ const useUsersQuery = () => {
     currentUserId,
     setCurrentUserId,
     getOneUserQuery,
+    usersResources,
   };
 };
 

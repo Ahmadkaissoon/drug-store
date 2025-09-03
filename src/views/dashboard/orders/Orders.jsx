@@ -18,6 +18,9 @@ const Orders = ({
   addOrder,
   editOrder,
   deleteOrder,
+  resourceData,
+  isLoadingResource,
+  isResourceError,
 }) => {
   const [edit, setEdit] = useState("");
 

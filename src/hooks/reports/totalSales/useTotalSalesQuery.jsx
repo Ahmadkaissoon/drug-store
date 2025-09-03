@@ -3,6 +3,7 @@ import QUERY_KEYS from "../../../data/dashboard/queryKeys/QueryKeys";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { debounce } from "lodash";
 import getTotalSales from "../../../api/reports/totalSales/getTotalSales";
+import getTotalSalesResources from "../../../api/reports/totalSales/getTotalSalesResources";
 
 const useTotalSalesQuery = () => {
   const [filter, setFilter] = useState({});
@@ -29,10 +30,18 @@ const useTotalSalesQuery = () => {
     prevFilter.current = filter;
   }, [filter]);
 
+  const totalSalesResources = useQuery({
+    queryKey: [QUERY_KEYS.totalSales.resources],
+    queryFn: () => getTotalSalesResources(),
+    retry: false,
+    refetchOnWindowFocus: false,
+  });
+
   return {
     totalSalesQuery,
     filter,
     fetchTotalSalesFilter: debouncedFetch,
+    totalSalesResources,
   };
 };
 

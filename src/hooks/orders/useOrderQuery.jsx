@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import QUERY_KEYS from "../../data/dashboard/queryKeys/QueryKeys";
 import getOrders from "../../api/orders/getOrders";
 import getOneOrder from "../../api/orders/getOneOrder";
+import getOrdersResources from "../../api/orders/getOrdersResources";
 
 function useOrderQuery() {
   const [filter, setFilter] = useState({});
@@ -41,6 +42,13 @@ function useOrderQuery() {
     refetchOnWindowFocus: false,
   });
 
+  const ordersResources = useQuery({
+    queryKey: [QUERY_KEYS.orders.resources],
+    queryFn: () => getOrdersResources(),
+    retry: false,
+    refetchOnWindowFocus: false,
+  });
+
   return {
     orderQuery,
     filter,
@@ -48,6 +56,7 @@ function useOrderQuery() {
     setCurrentOrderId,
     currentOrderId,
     getOneOrderQuery,
+    ordersResources,
   };
 }
 

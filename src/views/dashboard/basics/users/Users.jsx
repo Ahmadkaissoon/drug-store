@@ -17,6 +17,9 @@ const Users = ({
   addUser,
   editUser,
   deleteUser,
+  resourceData,
+  isLoadingResource,
+  isResourceError,
 }) => {
   const [openAddUser, setOpenAddUser] = useState(false);
   const [openEditUser, setOpenEditUser] = useState(false);

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import QUERY_KEYS from "../../../data/dashboard/queryKeys/QueryKeys";
 import { debounce } from "lodash";
 import getMedicine from "../../../api/products/medicines/getMedicine";
+import getMedicinesResoucres from "../../../api/products/medicines/getMedicinesResources";
 
 const useMedicinesQuery = () => {
   const [filter, setFilter] = useState({});
@@ -40,6 +41,13 @@ const useMedicinesQuery = () => {
     refetchOnWindowFocus: false,
   });
 
+  const medicinesResources = useQuery({
+    queryKey: [QUERY_KEYS.pharmacies.resources],
+    queryFn: () => getMedicinesResoucres(),
+    retry: false,
+    refetchOnWindowFocus: false,
+  });
+
   return {
     medicinesQuery,
     filter,
@@ -47,6 +55,7 @@ const useMedicinesQuery = () => {
     setCurrentMedicinesId,
     currentMedicinesId,
     getOnePharmacyQuery,
+    medicinesResources,
   };
 };
 

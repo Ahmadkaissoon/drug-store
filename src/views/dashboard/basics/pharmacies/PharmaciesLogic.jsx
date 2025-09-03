@@ -10,6 +10,7 @@ const PharmaciesLogic = () => {
     setCurrentPharmacyId,
     currentPharmacyId,
     getOnePharmacyQuery,
+    pharmaciesResources,
   } = usePharmaciesQuery();
   const { handleAddPharmacy, handleEditPharmacy, handleDeletePharmacy } =
     usePharmaciesMutation();
@@ -25,6 +26,9 @@ const PharmaciesLogic = () => {
       addPharmacy={handleAddPharmacy}
       editPharmacy={handleEditPharmacy}
       deletePharmacy={handleDeletePharmacy}
+      resourceData={pharmaciesResources.data}
+      isLoadingResource={pharmaciesResources.isPending}
+      isResourceError={pharmaciesResources.isError}
     />
   );
 };

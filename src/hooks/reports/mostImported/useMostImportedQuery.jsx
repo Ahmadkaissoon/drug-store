@@ -3,6 +3,7 @@ import QUERY_KEYS from "../../../data/dashboard/queryKeys/QueryKeys";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { debounce } from "lodash";
 import getTotalMostImported from "../../../api/reports/mostImported/getTotalMostImported";
+import getMostImportedResources from "../../../api/reports/mostImported/getMostImportedResources";
 
 const useMostImportedQuery = () => {
   const [filter, setFilter] = useState({});
@@ -29,10 +30,18 @@ const useMostImportedQuery = () => {
     prevFilter.current = filter;
   }, [filter]);
 
+  const mostImportedResources = useQuery({
+    queryKey: [QUERY_KEYS.mostImported.resources],
+    queryFn: () => getMostImportedResources(),
+    retry: false,
+    refetchOnWindowFocus: false,
+  });
+
   return {
     mostImportedQuery,
     filter,
     fetchMostImportedFilter: debouncedFetch,
+    mostImportedResources,
   };
 };
 

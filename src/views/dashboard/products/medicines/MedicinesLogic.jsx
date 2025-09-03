@@ -10,6 +10,7 @@ const MedicinesLogic = () => {
     setCurrentMedicinesId,
     currentMedicinesId,
     getOnePharmacyQuery,
+    medicinesResources,
   } = useMedicinesQuery();
   const {
     handleAddMedicine,
@@ -29,6 +30,9 @@ const MedicinesLogic = () => {
       editMedicine={handleEditMedicine}
       deleteMedicine={handleDeleteMedicine}
       importMedicine={handleImportMedicine}
+      resourceData={medicinesResources.data}
+      isLoadingResource={medicinesResources.isPending}
+      isResourceError={medicinesResources.isError}
     />
   );
 };

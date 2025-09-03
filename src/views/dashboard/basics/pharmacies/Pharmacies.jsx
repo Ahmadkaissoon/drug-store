@@ -19,6 +19,9 @@ const Pharmacies = ({
   addPharmacy,
   editPharmacy,
   deletePharmacy,
+  resourceData,
+  isLoadingResource,
+  isResourceError,
 }) => {
   const [openAddPharmacies, setOpenAddPharmacies] = useState(false);
   const [openEditPharmacies, setOpenEditPharmacies] = useState(false);

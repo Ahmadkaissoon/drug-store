@@ -5,7 +5,14 @@ import ReusableTable from "../../../../components/common/ReusableTable";
 import { PopupContainer } from "../../../../components/common/popupContainer/PopUpContainer";
 import MostImportedDetails from "../../../../components/dashboard/views/reports/mostImported/MostImportedDetails";
 
-const MostImported = ({ data, filter, fetchMostImportedFilter }) => {
+const MostImported = ({
+  data,
+  filter,
+  fetchMostImportedFilter,
+  resourceData,
+  isLoadingResource,
+  isResourceError,
+}) => {
   const [openDetails, setOpenDetails] = useState(false);
   const [edit, setEdit] = useState("");
 

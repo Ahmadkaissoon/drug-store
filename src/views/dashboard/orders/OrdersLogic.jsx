@@ -10,6 +10,7 @@ const OrdersLogic = () => {
     setCurrentOrderId,
     currentOrderId,
     getOneOrderQuery,
+    ordersResources,
   } = useOrderQuery();
   const { handleAddOrder, handleEditOrder, handleDeleteOrder } =
     useOrderMutation();
@@ -24,6 +25,9 @@ const OrdersLogic = () => {
       addOrder={handleAddOrder}
       editOrder={handleEditOrder}
       deleteOrder={handleDeleteOrder}
+      resourceData={ordersResources.data}
+      isLoadingResource={ordersResources.isPending}
+      isResourceError={ordersResources.isError}
     />
   );
 };

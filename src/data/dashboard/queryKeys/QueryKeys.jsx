@@ -8,10 +8,12 @@ const QUERY_KEYS = {
   pharmacies: {
     query: "pharmacies",
     oneQuery: "onePharmacy",
+    resources: "pharmaciesResources",
   },
   users: {
     query: "users",
     oneQuery: "oneUser",
+    resources: "usersResources",
   },
   // home : {
   //     query: "home"
@@ -19,10 +21,12 @@ const QUERY_KEYS = {
   orders: {
     query: "orders",
     oneQuery: "oneOrder",
+    resources: "ordersResources",
   },
   products: {
     query: "products",
     oneQuery: "product",
+    resources: "productsResources",
   },
   almostGone: {
     query: "almostGone",
@@ -35,12 +39,14 @@ const QUERY_KEYS = {
   },
   mostImported: {
     query: "mostImported",
+    resources: "mostImportedResources",
   },
   mostRequest: {
     query: "mostRequest",
   },
   totalSales: {
     query: "totalSales",
+    resources: "totalSalesResources",
   },
   notifications: {
     query: "notifications",

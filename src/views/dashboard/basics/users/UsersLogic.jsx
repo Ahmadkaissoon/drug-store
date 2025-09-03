@@ -10,6 +10,7 @@ const UsersLogic = () => {
     setCurrentUserId,
     getOneUserQuery,
     currentUserId,
+    usersResources,
   } = useUsersQuery();
   const { handleAddUser, handleEditUser, handleDeleteUser } =
     useUsersMutation();
@@ -24,6 +25,9 @@ const UsersLogic = () => {
       addUser={handleAddUser}
       editUser={handleEditUser}
       deleteUser={handleDeleteUser}
+      resourceData={usersResources.data}
+      isLoadingResource={usersResources.isPending}
+      isResourceError={usersResources.isError}
     />
   );
 };
