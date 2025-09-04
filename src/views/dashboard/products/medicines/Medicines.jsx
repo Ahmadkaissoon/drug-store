@@ -25,6 +25,7 @@ const Medicines = ({
   isLoadingResource,
   isResourceError,
 }) => {
+  console.log(data);
   const [openAddProduct, setOpenAddProduct] = useState(false);
   const [openEditProduct, setOptenEditProduct] = useState(false);
   const [openDetailsProduct, setOpenDetailsProduct] = useState(false);
@@ -65,19 +66,19 @@ const Medicines = ({
 
   const columns = [
     {
-      id: "name",
+      id: "product_name",
       header: "اسم الدواء",
-      value: "name",
+      value: "product_name",
     },
     {
-      id: "lab_name",
+      id: "product_manufacturing_lab",
       header: "اسم المعمل",
-      value: "lab_name",
+      value: "product_manufacturing_lab",
     },
     {
-      id: "quantity",
+      id: "stock",
       header: "الكمية",
-      value: "quantity",
+      value: "stock",
     },
     {
       id: "code",
@@ -167,7 +168,7 @@ const Medicines = ({
         />
       </ButtonsContainer>
       <ReusableTable
-        data={damydata}
+        data={data}
         columns={columns}
         actions={actions}
         dir="rtl"

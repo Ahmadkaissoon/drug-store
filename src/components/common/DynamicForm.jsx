@@ -193,11 +193,11 @@ const ReusableForm = ({
               </option>
               {options?.map((option) => (
                 <option
-                  key={option.value.toString()}
-                  value={option.value.toString()}
+                  key={option.value}
+                  value={option.name}
                   className="text-main-color"
                 >
-                  {option.label}
+                  {option.name}
                 </option>
               ))}
             </select>

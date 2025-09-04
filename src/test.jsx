@@ -125,7 +125,7 @@ export default function Test() {
     setFormData(data);
     setLoading(false);
 
-    console.log("Form submitted:", data);
+    // console.log("Form submitted:", data);
 
     // In a real application, you would make an API call here
     // try {

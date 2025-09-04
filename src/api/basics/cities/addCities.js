@@ -8,7 +8,7 @@ async function addCities({ data }) {
       formData.append(key, data[key]);
   });
 
-  const res = await axiosClient.post(``);
+  const res = await axiosClient.post(`/cities`, formData);
 
   return res?.data;
 }

@@ -7,8 +7,8 @@ async function getMedicine({ queryKey }) {
   //     formData.append(key, queryKey[1][key]);
   // });
   const filter = queryKey[1];
-  const res = await axiosClient.get(`/prods`, { params: filter });
-
+  const res = await axiosClient.get(`/stock`, { params: filter });
+  console.log(res);
   return res?.data?.data;
 }
 

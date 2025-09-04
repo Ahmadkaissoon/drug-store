@@ -3,9 +3,9 @@ import useLabsMutation from "../../../../hooks/basics/labs/useLabsMutation";
 import Labs from "./Labs";
 
 const LabsLogic = () => {
-  const { labsQuery, filter, fetchLabsFilter } = useLabsQuery();
+  const { labsQuery, filter, fetchLabsFilter, labsResources } = useLabsQuery();
   const { handleAddLab, handleEditLab, handleDeleteLab } = useLabsMutation();
-  console.log(labsQuery);
+  // console.log(labsResources.data);
   return (
     <Labs
       data={labsQuery.data}
@@ -14,6 +14,9 @@ const LabsLogic = () => {
       addLab={handleAddLab}
       editLab={handleEditLab}
       deleteLab={handleDeleteLab}
+      resourceData={labsResources.data}
+      isLoadingResources={labsResources.isPending}
+      isErrorResources={labsResources.isError}
     />
   );
 };

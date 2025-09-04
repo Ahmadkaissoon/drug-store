@@ -8,7 +8,7 @@ async function addPharmacies({ data }) {
       formData.append(key, data[key]);
   });
 
-  const res = await axiosClient.post(``);
+  const res = await axiosClient.post(`/clients`, formData);
 
   return res?.data;
 }

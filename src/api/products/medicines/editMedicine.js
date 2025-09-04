@@ -7,7 +7,7 @@ async function editMedicinec({ medicineId, data }) {
       formData.append(key, data[key]);
   });
 
-  const res = await axiosClient.post();
+  const res = await axiosClient.patch(`/stock/${medicineId}`, formData);
 
   return res?.data;
 }

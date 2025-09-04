@@ -7,7 +7,7 @@ async function editUsers({ userId, data }) {
       formData.append(key, data[key]);
   });
 
-  const res = await axiosClient.post();
+  const res = await axiosClient.patch(`/users/${userId}`, formData);
 
   return res?.data;
 }

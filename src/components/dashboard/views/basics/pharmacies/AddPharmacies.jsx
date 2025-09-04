@@ -1,15 +1,32 @@
+import { z } from "zod";
 import DynamicForm from "../../../../common/DynamicForm";
-import PHARMACIES_SCHEMA, {
-  PHARMACIES_SCHEMA_INITIAL,
-} from "../../../../../data/dashboard/basics/pharmacies/PharmaciesSchema";
+// import PHARMACIES_SCHEMA, {
+//   PHARMACIES_SCHEMA_INITIAL,
+// } from "../../../../../data/dashboard/basics/pharmacies/PharmaciesSchema";
 
-const AddPharmacies = ({ data , addPharmacy , editPharmacy }) => {
+const AddPharmacies = ({ data, resourceData, addPharmacy, editPharmacy }) => {
+  const PHARMACIES_SCHEMA = z.object({
+    name: z.string(),
+    pharmacy_name: z.string(),
+    location: z.string(),
+    email: z.string(),
+    city: z.string(),
+    phone_number: z.string(),
+    pharmacy_number: z.string(),
+  });
+
   const formFields = [
     {
       name: "name",
-      label: "اسم الصيدلية",
+      label: "اسم المالك",
       type: "text",
-      placeholder: "أدخل اسم الصيدلية",
+      placeholder: "أدخل اسم المالك",
+    },
+    {
+      name: "pharmacy_name",
+      label: "اسم الصيدلية ",
+      type: "text",
+      placeholder: "أدخل اسم الصيدلية ",
     },
     {
       name: "location",
@@ -18,21 +35,29 @@ const AddPharmacies = ({ data , addPharmacy , editPharmacy }) => {
       placeholder: "أدخل العنوان",
     },
     {
-      name: "city_id",
+      name: "email",
+      label: "البريد الالكتروني",
+      type: "email",
+      placeholder: "أدخل البريد الالكتروني",
+    },
+    {
+      name: "city",
       label: "اسم المدينة",
       type: "select",
       placeholder: "أدخل اسم المدينة",
-      options: [
-        { label: "homs", value: "homs" },
-        { label: "hama", value: "hama" },
-        { label: "idlib", value: "idlib" },
-      ],
+      options: resourceData,
     },
     {
-      name: "phone",
+      name: "phone_number",
       label: " رقم الهاتف",
       type: "text",
       placeholder: "أدخل رقم الهاتف",
+    },
+    {
+      name: "pharmacy_number",
+      label: " رقم الهاتف الثابت",
+      type: "text",
+      placeholder: "أدخل رقم الهاتف الثابت",
     },
   ];
 
@@ -42,6 +67,16 @@ const AddPharmacies = ({ data , addPharmacy , editPharmacy }) => {
       type: "submit",
     },
   ];
+
+  const PHARMACIES_SCHEMA_INITIAL = {
+    name: undefined,
+    pharmacy_name: undefined,
+    location: undefined,
+    email: undefined,
+    city: null,
+    phone_number: undefined,
+    pharmacy_number: undefined,
+  };
 
   return (
     <div className="w-full flex items-center  justify-center">

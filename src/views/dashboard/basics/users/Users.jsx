@@ -36,16 +36,16 @@ const Users = ({
     }
   };
 
-  const damydata = [
-    {
-      email: "ads",
-      role: "representative",
-    },
-    {
-      email: "ahmed",
-      role: "admin",
-    },
-  ];
+  // const damydata = [
+  //   {
+  //     email: "ads",
+  //     role: "representative",
+  //   },
+  //   {
+  //     email: "ahmed",
+  //     role: "admin",
+  //   },
+  // ];
 
   const columns = [
     {
@@ -53,11 +53,11 @@ const Users = ({
       header: "الاسم",
       value: "email",
     },
-    {
-      id: "role",
-      header: "الصلاحية",
-      value: "role",
-    },
+    // {
+    //   id: "role",
+    //   header: "الصلاحية",
+    //   value: "role",
+    // },
   ];
 
   const actions = [
@@ -109,7 +109,7 @@ const Users = ({
         />
       </ButtonsContainer>
       <ReusableTable
-        data={damydata}
+        data={data}
         columns={columns}
         actions={actions}
         dir="rtl"

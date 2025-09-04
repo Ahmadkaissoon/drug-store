@@ -7,7 +7,9 @@ async function editPharmacies({ pharmacyId, data }) {
       formData.append(key, data[key]);
   });
 
-  const res = await axiosClient.post();
+  console.log(formData);
+
+  const res = await axiosClient.patch(`/clients/${pharmacyId}`, formData);
 
   return res?.data;
 }

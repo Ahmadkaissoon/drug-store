@@ -7,7 +7,7 @@ async function addUsers({ data }) {
       formData.append(key, data[key]);
   });
 
-  const res = await axiosClient.post(``);
+  const res = await axiosClient.post(`/users`, formData);
 
   return res?.data;
 }

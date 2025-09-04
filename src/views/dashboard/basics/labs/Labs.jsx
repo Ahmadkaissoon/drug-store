@@ -15,7 +15,11 @@ const Labs = ({
   addLab,
   editLab,
   deleteLab,
+  resourceData,
+  isLoadingResources,
+  isErrorResources,
 }) => {
+  // console.log(resourceData);
   const [openAddLabs, setOpenAddLabs] = useState(false);
   const [openEditLabs, setOpenEditLabs] = useState(false);
   const [edit, setEdit] = useState("");
@@ -66,7 +70,12 @@ const Labs = ({
       <PopupContainer
         setIsModalOpen={setOpenAddLabs}
         isModalOpen={openAddLabs}
-        component={<AddLabs addLab={(data) => addLab(data, setOpenAddLabs)} />}
+        component={
+          <AddLabs
+            resourceData={resourceData}
+            addLab={(data) => addLab(data, setOpenAddLabs)}
+          />
+        }
       />
       <PopupContainer
         setIsModalOpen={setOpenEditLabs}
@@ -74,6 +83,7 @@ const Labs = ({
         component={
           <AddLabs
             data={edit}
+            resourceData={resourceData}
             editLab={(data) => editLab(data, edit.id, setOpenEditLabs)}
           />
         }

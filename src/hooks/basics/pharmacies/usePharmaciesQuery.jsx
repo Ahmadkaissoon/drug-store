@@ -44,7 +44,7 @@ const usePharmaciesQuery = () => {
 
   const pharmaciesResources = useQuery({
     queryKey: [QUERY_KEYS.pharmacies.resources],
-    queryFn: () => getPharmaciesResources(),
+    queryFn: getPharmaciesResources,
     retry: false,
     refetchOnWindowFocus: false,
   });

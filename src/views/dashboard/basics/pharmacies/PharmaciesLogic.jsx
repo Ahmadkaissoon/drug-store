@@ -14,7 +14,8 @@ const PharmaciesLogic = () => {
   } = usePharmaciesQuery();
   const { handleAddPharmacy, handleEditPharmacy, handleDeletePharmacy } =
     usePharmaciesMutation();
-
+  // console.log(pharmaciesResources.data);
+  console.log(getOnePharmacyQuery.data);
   return (
     <Pharmacies
       data={pharmaciesQuery.data}

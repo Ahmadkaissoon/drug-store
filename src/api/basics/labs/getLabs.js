@@ -9,8 +9,6 @@ async function getLabs({ queryKey }) {
   const filter = queryKey[1];
   const res = await axiosClient.get(`/labs`, { params: filter });
 
-  console.log(res);
-
   return res?.data?.data;
 }
 

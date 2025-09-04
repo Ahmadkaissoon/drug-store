@@ -9,7 +9,7 @@ async function getCities({ queryKey }) {
   // });
 
   const filter = queryKey[1];
-  console.log("API request would send:", filter);
+  // console.log("API request would send:", filter);
 
   const res = await axiosClient.get(`/cities`, { params: filter });
 

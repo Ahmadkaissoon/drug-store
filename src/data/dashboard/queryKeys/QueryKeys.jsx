@@ -4,6 +4,7 @@ const QUERY_KEYS = {
   },
   labs: {
     query: "labs",
+    resources: "labsResources",
   },
   pharmacies: {
     query: "pharmacies",

@@ -1,17 +1,26 @@
 import DynamicForm from "../../../../common/DynamicForm";
 import { z } from "zod";
 
-const AddLabs = ({ data , addLab , editLab }) => {
+const AddLabs = ({ data, resourceData, addLab, editLab }) => {
   const labsSchema = z.object({
     name: z.string(),
+    city: z.string(),
   });
 
+  console.log(resourceData);
   const formFields = [
     {
       name: "name",
       label: "اسم المعمل",
       type: "text",
       placeholder: "أدخل اسم المعمل",
+    },
+    {
+      name: "city",
+      label: "اسم المدينة",
+      type: "select",
+      placeholder: "اختر المدينة",
+      options: resourceData,
     },
   ];
 
@@ -24,6 +33,7 @@ const AddLabs = ({ data , addLab , editLab }) => {
 
   const defaultValues = {
     name: "",
+    city: {},
   };
 
   return (

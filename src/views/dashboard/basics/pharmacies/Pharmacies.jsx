@@ -28,6 +28,8 @@ const Pharmacies = ({
   const [openShowPharmacies, setOpenShowPharmacies] = useState(false);
   const [edit, setEdit] = useState("");
 
+  // console.log(resourceData);
+
   const handleSelectedRow = (row) => {
     setEdit(row), setOpenEditPharmacies(true);
   };
@@ -41,8 +43,6 @@ const Pharmacies = ({
       deletePharmacy(row.id);
     }
   };
-
-  console.log(data);
 
   const damydata = [
     {
@@ -97,6 +97,7 @@ const Pharmacies = ({
         isModalOpen={openAddPharmacies}
         component={
           <AddPharmacies
+            resourceData={resourceData}
             addPharmacy={(data) => addPharmacy(data, setOpenAddPharmacies)}
           />
         }
@@ -107,6 +108,7 @@ const Pharmacies = ({
         component={
           <AddPharmacies
             data={edit}
+            resourceData={resourceData}
             editPharmacy={(data) =>
               editPharmacy(data, edit.id, setOpenEditPharmacies)
             }
@@ -122,6 +124,7 @@ const Pharmacies = ({
         title={"بحث"}
         innerComponent={
           <PharmaciesFilter
+            resourceData={resourceData}
             filter={filter}
             fetchPharmaciesFilter={fetchPharmaciesFilter}
           />

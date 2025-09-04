@@ -3,7 +3,7 @@ import PHARMACIES_FILTER_SCHEMA, {
 } from "../../../../../data/dashboard/basics/pharmacies/PharmaciesFilterSchema";
 import DynamicForm from "../../../../common/DynamicForm";
 
-const PharmaciesFilter = ({ filter, fetchPharmaciesFilter }) => {
+const PharmaciesFilter = ({ filter, fetchPharmaciesFilter, resourceData }) => {
   const formFields = [
     {
       name: "name",
@@ -12,15 +12,11 @@ const PharmaciesFilter = ({ filter, fetchPharmaciesFilter }) => {
       placeholder: "أدخل اسم الصيدلية",
     },
     {
-      name: "city_id",
+      name: "city",
       label: "اسم المدينة",
       type: "select",
-      placeholder: "أدخل اسم المدينة",
-      options: [
-        { label: "homs", value: "homs" },
-        { label: "hama", value: "hama" },
-        { label: "idlib", value: "idlib" },
-      ],
+      placeholder: "اختر المدينة",
+      options: resourceData,
     },
   ];
 

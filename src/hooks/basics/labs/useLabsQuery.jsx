@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import QUERY_KEYS from "../../../data/dashboard/queryKeys/QueryKeys";
 import { debounce } from "lodash";
 import getLabs from "../../../api/basics/labs/getLabs";
+import getLabsResources from "../../../api/basics/labs/getLabsResources";
 
 const useLabsQuery = () => {
   const [filter, setFilter] = useState({});
@@ -29,11 +30,18 @@ const useLabsQuery = () => {
     prevFilter.current = filter;
   }, [filter]);
 
-  console.log(labsQuery);
+  const labsResources = useQuery({
+    queryKey: [QUERY_KEYS.labs.resources],
+    queryFn: getLabsResources,
+    retry: false,
+    refetchOnWindowFocus: false,
+  });
+
   return {
     labsQuery,
     filter,
     fetchLabsFilter: debouncedFetch,
+    labsResources,
   };
 };
 
