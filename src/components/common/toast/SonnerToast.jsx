@@ -10,13 +10,13 @@ function SonnerToast() {
       dir="rtl"
       className="translate-x-0 translate-none z-[30]"
       icons={{
-        success: <FaCircleCheck className="!size-[22px] !text-success" />,
-        error: <FaCircleXmark className="!size-[22px] !text-error" />,
+        success: <FaCircleCheck className="!size-[22px] !text-accept-color" />,
+        error: <FaCircleXmark className="!size-[22px] !text-error-color" />,
         loading: (
-          <PiSpinner className="!size-[22px] animate-spin !text-primary" />
+          <PiSpinner className="!size-[22px] animate-spin !text-main-color" />
         ),
         close: (
-          <LuX className="!size-[16px] !text-primary-icon hover:!text-primary-fg transition-all duration-[0.2s]" />
+          <LuX className="!size-[16px] !text-primary-icon hover:!text-error-color transition-all duration-[0.2s]" />
         ),
       }}
       toastOptions={{
