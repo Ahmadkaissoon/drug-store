@@ -42,9 +42,17 @@ const TABS = [
         name: "medicines",
         show_name: "الأدوية",
       },
+      {
+        name: "catalog",
+        show_name: "كاتالوغ",
+      },
+      // {
+      //   name: "product",
+      //   show_name: "الأدوية",
+      // },
     ],
   },
-  
+
   {
     name: "orders",
     show_name: "الطلبيات",

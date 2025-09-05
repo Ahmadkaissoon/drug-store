@@ -9,7 +9,7 @@ async function getMedicine({ queryKey }) {
   const filter = queryKey[1];
   const res = await axiosClient.get(`/stock`, { params: filter });
   console.log(res);
-  return res?.data?.data;
+  return res?.data;
 }
 
 export default getMedicine;

@@ -25,7 +25,7 @@ const Medicines = ({
   isLoadingResource,
   isResourceError,
 }) => {
-  console.log(data);
+  // console.log(data);
   const [openAddProduct, setOpenAddProduct] = useState(false);
   const [openEditProduct, setOptenEditProduct] = useState(false);
   const [openDetailsProduct, setOpenDetailsProduct] = useState(false);
@@ -81,9 +81,9 @@ const Medicines = ({
       value: "stock",
     },
     {
-      id: "code",
+      id: "product_code",
       header: "الكود",
-      value: "code",
+      value: "product_code",
     },
   ];
 
@@ -93,16 +93,16 @@ const Medicines = ({
       onClickFun: handleSelectedRow,
       color: "accept_color",
     },
-    {
-      title: "تفاصيل",
-      onClickFun: handleShowDetails,
-      color: "not_color",
-    },
-    {
-      title: "حذف",
-      onClickFun: handleDeleteMedicine,
-      color: "error_color",
-    },
+    // {
+    //   title: "تفاصيل",
+    //   onClickFun: handleShowDetails,
+    //   color: "not_color",
+    // },
+    // {
+    //   title: "حذف",
+    //   onClickFun: handleDeleteMedicine,
+    //   color: "error_color",
+    // },
   ];
 
   return (
@@ -113,6 +113,7 @@ const Medicines = ({
         component={
           <AddProducts
             addMedicine={(data) => addMedicine(data, setOpenAddProduct)}
+            resourceData={resourceData}
           />
         }
       />
@@ -125,14 +126,15 @@ const Medicines = ({
             editMedicine={(data) =>
               editMedicine(data, edit.id, setOptenEditProduct)
             }
+            resourceData={resourceData}
           />
         }
       />
-      <PopupContainer
+      {/* <PopupContainer
         setIsModalOpen={setOpenDetailsProduct}
         isModalOpen={openDetailsProduct}
         component={<ProductsDetails data={edit} />}
-      />
+      /> */}
       {/* this popup for import excel sheet of medicines */}
       {/* <PopupContainer
         setIsModalOpen={setOpenDetailsProduct}
@@ -149,7 +151,7 @@ const Medicines = ({
         }
       />
       <ButtonsContainer>
-        <Button
+        {/* <Button
           title={"رفع ملف إكسل"}
           styleType="reg"
           color="accept_color"
@@ -157,7 +159,7 @@ const Medicines = ({
             setOpenImportProduct(true);
           }}
           Icon={<PiMicrosoftExcelLogoFill />}
-        />
+        /> */}
         <Button
           title={"إدخال دواء"}
           styleType="reg"

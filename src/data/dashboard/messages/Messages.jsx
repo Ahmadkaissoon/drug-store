@@ -106,6 +106,26 @@ const MESSAGES = {
       success: "تمت إضافة أدوية بنجاح.",
     },
   },
+  productMedicine: {
+    add: {
+      loading: "جار إضافة مادة...",
+      success: "تمت إضافة مادة بنجاح.",
+    },
+  },
+  catalogs: {
+    add: {
+      loading: "جار إضافة كاتالوغ...",
+      success: "تمت إضافة كاتالوغ بنجاح.",
+    },
+    edit: {
+      loading: "جار تعديل كاتالوغ...",
+      success: "تم تعديل كاتالوغ بنجاح.",
+    },
+    delete: {
+      loading: "جار حذف كاتالوغ...",
+      success: "تم حذف كاتالوغ بنجاح.",
+    },
+  },
 };
 
 export default MESSAGES;

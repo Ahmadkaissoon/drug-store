@@ -3,7 +3,7 @@ import ProductsInfo from "./ProductsInfo";
 ("../../../../data/dashboard/products/ProductsDict");
 
 const ProductsDetails = ({ data }) => {
-  console.log(data);
+  // console.log(data);
   return (
     <div
       dir="rtl"

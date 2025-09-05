@@ -9,7 +9,7 @@ const MedicinesLogic = () => {
     fetchMedicinesFilter,
     setCurrentMedicinesId,
     currentMedicinesId,
-    getOnePharmacyQuery,
+    // getOnePharmacyQuery,
     medicinesResources,
   } = useMedicinesQuery();
   const {
@@ -18,6 +18,8 @@ const MedicinesLogic = () => {
     handleDeleteMedicine,
     handleImportMedicine,
   } = useMedicinesMutation();
+
+  console.log(medicinesQuery.data);
   return (
     <Medicines
       data={medicinesQuery.data}
@@ -25,7 +27,7 @@ const MedicinesLogic = () => {
       fetchMedicinesFilter={fetchMedicinesFilter}
       setCurrentMedicinesId={setCurrentMedicinesId}
       currentMedicinesId={currentMedicinesId}
-      getOnePharmacyQuery={getOnePharmacyQuery}
+      // getOnePharmacyQuery={getOnePharmacyQuery}
       addMedicine={handleAddMedicine}
       editMedicine={handleEditMedicine}
       deleteMedicine={handleDeleteMedicine}

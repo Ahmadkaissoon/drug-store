@@ -24,7 +24,7 @@ const Labs = ({
   const [openEditLabs, setOpenEditLabs] = useState(false);
   const [edit, setEdit] = useState("");
 
-  console.log(data);
+  // console.log(data);
   const handleSelectedRow = (row) => {
     setEdit(row);
     setOpenEditLabs(true);

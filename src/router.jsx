@@ -22,6 +22,8 @@ import RegisterLogic from "./views/common/register/RegisterLogic";
 // import OrderDetails from "./views/dashboard/orders/orderDetails/OrderDetails";
 import OrderDetailsLogic from "./views/dashboard/orders/orderDetails/OrderDetailsLogic";
 import EditOrderLogic from "./views/dashboard/orders/editOrder/EditOrderLogic";
+import CatalogLogic from "./views/dashboard/products/catalog/CatalogLogic";
+import ProductLogic from "./views/dashboard/products/product/ProductMedicineLogic";
 
 const HomeLogic = lazy(() =>
   import("./views/dashboard/home/HomeLogic").catch(() =>
@@ -127,6 +129,26 @@ const router = createBrowserRouter([
               // <RequireRole allow={["admin", "manager"]}>
               <Suspense fallback={<PageLoader />}>
                 <MedicinesLogic />
+              </Suspense>
+              // </RequireRole>
+            ),
+          },
+          {
+            path: "catalog",
+            element: (
+              // <RequireRole allow={["admin", "manager"]}>
+              <Suspense fallback={<PageLoader />}>
+                <CatalogLogic />
+              </Suspense>
+              // </RequireRole>
+            ),
+          },
+          {
+            path: "product",
+            element: (
+              // <RequireRole allow={["admin", "manager"]}>
+              <Suspense fallback={<PageLoader />}>
+                <ProductLogic />
               </Suspense>
               // </RequireRole>
             ),

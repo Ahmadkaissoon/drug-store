@@ -16,7 +16,7 @@ const useMedicinesMutation = () => {
   const addMedicine = useMutation({
     mutationFn: addMedicines,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.products.query] });
+      queryClient.invalidateQueries({ queryKey: [QUERY_KEYS.stocks.query] });
     },
   });
 

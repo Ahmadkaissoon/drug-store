@@ -12,9 +12,10 @@ const useMedicinesQuery = () => {
   const [currentMedicinesId, setCurrentMedicinesId] = useState(-1);
 
   const medicinesQuery = useQuery({
-    queryKey: [QUERY_KEYS.products.query, filter],
+    queryKey: [QUERY_KEYS.stocks.query, filter],
     queryFn: ({ queryKey }) => getMedicine({ queryKey }),
     placeholderData: keepPreviousData,
+    initialData: [],
     retry: false,
     refetchOnWindowFocus: false,
   });
@@ -33,20 +34,21 @@ const useMedicinesQuery = () => {
     prevFilter.current = filter;
   }, [filter]);
 
-  const getOnePharmacyQuery = useQuery({
-    queryKey: [QUERY_KEYS.products.oneQuery, currentMedicinesId],
-    queryFn: () => getOneMedicine({ currentMedicinesId }),
-    enabled: currentMedicinesId != -1,
-    retry: false,
-    refetchOnWindowFocus: false,
-  });
+  // const getOnePharmacyQuery = useQuery({
+  //   queryKey: [QUERY_KEYS.products.oneQuery, currentMedicinesId],
+  //   queryFn: () => getOneMedicine({ currentMedicinesId }),
+  //   enabled: currentMedicinesId != -1,
+  //   retry: false,
+  //   refetchOnWindowFocus: false,
+  // });
 
   const medicinesResources = useQuery({
-    queryKey: [QUERY_KEYS.pharmacies.resources],
-    queryFn: () => getMedicinesResoucres(),
+    queryKey: [QUERY_KEYS.stocks.resources],
+    queryFn: getMedicinesResoucres,
     retry: false,
     refetchOnWindowFocus: false,
   });
+  console.log(medicinesQuery.data);
 
   return {
     medicinesQuery,
@@ -54,7 +56,7 @@ const useMedicinesQuery = () => {
     fetchMedicinesFilter: debouncedFetch,
     setCurrentMedicinesId,
     currentMedicinesId,
-    getOnePharmacyQuery,
+    // getOnePharmacyQuery,
     medicinesResources,
   };
 };

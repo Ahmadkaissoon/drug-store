@@ -2,7 +2,7 @@ import toast, { ToastBar, Toaster } from "react-hot-toast";
 
 // toast notification component, using react-hot-toast library
 function ToastNotifications() {
-  console.log("clicked not");
+  // console.log("clicked not");
   return (
     <>
       <Toaster

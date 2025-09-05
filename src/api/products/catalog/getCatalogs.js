@@ -1,9 +1,9 @@
 import axiosClient from "../../../libs/axios/axios-client";
 
-async function getMedicinesResoucres() {
+async function getCatalogs() {
   const res = await axiosClient.get(`/prods`);
 
   return res?.data?.data;
 }
 
-export default getMedicinesResoucres;
+export default getCatalogs;

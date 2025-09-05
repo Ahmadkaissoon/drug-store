@@ -24,10 +24,17 @@ const QUERY_KEYS = {
     oneQuery: "oneOrder",
     resources: "ordersResources",
   },
-  products: {
-    query: "products",
-    oneQuery: "product",
-    resources: "productsResources",
+  stocks: {
+    query: "stock",
+    // oneQuery: "stock",
+    resources: "stocksResources",
+  },
+  catalog: {
+    query: "catalog",
+    resources: "catalogResources",
+  },
+  productMedicine: {
+    query: "productMedicine",
   },
   almostGone: {
     query: "almostGone",

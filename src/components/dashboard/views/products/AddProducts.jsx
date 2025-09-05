@@ -1,43 +1,25 @@
+import { z } from "zod";
 import DynamicForm from "../../../../components/common/DynamicForm";
-import PRODUCTS_SCHEMA, {
-  PRODUCTS_SCHEMA_INITIAL,
-} from "../../../../data/dashboard/products/ProductsSchema";
+// import PRODUCTS_SCHEMA, {
+//   PRODUCTS_SCHEMA_INITIAL,
+// } from "../../../../data/dashboard/products/ProductsSchema";
 
-const AddProducts = ({ data , addMedicine , editMedicine }) => {
-  console.log(data);
+const AddProducts = ({ data, resourceData, addMedicine, editMedicine }) => {
+  const PRODUCTS_SCHEMA = z.object({
+    product: z.coerce.number(),
+    stock: z.coerce.number(),
+  });
+  console.log(resourceData);
   const formFields = [
     {
-      name: "name",
+      name: "product",
       label: "اسم الدواء :",
-      type: "text",
+      type: "select",
       placeholder: "أدخل اسم الدواء",
+      options: resourceData,
     },
     {
-      name: "lab_name",
-      label: "اسم المعمل :",
-      type: "text",
-      placeholder: "أدخل اسم المعمل",
-    },
-    {
-      name: "code",
-      label: "رمز الدواء :",
-      type: "text",
-      placeholder: "أدخل رمز الدواء",
-    },
-    {
-      name: "price",
-      label: "سعر المعمل :",
-      type: "text",
-      placeholder: "أدخل سعر المعمل",
-    },
-    {
-      name: "sale_price",
-      label: "سعر المبيع :",
-      type: "text",
-      placeholder: "أدخل سعر المبيع",
-    },
-    {
-      name: "quantity",
+      name: "stock",
       label: "الكمية :",
       type: "text",
       placeholder: "أدخل الكمية",
@@ -50,6 +32,11 @@ const AddProducts = ({ data , addMedicine , editMedicine }) => {
       type: "submit",
     },
   ];
+
+  const PRODUCTS_SCHEMA_INITIAL = {
+    product: "",
+    stock: "",
+  };
 
   return (
     <div className="w-full flex items-center justify-center">

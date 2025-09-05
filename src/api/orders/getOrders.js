@@ -7,8 +7,9 @@ async function getOrders({ queryKey }) {
   //     formData.append(key, queryKey[1][key]);
   // });
   const filter = queryKey[1];
-  const res = await axiosClient.get(``, { params: filter });
-  return res?.data?.data;
+  const res = await axiosClient.get(`/order`, { params: filter });
+  console.log(res);
+  return res?.data;
 }
 
 export default getOrders;

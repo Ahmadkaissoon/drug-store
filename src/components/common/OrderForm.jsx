@@ -7,6 +7,7 @@ import { ShoppingCart } from "lucide-react";
 import { FaPrint } from "react-icons/fa6";
 
 const OrderForm = ({ data, edit, id }) => {
+  console.log(data);
   //دالة التفقيط
   writtenNumber.defaults.lang = "ar";
   const numToSYP = (n) => `${writtenNumber(n)}  ليرة سورية فقط لا غير`;

@@ -38,6 +38,7 @@ const Orders = ({
       deleteOrder(row.id);
     }
   };
+  console.log(data);
 
   const damydata = [
     {
@@ -58,24 +59,19 @@ const Orders = ({
 
   const columns = [
     {
-      id: "name",
+      id: "client",
       header: "اسم الصيدلية",
-      value: "name",
+      value: "client",
     },
     {
-      id: "lab_name",
-      header: "اسم المعمل",
-      value: "lab_name",
+      id: "order_serial_number",
+      header: "الكود",
+      value: "order_serial_number",
     },
     {
-      id: "city",
-      header: "المدينة",
-      value: "city",
-    },
-    {
-      id: "address",
-      header: "العنوان",
-      value: "address",
+      id: "total_fund",
+      header: "السعر الاجمالي",
+      value: "total_fund",
     },
   ];
 
@@ -90,11 +86,11 @@ const Orders = ({
       onClickFun: handleShowDetails,
       color: "not_color",
     },
-    {
-      title: "حذف",
-      onClickFun: handleDeleteOrder,
-      color: "error_color",
-    },
+    // {
+    //   title: "حذف",
+    //   onClickFun: handleDeleteOrder,
+    //   color: "error_color",
+    // },
   ];
 
   return (

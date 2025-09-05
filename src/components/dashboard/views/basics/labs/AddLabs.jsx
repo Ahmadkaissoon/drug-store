@@ -7,7 +7,7 @@ const AddLabs = ({ data, resourceData, addLab, editLab }) => {
     city: z.string(),
   });
 
-  console.log(resourceData);
+  // console.log(resourceData);
   const formFields = [
     {
       name: "name",
