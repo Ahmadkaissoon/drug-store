@@ -15,7 +15,7 @@ const Pharmacies = ({
   fetchPharmaciesFilter,
   setCurrentPharmacyId,
   currentPharmacyId,
-  getOnePharmacyQuery,
+  pharmacyDetails,
   addPharmacy,
   editPharmacy,
   deletePharmacy,
@@ -30,12 +30,22 @@ const Pharmacies = ({
 
   // console.log(resourceData);
 
+  const mockData = {
+    name: "fadi",
+    pharmacy_name: "shohfi pharmacy",
+    address: "alhamadia",
+    email: "fadi@test.com",
+    city: "HOMS",
+    phone: "0999999999",
+    telephone: "0312142364",
+  };
+
   const handleSelectedRow = (row) => {
     setEdit(row), setOpenEditPharmacies(true);
   };
   const handleShowDetails = (row) => {
-    setEdit(row);
-    setOpenShowPharmacies(true);
+    setCurrentPharmacyId(row.id); // تخزين ID الصيدلية
+    setOpenShowPharmacies(true); // فتح البوب أب
   };
 
   const handleDeletePharmacy = (row) => {
@@ -116,9 +126,20 @@ const Pharmacies = ({
         }
       />
       <PopupContainer
-        setIsModalOpen={setOpenShowPharmacies}
+        setIsModalOpen={(isOpen) => {
+          setOpenShowPharmacies(isOpen);
+          if (!isOpen) setCurrentPharmacyId(-1); // إعادة تعيين ID عند إغلاق البوب أب
+        }}
         isModalOpen={openShowPharmacies}
-        component={<PharmaciesDetails data={edit} />}
+        component={
+          pharmacyDetails ? (
+            <PharmaciesDetails data={pharmacyDetails} />
+          ) : (
+            <div className="p-10 text-center text-red-500">
+              لا يوجد تفاصيل للصيدلية
+            </div>
+          )
+        }
       />
       <Filter
         title={"بحث"}

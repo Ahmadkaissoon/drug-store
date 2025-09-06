@@ -22,60 +22,33 @@ const MostImported = ({
 
   const damydata = [
     {
-      date: "2/25/5858",
-      lab_name: "test_name",
-      quantity: "1",
+      date: "2025-09-01",
+      lab_name: "مختبر الشفاء",
+      quantity: 3,
       medicines: [
-        {
-          name: "ads",
-          quantity: 5,
-        },
-        {
-          name: "ads",
-          quantity: 5,
-        },
-        {
-          name: "ads",
-          quantity: 5,
-        },
-        {
-          name: "ads",
-          quantity: 5,
-        },
+        { name: "باراسيتامول", quantity: 50 },
+        { name: "أموكسيسيلين", quantity: 30 },
+        { name: "إيبوبروفين", quantity: 20 },
       ],
     },
     {
-      date: "2/25/5858",
-      lab_name: "test_name",
-      quantity: "1",
+      date: "2025-08-28",
+      lab_name: "مختبر الحياة",
+      quantity: 2,
       medicines: [
-        {
-          name: "ads",
-          quantity: 5,
-        },
+        { name: "أزيتروميسين", quantity: 8 },
+        { name: "سيبروفلكس", quantity: 12 },
       ],
     },
     {
-      date: "2/25/5858",
-      lab_name: "test_name",
-      quantity: "1",
+      date: "2025-08-30",
+      lab_name: "مختبر النور",
+      quantity: 4,
       medicines: [
-        {
-          name: "ads",
-          quantity: 5,
-        },
-        {
-          name: "ads",
-          quantity: 5,
-        },
-        {
-          name: "ads",
-          quantity: 5,
-        },
-        {
-          name: "ads",
-          quantity: 5,
-        },
+        { name: "ميترونيدازول", quantity: 6 },
+        { name: "ديكلوفيناك", quantity: 9 },
+        { name: "لورازيبام", quantity: 3 },
+        { name: "بانادول", quantity: 10 },
       ],
     },
   ];

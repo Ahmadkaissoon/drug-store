@@ -5,13 +5,24 @@ import AlmostGoneFilter from "../../../../components/dashboard/views/reports/alm
 const AlmostGone = ({ data, fetchAlmostGoneFilter, filter }) => {
   const damydata = [
     {
-      quantity: 10,
-      name: "ads",
+      name: "باراسيتامول",
+      quantity: 5,
     },
-
     {
-      quantity: 10,
-      name: "ads",
+      name: "أموكسيسيلين",
+      quantity: 2,
+    },
+    {
+      name: "إيبوبروفين",
+      quantity: 3,
+    },
+    {
+      name: "سيبروفلوكساسين",
+      quantity: 1,
+    },
+    {
+      name: "لورازيبام",
+      quantity: 4,
     },
   ];
 

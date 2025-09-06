@@ -3,7 +3,7 @@ import PRODUCTS_FILTER_SCHEMA, {
   PRODUCTS_FILTER_SCHEMA_INITIAL,
 } from "../../../../data/dashboard/products/ProductsFilterSchema";
 
-const ProductsFilter = ({ filter, fetchMedicinesFilter }) => {
+const ProductsFilter = ({ resourceData, filter, fetchMedicinesFilter }) => {
   const formFields = [
     {
       name: "name",
@@ -14,8 +14,9 @@ const ProductsFilter = ({ filter, fetchMedicinesFilter }) => {
     {
       name: "lab_name",
       label: "اسم المعمل :",
-      type: "text",
+      type: "select",
       placeholder: "أدخل اسم المعمل",
+      options: resourceData,
     },
     {
       name: "code",

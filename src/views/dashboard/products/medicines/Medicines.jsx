@@ -24,6 +24,7 @@ const Medicines = ({
   resourceData,
   isLoadingResource,
   isResourceError,
+  labsResources,
 }) => {
   // console.log(data);
   const [openAddProduct, setOpenAddProduct] = useState(false);
@@ -87,23 +88,23 @@ const Medicines = ({
     },
   ];
 
-  const actions = [
-    {
-      title: "تعديل",
-      onClickFun: handleSelectedRow,
-      color: "accept_color",
-    },
-    // {
-    //   title: "تفاصيل",
-    //   onClickFun: handleShowDetails,
-    //   color: "not_color",
-    // },
-    // {
-    //   title: "حذف",
-    //   onClickFun: handleDeleteMedicine,
-    //   color: "error_color",
-    // },
-  ];
+  // const actions = [
+  //   {
+  //     title: "تعديل",
+  //     onClickFun: handleSelectedRow,
+  //     color: "accept_color",
+  //   },
+  //   // {
+  //   //   title: "تفاصيل",
+  //   //   onClickFun: handleShowDetails,
+  //   //   color: "not_color",
+  //   // },
+  //   // {
+  //   //   title: "حذف",
+  //   //   onClickFun: handleDeleteMedicine,
+  //   //   color: "error_color",
+  //   // },
+  // ];
 
   return (
     <div className="w-full overflow-x-auto shadow rounded-lg">
@@ -117,7 +118,7 @@ const Medicines = ({
           />
         }
       />
-      <PopupContainer
+      {/* <PopupContainer
         setIsModalOpen={setOptenEditProduct}
         isModalOpen={openEditProduct}
         component={
@@ -129,7 +130,7 @@ const Medicines = ({
             resourceData={resourceData}
           />
         }
-      />
+      /> */}
       {/* <PopupContainer
         setIsModalOpen={setOpenDetailsProduct}
         isModalOpen={openDetailsProduct}
@@ -145,6 +146,7 @@ const Medicines = ({
         title={"بحث"}
         innerComponent={
           <ProductsFilter
+            resourceData={labsResources}
             filter={filter}
             fetchMedicinesFilter={fetchMedicinesFilter}
           />
@@ -172,7 +174,7 @@ const Medicines = ({
       <ReusableTable
         data={data}
         columns={columns}
-        actions={actions}
+        // actions={actions}
         dir="rtl"
         actionsHeader="Actions"
       />

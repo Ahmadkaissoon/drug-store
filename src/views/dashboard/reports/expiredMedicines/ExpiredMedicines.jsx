@@ -5,12 +5,24 @@ import ExpiredMedicinesFilter from "../../../../components/dashboard/views/repor
 const ExpiredMedicines = ({ data, fetchExpiredMedicinesFilter, filter }) => {
   const damydata = [
     {
-      date: "2/25/5858",
-      name: "ads",
+      name: "باراسيتامول",
+      date: "30 يوم",
     },
     {
-      date: "2/25/5858",
-      name: "ads",
+      name: "أموكسيسيلين",
+      date: "15 يوم",
+    },
+    {
+      name: "إيبوبروفين",
+      date: "60 يوم",
+    },
+    {
+      name: "سيبروفلوكساسين",
+      date: "10 أيام",
+    },
+    {
+      name: "لورازيبام",
+      date: "90 يوم",
     },
   ];
 

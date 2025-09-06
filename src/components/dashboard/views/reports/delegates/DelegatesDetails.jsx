@@ -24,11 +24,11 @@ const DelegateDetails = ({ data }) => {
       key: "price",
       render: (row) => row.price || "",
     },
-    {
-      header: "نسبة الخصم",
-      key: "discount",
-      render: (row) => row.discount || "",
-    },
+    // {
+    //   header: "نسبة الخصم",
+    //   key: "discount",
+    //   render: (row) => row.discount || "",
+    // },
     {
       header: "المجموع",
       key: "total",
@@ -37,6 +37,6 @@ const DelegateDetails = ({ data }) => {
   ];
 
   return <DetailsTable data={rows} columns={columns} />;
-}
- 
+};
+
 export default DelegateDetails;

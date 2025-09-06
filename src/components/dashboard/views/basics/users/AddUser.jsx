@@ -6,11 +6,26 @@ import DynamicForm from "../../../../common/DynamicForm";
 
 const AddUser = ({ data, addUser, editUser }) => {
   const USERS_SCHEMA = z.object({
+    first_name: z.string(),
+    last_name: z.string(),
     email: z.string(),
     password: z.string(),
     password_confirm: z.string(),
+    role: z.string(),
   });
   const formFields = [
+    {
+      name: "first_name",
+      label: "الاسم الاول",
+      type: "text",
+      placeholder: "أدخل الاسم الاول",
+    },
+    {
+      name: "last_name",
+      label: "الاسم الاخير",
+      type: "text",
+      placeholder: "أدخل الاسم الاخير",
+    },
     {
       name: "email",
       label: "البريد الإلكتروني",
@@ -29,18 +44,17 @@ const AddUser = ({ data, addUser, editUser }) => {
       type: "text",
       placeholder: "أدخل تأكيد كلمة المرور",
     },
-    // {
-    //   name: "role",
-    //   label: "صلاحية المستخدم",
-    //   type: "select",
-    //   placeholder: "أدخل صلاحية المستخدم",
-    //   options: [
-    //     { label: "أدمن", value: "admin" },
-    //     { label: "مدير", value: "maneger" },
-    //     { label: "مخاسب", value: "accountant" },
-    //     { label: "مندوب", value: "representative" },
-    //   ],
-    // },
+    {
+      name: "role",
+      label: "صلاحية المستخدم",
+      type: "select",
+      placeholder: "أدخل صلاحية المستخدم",
+      options: [
+        { name: "مدير", value: "manager" },
+        { name: "محاسب", value: "accountant" },
+        { name: "مندوب", value: "salesman" },
+      ],
+    },
   ];
 
   const formButtons = [

@@ -11,6 +11,7 @@ const MedicinesLogic = () => {
     currentMedicinesId,
     // getOnePharmacyQuery,
     medicinesResources,
+    medicinesLabsResources,
   } = useMedicinesQuery();
   const {
     handleAddMedicine,
@@ -35,6 +36,7 @@ const MedicinesLogic = () => {
       resourceData={medicinesResources.data}
       isLoadingResource={medicinesResources.isPending}
       isResourceError={medicinesResources.isError}
+      labsResources={medicinesLabsResources.data}
     />
   );
 };

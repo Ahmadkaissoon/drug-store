@@ -10,12 +10,6 @@ const AlmostGoneFilter = ({ fetchAlmostGoneFilter, filter }) => {
       type: "text",
       placeholder: "أدخل اسم الدواء",
     },
-    {
-      name: "code",
-      label: "الكود : ",
-      type: "text",
-      placeholder: "أدخل الكود ",
-    },
   ];
 
   const formButtons = [

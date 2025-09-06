@@ -23,7 +23,7 @@ const PharmaciesLogic = () => {
       fetchPharmaciesFilter={fetchPharmaciesFilter}
       setCurrentPharmacyId={setCurrentPharmacyId}
       currentPharmacyId={currentPharmacyId}
-      getOnePharmacyQuery={getOnePharmacyQuery}
+      pharmacyDetails={getOnePharmacyQuery.data}
       addPharmacy={handleAddPharmacy}
       editPharmacy={handleEditPharmacy}
       deletePharmacy={handleDeletePharmacy}

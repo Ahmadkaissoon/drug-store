@@ -3,25 +3,14 @@ import ORDER_FILTER_SCHEMA, {
   ORDER_FILTER_SCHEMA_INITIAL,
 } from "../../../../data/dashboard/orders/OrderFilterSchema";
 
-const OrdersFilter = ({ filter, fetchOrderFilter }) => {
+const OrdersFilter = ({ resourceData, filter, fetchOrderFilter }) => {
   const formFields = [
     {
       name: "name",
       label: "اسم الصيدلية :",
-      type: "text",
+      type: "select",
       placeholder: "أدخل اسم الصيدلية ",
-    },
-    {
-      name: "lab_name",
-      label: "اسم المعمل :",
-      type: "text",
-      placeholder: "أدخل اسم المعمل",
-    },
-    {
-      name: "code",
-      label: "كود الدواء :",
-      type: "text",
-      placeholder: "أدخل رمز الدواء",
+      options: resourceData,
     },
     {
       name: "date",

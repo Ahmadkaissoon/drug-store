@@ -5,16 +5,24 @@ import MostRequestFilter from "../../../../components/dashboard/views/reports/mo
 const MostRequest = ({ fetchMostRequestFilter, data, filter }) => {
   const damydata = [
     {
-      name: "sda",
-      quantity: "4",
+      name: "أوميبرازول",
+      quantity: 25,
     },
     {
-      name: "sda",
-      quantity: "4",
+      name: "أزيتروميسين",
+      quantity: 10,
     },
     {
-      name: "sda",
-      quantity: "4",
+      name: "أزيتروميسين",
+      quantity: 15,
+    },
+    {
+      name: "سيبروفلوكساسين",
+      quantity: 8,
+    },
+    {
+      name: "لورازيبام",
+      quantity: 40,
     },
   ];
 

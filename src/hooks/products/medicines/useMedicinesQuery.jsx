@@ -4,6 +4,7 @@ import QUERY_KEYS from "../../../data/dashboard/queryKeys/QueryKeys";
 import { debounce } from "lodash";
 import getMedicine from "../../../api/products/medicines/getMedicine";
 import getMedicinesResoucres from "../../../api/products/medicines/getMedicinesResources";
+import getMedicinesLabsResources from "../../../api/products/medicines/getMedicinesLabResources";
 
 const useMedicinesQuery = () => {
   const [filter, setFilter] = useState({});
@@ -48,6 +49,13 @@ const useMedicinesQuery = () => {
     retry: false,
     refetchOnWindowFocus: false,
   });
+
+  const medicinesLabsResources = useQuery({
+    queryKey: [QUERY_KEYS.stocks.labs],
+    queryFn: getMedicinesLabsResources,
+    retry: false,
+    refetchOnWindowFocus: false,
+  });
   console.log(medicinesQuery.data);
 
   return {
@@ -58,6 +66,7 @@ const useMedicinesQuery = () => {
     currentMedicinesId,
     // getOnePharmacyQuery,
     medicinesResources,
+    medicinesLabsResources,
   };
 };
 

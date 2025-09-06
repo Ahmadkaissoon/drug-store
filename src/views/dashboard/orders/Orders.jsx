@@ -40,22 +40,36 @@ const Orders = ({
   };
   console.log(data);
 
-  const damydata = [
+  // 🔹 بيانات وهمية
+  const mockOrdersData = [
     {
       id: 1,
-      name: "test",
-      lab_name: "test_name",
-      city: "حمص",
-      address: "العنوان",
+      client: "صيدلية الشفاء",
+      order_serial_number: "ORD-2025-001",
+      total_fund: "150000",
+      city: "دمشق",
+      address: "شارع الثورة - بناء 10",
     },
     {
       id: 2,
-      name: "test",
-      lab_name: "test_name",
+      client: "صيدلية ابن سينا",
+      order_serial_number: "ORD-2025-002",
+      total_fund: "200000",
+      city: "حلب",
+      address: "الجميلية - مقابل الحديقة",
+    },
+    {
+      id: 3,
+      client: "صيدلية الربيع",
+      order_serial_number: "ORD-2025-003",
+      total_fund: "100000",
       city: "حمص",
-      address: "العنوان",
+      address: "الشارع الرئيسي",
     },
   ];
+
+  // 🔹 لو مافي بيانات حقيقية نعرض البيانات الوهمية
+  const displayData = data && data.length > 0 ? data : mockOrdersData;
 
   const columns = [
     {
@@ -98,7 +112,11 @@ const Orders = ({
       <Filter
         title={"بحث"}
         innerComponent={
-          <OrdersFilter filter={filter} fetchOrderFilter={fetchOrderFilter} />
+          <OrdersFilter
+            resourceData={resourceData}
+            filter={filter}
+            fetchOrderFilter={fetchOrderFilter}
+          />
         }
       />
       <ButtonsContainer>
@@ -112,7 +130,7 @@ const Orders = ({
         />
       </ButtonsContainer>
       <ReusableTable
-        data={data}
+        data={mockOrdersData}
         columns={columns}
         actions={actions}
         dir="rtl"

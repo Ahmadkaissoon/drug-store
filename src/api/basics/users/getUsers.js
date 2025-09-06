@@ -7,6 +7,7 @@ async function getUsers({ queryKey }) {
   //     formData.append(key, queryKey[1][key]);
   // });
   const filter = queryKey[1];
+  console.log(filter);
   const res = await axiosClient.get(`/users`, { params: filter });
 
   return res?.data?.data;

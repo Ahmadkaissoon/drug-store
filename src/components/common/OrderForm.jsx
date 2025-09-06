@@ -200,11 +200,11 @@ const OrderForm = ({ data, edit, id }) => {
     <div className=" min-h-screen flex flex-col items-center">
       {/* Header */}
       <div className="mb-8 w-full max-w-5xl flex items-center justify-between">
-        {data && !edit && (
+        {/* {data && !edit && (
           <div className="bg-error-color w-fit flex items-center gap-3 p-2 text-white rounded-lg">
             <FaPrint /> PDF تحميل{" "}
           </div>
-        )}
+        )} */}
         <div className="flex-1 flex justify-end">
           <h1 className="p-3 text-4xl font-bold text-main-color text-right mb-2 flex items-center justify-end">
             {data && !edit

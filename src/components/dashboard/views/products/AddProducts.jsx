@@ -6,13 +6,13 @@ import DynamicForm from "../../../../components/common/DynamicForm";
 
 const AddProducts = ({ data, resourceData, addMedicine, editMedicine }) => {
   const PRODUCTS_SCHEMA = z.object({
-    product: z.coerce.number(),
-    stock: z.coerce.number(),
+    product_name: z.string(),
+    stock: z.string(),
   });
   console.log(resourceData);
   const formFields = [
     {
-      name: "product",
+      name: "product_name",
       label: "اسم الدواء :",
       type: "select",
       placeholder: "أدخل اسم الدواء",
@@ -34,7 +34,7 @@ const AddProducts = ({ data, resourceData, addMedicine, editMedicine }) => {
   ];
 
   const PRODUCTS_SCHEMA_INITIAL = {
-    product: "",
+    product_name: "",
     stock: "",
   };
 

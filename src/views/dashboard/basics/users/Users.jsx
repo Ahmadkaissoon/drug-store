@@ -50,22 +50,27 @@ const Users = ({
   const columns = [
     {
       id: "email",
-      header: "الاسم",
+      header: "الايميل",
       value: "email",
     },
-    // {
-    //   id: "role",
-    //   header: "الصلاحية",
-    //   value: "role",
-    // },
+    {
+      id: "full_name",
+      header: "الاسم الكامل",
+      value: "full_name",
+    },
+    {
+      id: "role",
+      header: "الصلاحية",
+      value: "role",
+    },
   ];
 
   const actions = [
-    {
-      title: "تعديل",
-      onClickFun: handleSelectedRow,
-      color: "accept_color",
-    },
+    // {
+    //   title: "تعديل",
+    //   onClickFun: handleSelectedRow,
+    //   color: "accept_color",
+    // },
     {
       title: "حذف",
       onClickFun: handleDeleteUser,
@@ -82,7 +87,7 @@ const Users = ({
           <AddUser addUser={(data) => addUser(data, setOpenAddUser)} />
         }
       />
-      <PopupContainer
+      {/* <PopupContainer
         setIsModalOpen={setOpenEditUser}
         isModalOpen={openEditUser}
         component={
@@ -91,7 +96,7 @@ const Users = ({
             editUser={(data) => editUser(data, edit.id, setOpenEditUser)}
           />
         }
-      />
+      /> */}
       <Filter
         title={"بحث"}
         innerComponent={

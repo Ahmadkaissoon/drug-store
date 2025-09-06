@@ -12,16 +12,28 @@ const TotalSales = ({
 }) => {
   const damydata = [
     {
-      name: "sda",
-      lab_name: "das",
-      quantity: 4,
-      total_sales: 57,
+      name: "باراسيتامول",
+      lab_name: "مختبر الشفاء",
+      quantity: 10,
+      total_sales: 1500,
     },
     {
-      name: "sda",
-      lab_name: "das",
-      quantity: 4,
-      total_sales: 57,
+      name: "أموكسيسيلين",
+      lab_name: "مختبر الحياة",
+      quantity: 5,
+      total_sales: 1200,
+    },
+    {
+      name: "إيبوبروفين",
+      lab_name: "مختبر النور",
+      quantity: 8,
+      total_sales: 2000,
+    },
+    {
+      name: "سيبروفلوكساسين",
+      lab_name: "مختبر السلامة",
+      quantity: 3,
+      total_sales: 900,
     },
   ];
 

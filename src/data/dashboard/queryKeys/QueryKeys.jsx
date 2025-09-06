@@ -28,6 +28,7 @@ const QUERY_KEYS = {
     query: "stock",
     // oneQuery: "stock",
     resources: "stocksResources",
+    labs: "pharmaciesLabsResources",
   },
   catalog: {
     query: "catalog",
