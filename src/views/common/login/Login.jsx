@@ -5,8 +5,10 @@ import LOGIN_SCHEMA from "../../../data/dashboard/loginSchema/LoginSchema";
 import drugStoreImg from "../../../assets/common/images/drugStoreImg.jpg";
 import drugs from "../../../assets/common/images/drugs.png";
 import Button from "@/components/common/Button";
+import useLoginMutation from "../../../hooks/auth/useLoginMutation";
 
 const Login = () => {
+  const { handleLogin, login } = useLoginMutation();
   const schema = z.object(LOGIN_SCHEMA);
 
   const {
@@ -18,9 +20,12 @@ const Login = () => {
     mode: "onChange",
   });
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (data) => {
+    handleLogin(data);
     console.log("Button clicked!");
   };
+
+  console.log(errors);
 
   return (
     <div dir="rtl" className="w-full h-full flex overflow-hidden">
@@ -34,7 +39,11 @@ const Login = () => {
               يمكنك تسجيل الدخول{" "}
             </div>
           </div>
-          <form onSubmit={console.log("success")} id="login-form">
+          <form
+            onSubmit={handleSubmit(handleButtonClick)}
+            id="login-form"
+            className="flex flex-col gap-8"
+          >
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-6 w-full">
                 <label
@@ -71,24 +80,28 @@ const Login = () => {
                 />
               </div>
             </div>
+            <div className="flex justify-center items-center">
+              <span className="text-white-color text-base">
+                ليس لديك حساب؟{" "}
+                <a
+                  href="/register"
+                  className="text-accept_color underline hover:text-accept_color/80 transition"
+                >
+                  إنشاء حساب
+                </a>
+              </span>
+            </div>
+            <div className="flex justify-center items-center ">
+              <Button
+                title={"تسجيل دخول"}
+                styleType="form"
+                color="accept_color"
+                isSubmit={true}
+                disabled={login?.isPending}
+                id={"login-form"}
+              />
+            </div>
           </form>
-          <div className="flex justify-center items-center">
-            <span className="text-white-color text-base">
-               ليس لديك حساب؟ {" "}
-              <a href="/register" className="text-accept_color underline hover:text-accept_color/80 transition">
-                إنشاء حساب
-              </a>
-            </span>
-          </div>
-          <div className="flex justify-center items-center ">
-            <Button
-              title={"تسجيل دخول"}
-              styleType="form"
-              color="accept_color"
-              isSubmit={true}
-              id={"login-form"}
-            />
-          </div>
         </div>
       </div>
       <div className="h-full lg:w-[55%] md:w-[50%] w-0 bg-main-color flex justify-center items-center ">

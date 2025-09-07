@@ -52,11 +52,7 @@ const PharmaciesLogic = lazy(() =>
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      // <PrivateRoute>
-      // </PrivateRoute>
-      <DashboardLayout />
-    ),
+    element: <PrivateRoute element={<DashboardLayout />} />,
     children: [
       {
         index: true,

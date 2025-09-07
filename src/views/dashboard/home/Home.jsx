@@ -12,8 +12,13 @@ import {
   Line,
   Legend,
 } from "recharts";
+import { useUser } from "../../../context/useUser";
 
 const Home = () => {
+  // user information
+  const { user } = useUser();
+  console.log({ user });
+
   // بيانات وهمية للتقارير مع أسماء الأدوية الحقيقية
   const totalImportedData = [
     { name: "باراسيتامول", quantity: 50 },

@@ -1,14 +1,15 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import LOGIN_SCHEMA from "../../../data/dashboard/loginSchema/LoginSchema";
 import drugStoreImg from "../../../assets/common/images/drugStoreImg.jpg";
 import drugs from "../../../assets/common/images/drugs.png";
 import Button from "../../../components/common/Button";
-import { useEffect } from "react";
+import useRegisterMutation from "../../../hooks/auth/useRegisterMutation";
+import { RESISTER_SCHEMA } from "../../../data/dashboard/loginSchema/LoginSchema";
 
-const Register = ({ submitData, isLogging }) => {
-  const schema = z.object(LOGIN_SCHEMA);
+const Register = () => {
+  const schema = z.object(RESISTER_SCHEMA);
+  const { register: registerMutation, handleRegister } = useRegisterMutation();
 
   const {
     register,
@@ -18,9 +19,11 @@ const Register = ({ submitData, isLogging }) => {
     resolver: zodResolver(schema),
     mode: "onChange",
   });
-  useEffect(() => {
-    console.log(errors);
-  }, [errors]);
+
+  const onSubmit = (data) => {
+    handleRegister(data);
+  };
+
   return (
     <div dir="rtl" className="w-full h-full flex overflow-hidden">
       <div className="h-full lg:w-[45%] md:w-[50%]  w-full bg-main-color flex justify-center items-center !p-4">
@@ -33,7 +36,7 @@ const Register = ({ submitData, isLogging }) => {
               يمكنك تسجيل الدخول{" "}
             </div>
           </div>
-          <form onSubmit={handleSubmit(submitData)} id="login-form">
+          <form onSubmit={handleSubmit(onSubmit)} id="login-form">
             <div className="flex flex-col gap-10 mb-6">
               <div className="flex flex-col gap-6 w-full">
                 <label
@@ -55,45 +58,89 @@ const Register = ({ submitData, isLogging }) => {
                   {errors["email"]?.message}
                 </span>
               </div>
-              <div className="flex flex-col gap-6 w-full">
-                <label
-                  htmlFor="password"
-                  className="text-size-24 text-white-color font-normal"
-                >
-                  كلمة المرور :
-                </label>
-                <input
-                  {...register("password")}
-                  type={"password"}
-                  placeholder={"Enter your password"}
-                  name={"password"}
-                  id="password"
-                  label={"Password"}
-                  className="flex text-main-color h-[53px] rounded-lg font-light bg-white-color  placeholder:text-placeholder-color indent-4 outline-none text-base shadow-shadow"
-                />
-                <span className="text-error-color text-size14">
-                  {errors["password"]?.message}
-                </span>
+              <div className="flex gap-2">
+                <div className="flex flex-col gap-6 w-full">
+                  <label
+                    htmlFor="password"
+                    className="text-size-24 text-white-color font-normal"
+                  >
+                    الاسم :
+                  </label>
+                  <input
+                    {...register("first_name")}
+                    placeholder={"Enter your first name"}
+                    name={"first_name"}
+                    id="first_name"
+                    label={"First Name"}
+                    className="flex text-main-color h-[53px] rounded-lg font-light bg-white-color  placeholder:text-placeholder-color indent-4 outline-none text-base shadow-shadow"
+                  />
+                  <span className="text-error-color text-size14">
+                    {errors["first_name"]?.message}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-6 w-full">
+                  <label
+                    htmlFor="password_confirm"
+                    className="text-size-24 text-white-color font-normal"
+                  >
+                    الكنية :
+                  </label>
+                  <input
+                    {...register("last_name")}
+                    type={"password"}
+                    placeholder={"Enter your password"}
+                    name={"last_name"}
+                    id="last_name"
+                    label={"last_name"}
+                    className="flex text-main-color h-[53px] rounded-lg font-light bg-white-color  placeholder:text-placeholder-color indent-4 outline-none text-base shadow-shadow"
+                  />
+                  <span className="text-error-color text-size-14">
+                    {errors["last_name"]?.message}
+                  </span>
+                </div>
               </div>
-              <div className="flex flex-col gap-6 w-full">
-                <label
-                  htmlFor="password_confirm"
-                  className="text-size-24 text-white-color font-normal"
-                >
-                  تأكيد كلمة المرور :
-                </label>
-                <input
-                  {...register("password_confirm")}
-                  type={"password"}
-                  placeholder={"Enter your password"}
-                  name={"password_confirm"}
-                  id="password_confirm"
-                  label={"password_confirm"}
-                  className="flex text-main-color h-[53px] rounded-lg font-light bg-white-color  placeholder:text-placeholder-color indent-4 outline-none text-base shadow-shadow"
-                />
-                <span className="text-error-color text-size-14">
-                  {errors["password_confirm"]?.message}
-                </span>
+
+              <div className="flex  gap-2">
+                <div className="flex flex-col gap-6 w-full">
+                  <label
+                    htmlFor="password"
+                    className="text-size-24 text-white-color font-normal"
+                  >
+                    كلمة المرور :
+                  </label>
+                  <input
+                    {...register("password")}
+                    type={"password"}
+                    placeholder={"Enter your password"}
+                    name={"password"}
+                    id="password"
+                    label={"Password"}
+                    className="flex text-main-color h-[53px] rounded-lg font-light bg-white-color  placeholder:text-placeholder-color indent-4 outline-none text-base shadow-shadow"
+                  />
+                  <span className="text-error-color text-size14">
+                    {errors["password"]?.message}
+                  </span>
+                </div>
+                <div className="flex flex-col gap-6 w-full">
+                  <label
+                    htmlFor="password_confirm"
+                    className="text-size-24 text-white-color font-normal"
+                  >
+                    تأكيد كلمة المرور :
+                  </label>
+                  <input
+                    {...register("password_confirm")}
+                    type={"password"}
+                    placeholder={"Enter your password"}
+                    name={"password_confirm"}
+                    id="password_confirm"
+                    label={"password_confirm"}
+                    className="flex text-main-color h-[53px] rounded-lg font-light bg-white-color  placeholder:text-placeholder-color indent-4 outline-none text-base shadow-shadow"
+                  />
+                  <span className="text-error-color text-size-14">
+                    {errors["password_confirm"]?.message}
+                  </span>
+                </div>
               </div>
             </div>
             <div className="flex justify-center items-center ">
@@ -103,7 +150,7 @@ const Register = ({ submitData, isLogging }) => {
                 color="accept_color"
                 isSubmit={true}
                 id={"login-form"}
-                disabled={isLogging}
+                disabled={registerMutation?.isPending}
               />
             </div>
           </form>

@@ -1,9 +1,9 @@
 import axiosClient from "../../../libs/axios/axios-client";
 
-async function getOnePharmacy({ pharmacyId }) {
-  const res = await axiosClient.post(`/clients/${pharmacyId}`);
+async function getOnePharmacy({ currentPharmacyId }) {
+  const res = await axiosClient.get(`/clients/${currentPharmacyId}`);
 
-  return res?.data?.data;
+  return res?.data;
 }
 
 export default getOnePharmacy;

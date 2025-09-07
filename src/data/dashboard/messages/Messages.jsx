@@ -1,6 +1,6 @@
 const MESSAGES = {
   register: {
-    loading: "جار تسجيل الدخول...",
+    loading: "جار إنشاء الحساب...",
     success: "مرحبا في drug store!",
   },
   login: {

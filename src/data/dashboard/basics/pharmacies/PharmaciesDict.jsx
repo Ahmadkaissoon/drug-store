@@ -1,11 +1,11 @@
 const PHARMACIES_DICT = {
   name: "اسم المالك",
   pharmacy_name: "اسم الصيدلية",
-  address: "العنوان",
+  location: "العنوان",
   email: "البريد الالكتروني",
   city: "اسم المدينة",
-  phone: "رقم الهاتف",
-  telephone: "رقم الهاتف الثابت",
+  phone_number: "رقم الهاتف",
+  pharmacy_number: "رقم الهاتف الثابت",
 };
 
 export default PHARMACIES_DICT;
