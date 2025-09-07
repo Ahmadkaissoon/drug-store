@@ -7,7 +7,7 @@ async function editLabs({ labId, data }) {
       formData.append(key, data[key]);
   });
 
-  const res = await axiosClient.patch(`/labs/${labId}`);
+  const res = await axiosClient.patch(`/labs/${labId}`, formData);
 
   return res?.data;
 }
