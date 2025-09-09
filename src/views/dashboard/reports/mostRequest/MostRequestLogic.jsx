@@ -7,6 +7,7 @@ const MostRequestLogic = () => {
   return (
     <MostRequest
       data={mostRequestQuery.data}
+      isLoading={mostRequestQuery.isPending}
       filter={filter}
       fetchMostRequestFilter={fetchMostRequestFilter}
     />

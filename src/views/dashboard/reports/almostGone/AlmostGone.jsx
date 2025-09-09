@@ -1,8 +1,9 @@
 import Filter from "../../../../components/common/filter/Filter";
+import Loader from "../../../../components/common/loader/Loader";
 import ReusableTable from "../../../../components/common/ReusableTable";
 import AlmostGoneFilter from "../../../../components/dashboard/views/reports/almostGone/AlomostGoneFilter";
 
-const AlmostGone = ({ data, fetchAlmostGoneFilter, filter }) => {
+const AlmostGone = ({ data, isLoading, fetchAlmostGoneFilter, filter }) => {
   const damydata = [
     {
       name: "باراسيتامول",
@@ -39,7 +40,11 @@ const AlmostGone = ({ data, fetchAlmostGoneFilter, filter }) => {
     },
   ];
 
-  return (
+  return isLoading ? (
+    <div className="w-full h-screen flex items-center justify-center">
+      <Loader />
+    </div>
+  ) : (
     <div className="w-full overflow-x-auto shadow rounded-lg">
       <Filter
         title={"بحث"}

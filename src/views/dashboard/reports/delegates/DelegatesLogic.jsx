@@ -6,6 +6,7 @@ const DelegatesLogic = () => {
   return (
     <Delegates
       data={delegatesQuery.data}
+      isLoading={delegatesQuery.isPending}
       fetchDelegatesFilter={fetchDelegatesFilter}
       filter={filter}
     />

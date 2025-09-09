@@ -8,9 +8,11 @@ import ButtonsContainer from "../../../../components/common/floatBtn/ButtonsCont
 import { PopupContainer } from "../../../../components/common/popupContainer/PopUpContainer";
 import { LuMapPinPlusInside } from "react-icons/lu";
 import AddCities from "../../../../components/dashboard/views/basics/cities/AddCities";
+import Loader from "../../../../components/common/loader/Loader";
 
 const Cities = ({
   data,
+  isLoading,
   filter,
   fetchCitiesFilter,
   addCity,
@@ -54,8 +56,12 @@ const Cities = ({
       color: "error_color",
     },
   ];
-  return (
-    <div className="w-full overflow-x-auto shadow rounded-lg">
+  return isLoading ? (
+    <div className="w-full h-screen flex items-center justify-center">
+      <Loader />
+    </div>
+  ) : (
+    <div className="w-full h-full overflow-x-auto shadow rounded-lg">
       <PopupContainer
         setIsModalOpen={setOpenAddCity}
         isModalOpen={openAddCity}

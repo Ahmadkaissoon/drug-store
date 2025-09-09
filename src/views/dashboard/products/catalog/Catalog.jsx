@@ -5,9 +5,11 @@ import { PopupContainer } from "../../../../components/common/popupContainer/Pop
 import { useState } from "react";
 import AddCatalog from "../../../../components/dashboard/views/catalog/AddCatalog";
 import Button from "../../../../components/common/Button";
+import Loader from "../../../../components/common/loader/Loader";
 
 const Catalog = ({
   data,
+  isLoading,
   addCatalog,
   editCatalog,
   deleteCatalog,
@@ -76,7 +78,11 @@ const Catalog = ({
       color: "error_color",
     },
   ];
-  return (
+  return isLoading ? (
+    <div className="w-full h-screen flex items-center justify-center">
+      <Loader />
+    </div>
+  ) : (
     <div className="w-full overflow-x-auto shadow rounded-lg">
       <PopupContainer
         setIsModalOpen={setOpenAddCatalog}

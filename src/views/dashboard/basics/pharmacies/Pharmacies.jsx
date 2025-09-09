@@ -8,9 +8,11 @@ import { MdOutlineLocalPharmacy } from "react-icons/md";
 import AddPharmacies from "../../../../components/dashboard/views/basics/pharmacies/AddPharmacies";
 import PharmaciesFilter from "../../../../components/dashboard/views/basics/pharmacies/PharmaciesFilter";
 import PharmaciesDetails from "../../../../components/dashboard/views/basics/pharmacies/PharmaciesDetails";
+import Loader from "../../../../components/common/loader/Loader";
 
 const Pharmacies = ({
   data,
+  isLoading,
   filter,
   fetchPharmaciesFilter,
   setCurrentPharmacyId,
@@ -100,7 +102,11 @@ const Pharmacies = ({
     },
   ];
 
-  return (
+  return isLoading ? (
+    <div className="w-full h-screen flex items-center justify-center">
+      <Loader />
+    </div>
+  ) : (
     <div className="w-full overflow-x-auto shadow rounded-lg">
       <PopupContainer
         setIsModalOpen={setOpenAddPharmacies}

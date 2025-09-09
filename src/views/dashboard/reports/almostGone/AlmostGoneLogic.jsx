@@ -7,6 +7,7 @@ const AlmostGoneLogic = () => {
   return (
     <AlmostGone
       data={almostGoneQuery.data}
+      isLoading={almostGoneQuery.isPending}
       fetchAlmostGoneFilter={fetchAlmostGoneFilter}
       filter={filter}
     />

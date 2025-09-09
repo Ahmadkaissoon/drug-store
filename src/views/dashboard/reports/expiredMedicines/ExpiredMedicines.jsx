@@ -1,8 +1,14 @@
 import Filter from "../../../../components/common/filter/Filter";
+import Loader from "../../../../components/common/loader/Loader";
 import ReusableTable from "../../../../components/common/ReusableTable";
 import ExpiredMedicinesFilter from "../../../../components/dashboard/views/reports/expiredMedicines/ExpiredMedicinesFilter";
 
-const ExpiredMedicines = ({ data, fetchExpiredMedicinesFilter, filter }) => {
+const ExpiredMedicines = ({
+  data,
+  isLoading,
+  fetchExpiredMedicinesFilter,
+  filter,
+}) => {
   const damydata = [
     {
       name: "باراسيتامول",
@@ -39,7 +45,11 @@ const ExpiredMedicines = ({ data, fetchExpiredMedicinesFilter, filter }) => {
     },
   ];
 
-  return (
+  return isLoading ? (
+    <div className="w-full h-screen flex items-center justify-center">
+      <Loader />
+    </div>
+  ) : (
     <div className="w-full overflow-x-auto shadow rounded-lg">
       <Filter
         title={"بحث"}

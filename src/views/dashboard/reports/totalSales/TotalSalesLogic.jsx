@@ -11,6 +11,7 @@ const TotalSalesLogic = () => {
   return (
     <TotalSales
       data={totalSalesQuery.data}
+      isLoading={totalSalesQuery.isPending}
       filter={filter}
       fetchTotalSalesFilter={fetchTotalSalesFilter}
       resourceData={totalSalesResources.data}

@@ -17,6 +17,7 @@ const UsersLogic = () => {
   return (
     <Users
       data={usersQuery.data}
+      isLoading={usersQuery.isPending}
       filter={filter}
       fetchUsersFilter={fetchUsersFilter}
       setCurrentUserId={setCurrentUserId}

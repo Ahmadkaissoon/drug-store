@@ -13,11 +13,13 @@ import {
   Legend,
 } from "recharts";
 import { useUser } from "../../../context/useUser";
+import { useEffect, useState } from "react";
+import Loader from "../../../components/common/loader/Loader";
 
 const Home = () => {
   // user information
   const { user } = useUser();
-  console.log({ user });
+  // console.log({ user });
 
   // بيانات وهمية للتقارير مع أسماء الأدوية الحقيقية
   const totalImportedData = [
@@ -50,7 +52,22 @@ const Home = () => {
 
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
-  return (
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // محاكاة تحميل لمدة ثانيتين
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return loading ? (
+    <div className="w-full h-screen flex items-center justify-center">
+      <Loader />
+    </div>
+  ) : (
     <div className=" grid grid-cols-2 gap-6 overflow-hidden">
       {/* Total Imported */}
       <div className="bg-white p-4 rounded-lg shadow">

@@ -19,6 +19,7 @@ const PharmaciesLogic = () => {
   return (
     <Pharmacies
       data={pharmaciesQuery.data}
+      isLoading={pharmaciesQuery.isPending}
       filter={filter}
       fetchPharmaciesFilter={fetchPharmaciesFilter}
       setCurrentPharmacyId={setCurrentPharmacyId}

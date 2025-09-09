@@ -17,6 +17,7 @@ const OrdersLogic = () => {
   return (
     <Orders
       data={orderQuery.data}
+      isLoading={orderQuery.isPending}
       filter={filter}
       fetchOrderFilter={fetchOrderFilter}
       setCurrentOrderId={setCurrentOrderId}

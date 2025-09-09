@@ -1,11 +1,12 @@
 import Filter from "../../../../components/common/filter/Filter";
+import Loader from "../../../../components/common/loader/Loader";
 import { PopupContainer } from "../../../../components/common/popupContainer/PopUpContainer";
 import ReusableTable from "../../../../components/common/ReusableTable";
 import DelegateDetails from "../../../../components/dashboard/views/reports/delegates/DelegatesDetails";
 import DelegateFilter from "../../../../components/dashboard/views/reports/delegates/DelegatesFilter";
 import { useState } from "react";
 
-const Delegates = ({ data, fetchDelegatesFilter, filter }) => {
+const Delegates = ({ data, isLoading, fetchDelegatesFilter, filter }) => {
   const [openDetails, setOpenDetails] = useState(false);
   const [edit, setEdit] = useState("");
 
@@ -69,7 +70,11 @@ const Delegates = ({ data, fetchDelegatesFilter, filter }) => {
     },
   ];
 
-  return (
+  return isLoading ? (
+    <div className="w-full h-screen flex items-center justify-center">
+      <Loader />
+    </div>
+  ) : (
     <div className="w-full overflow-x-auto shadow rounded-lg">
       <PopupContainer
         setIsModalOpen={setOpenDetails}

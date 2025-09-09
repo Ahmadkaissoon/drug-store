@@ -9,6 +9,7 @@ const CitiesLogic = () => {
   return (
     <Cities
       data={citiesQuery.data}
+      isLoading={citiesQuery.isPending}
       fetchCitiesFilter={fetchCitiesFilter}
       filter={filter}
       addCity={handleAddCity}

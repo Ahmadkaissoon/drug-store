@@ -11,6 +11,7 @@ const MostImportedLogic = () => {
   return (
     <MostImported
       data={mostImportedQuery.data}
+      isLoading={mostImportedQuery.isPending}
       filter={filter}
       fetchMostImportedFilter={fetchMostImportedFilter}
       resourceData={mostImportedResources.data}

@@ -7,9 +7,11 @@ import Button from "../../../../components/common/Button";
 import ButtonsContainer from "../../../../components/common/floatBtn/ButtonsContainer";
 import { PopupContainer } from "../../../../components/common/popupContainer/PopUpContainer";
 import { LuMapPinPlusInside } from "react-icons/lu";
+import Loader from "../../../../components/common/loader/Loader";
 
 const Labs = ({
   data,
+  isLoading,
   filter,
   fetchLabsFilter,
   addLab,
@@ -65,7 +67,11 @@ const Labs = ({
       color: "error_color",
     },
   ];
-  return (
+  return isLoading ? (
+    <div className="w-full h-screen flex items-center justify-center">
+      <Loader />
+    </div>
+  ) : (
     <div className="w-full overflow-x-auto shadow rounded-lg">
       <PopupContainer
         setIsModalOpen={setOpenAddLabs}

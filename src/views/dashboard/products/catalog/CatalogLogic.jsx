@@ -10,6 +10,7 @@ const CatalogLogic = () => {
   return (
     <Catalog
       data={catalogsQuery.data}
+      isLoading={catalogsQuery.isPending}
       addCatalog={handleAddCatalog}
       editCatalog={handleEditCatalog}
       deleteCatalog={handleDeleteCatalog}

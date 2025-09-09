@@ -7,9 +7,11 @@ import Button from "../../../components/common/Button";
 import ReusableTable from "../../../components/common/ReusableTable";
 import Filter from "../../../components/common/filter/Filter";
 import { useNavigate } from "react-router";
+import Loader from "../../../components/common/loader/Loader";
 
 const Orders = ({
   data,
+  isLoading,
   filter,
   fetchOrderFilter,
   setCurrentOrderId,
@@ -107,7 +109,11 @@ const Orders = ({
     // },
   ];
 
-  return (
+  return isLoading ? (
+    <div className="w-full h-screen flex items-center justify-center">
+      <Loader />
+    </div>
+  ) : (
     <div className="w-full overflow-x-auto shadow rounded-lg">
       <Filter
         title={"بحث"}

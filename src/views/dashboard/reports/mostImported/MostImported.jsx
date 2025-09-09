@@ -4,9 +4,11 @@ import MostImportedFilter from "../../../../components/dashboard/views/reports/m
 import ReusableTable from "../../../../components/common/ReusableTable";
 import { PopupContainer } from "../../../../components/common/popupContainer/PopUpContainer";
 import MostImportedDetails from "../../../../components/dashboard/views/reports/mostImported/MostImportedDetails";
+import Loader from "../../../../components/common/loader/Loader";
 
 const MostImported = ({
   data,
+  isLoading,
   filter,
   fetchMostImportedFilter,
   resourceData,
@@ -79,7 +81,11 @@ const MostImported = ({
     },
   ];
 
-  return (
+  return isLoading ? (
+    <div className="w-full h-screen flex items-center justify-center">
+      <Loader />
+    </div>
+  ) : (
     <div className="w-full overflow-x-auto shadow rounded-lg">
       <PopupContainer
         setIsModalOpen={setOpenDetails}

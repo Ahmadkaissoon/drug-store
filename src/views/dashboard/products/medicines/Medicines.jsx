@@ -9,9 +9,11 @@ import ReusableTable from "../../../../components/common/ReusableTable";
 import AddProducts from "../../../../components/dashboard/views/products/AddProducts";
 import ProductsFilter from "../../../../components/dashboard/views/products/ProductsFilter";
 import ProductsDetails from "../../../../components/dashboard/views/products/ProductsDetails";
+import Loader from "../../../../components/common/loader/Loader";
 
 const Medicines = ({
   data,
+  isLoading,
   filter,
   fetchMedicinesFilter,
   setCurrentMedicinesId,
@@ -106,7 +108,11 @@ const Medicines = ({
   //   // },
   // ];
 
-  return (
+  return isLoading ? (
+    <div className="w-full h-screen flex items-center justify-center">
+      <Loader />
+    </div>
+  ) : (
     <div className="w-full overflow-x-auto shadow rounded-lg">
       <PopupContainer
         setIsModalOpen={setOpenAddProduct}

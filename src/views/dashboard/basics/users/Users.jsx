@@ -7,8 +7,10 @@ import ButtonsContainer from "../../../../components/common/floatBtn/ButtonsCont
 import Button from "../../../../components/common/Button";
 import { FaUserPlus } from "react-icons/fa6";
 import AddUser from "../../../../components/dashboard/views/basics/users/AddUser";
+import Loader from "../../../../components/common/loader/Loader";
 const Users = ({
   fetchUsersFilter,
+  isLoading,
   filter,
   data,
   setCurrentUserId,
@@ -78,7 +80,11 @@ const Users = ({
     },
   ];
 
-  return (
+  return isLoading ? (
+    <div className="w-full h-screen flex items-center justify-center">
+      <Loader />
+    </div>
+  ) : (
     <div className="w-full overflow-x-auto shadow rounded-lg">
       <PopupContainer
         setIsModalOpen={setOpenAddUser}

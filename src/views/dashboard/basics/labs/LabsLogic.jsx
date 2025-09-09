@@ -9,6 +9,7 @@ const LabsLogic = () => {
   return (
     <Labs
       data={labsQuery.data}
+      isLoading={labsQuery.isPending}
       filter={filter}
       fetchLabsFilter={fetchLabsFilter}
       addLab={handleAddLab}

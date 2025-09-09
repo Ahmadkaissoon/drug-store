@@ -16,10 +16,10 @@ const OrderForm = ({ data, edit, id }) => {
     date: "",
     pharmacy: "",
     phone: "",
-    representative: "",
+    // representative: "",
     city: "",
     address: "",
-    notes: "",
+    // notes: "",
   });
   // Order items state (each row in the table)
   const [orderItems, setOrderItems] = useState([
@@ -28,7 +28,7 @@ const OrderForm = ({ data, edit, id }) => {
       medicineName: "",
       quantity: "",
       price: "",
-      profitPercentage: "",
+      // profitPercentage: "",
       total: "",
     },
   ]);
@@ -79,20 +79,20 @@ const OrderForm = ({ data, edit, id }) => {
         />
       ),
     },
-    {
-      id: "discount",
-      header: "نسبة الخصم",
-      cell: (row) => (
-        <Input
-          type="number"
-          placeholder="نسبة الخصم"
-          value={data ? data.discount : row.discount}
-          readOnly={!edit && data}
-          onChange={(e) => handleItemChange(row.id, "discount", e.target.value)}
-          className="w-full bg-white"
-        />
-      ),
-    },
+    // {
+    //   id: "discount",
+    //   header: "نسبة الخصم",
+    //   cell: (row) => (
+    //     <Input
+    //       type="number"
+    //       placeholder="نسبة الخصم"
+    //       value={data ? data.discount : row.discount}
+    //       readOnly={!edit && data}
+    //       onChange={(e) => handleItemChange(row.id, "discount", e.target.value)}
+    //       className="w-full bg-white"
+    //     />
+    //   ),
+    // },
     {
       id: "total",
       header: "المجموع",
@@ -171,7 +171,7 @@ const OrderForm = ({ data, edit, id }) => {
       medicineName: "",
       quantity: "",
       price: "",
-      discount: "",
+      // discount: "",
       total: "",
     };
     const newItems = [...orderItems, newItem];
@@ -273,7 +273,7 @@ const OrderForm = ({ data, edit, id }) => {
               </div>
 
               {/* Notes */}
-              <div className="space-y-2">
+              {/* <div className="space-y-2">
                 <label className="block text-main-color font-semibold text-right">
                   ملاحظات
                 </label>
@@ -284,7 +284,7 @@ const OrderForm = ({ data, edit, id }) => {
                   onChange={(e) => handleInputChange("notes", e.target.value)}
                   className="w-full h-20 bg-white text-right rounded-lg border-2 border-main-color"
                 />
-              </div>
+              </div> */}
             </div>
             {/* Right Column */}
             <div className="space-y-6">
@@ -344,7 +344,7 @@ const OrderForm = ({ data, edit, id }) => {
                 />
               </div>
               {/* Representative - Full width */}
-              <div className="mt-6 space-y-2">
+              {/* <div className="mt-6 space-y-2">
                 <label className="block text-main-color font-semibold text-right">
                   المندوب
                 </label>
@@ -365,7 +365,7 @@ const OrderForm = ({ data, edit, id }) => {
                     <option value="سارة">سارة</option>
                   </select>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

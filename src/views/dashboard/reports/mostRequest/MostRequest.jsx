@@ -1,8 +1,9 @@
 import Filter from "../../../../components/common/filter/Filter";
+import Loader from "../../../../components/common/loader/Loader";
 import ReusableTable from "../../../../components/common/ReusableTable";
 import MostRequestFilter from "../../../../components/dashboard/views/reports/mostRequest/MostRequestFilter";
 
-const MostRequest = ({ fetchMostRequestFilter, data, filter }) => {
+const MostRequest = ({ fetchMostRequestFilter, isLoading, data, filter }) => {
   const damydata = [
     {
       name: "أوميبرازول",
@@ -39,7 +40,11 @@ const MostRequest = ({ fetchMostRequestFilter, data, filter }) => {
     },
   ];
 
-  return (
+  return isLoading ? (
+    <div className="w-full h-screen flex items-center justify-center">
+      <Loader />
+    </div>
+  ) : (
     <div className="w-full overflow-x-auto shadow rounded-lg">
       <Filter
         title={"بحث"}
